@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
-export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://backbonix.com' // Replace with your actual domain
+const SITE_URL = 'https://backbonix.com'
 
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
@@ -11,8 +11,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
+          '/_next/static/media/',
           '/private/',
+          '*.json$',
         ],
       },
       {
@@ -20,8 +21,17 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },
+      {
+        userAgent: 'Googlebot-Image',
+        allow: '/images/',
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   }
 }

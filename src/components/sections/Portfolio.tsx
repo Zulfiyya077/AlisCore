@@ -40,12 +40,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
   };
 
   const projects = t.portfolio.projects.map((project, index) => {
-    // Debug üçün console log
-    console.log(`Project ${index}:`, project.title);
-    
+
     // Düzgün ardıcıllıqla şəkil təyin edirik
     let imageUrl;
-    switch(index) {
+    switch (index) {
       case 0:
         imageUrl = projectImages.astronavtika;   // 1-ci: Astronautika Konqresi
         break;
@@ -67,7 +65,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
       default:
         imageUrl = projectImages.cop29;          // Default
     }
-    
+
     return {
       ...project,
       imageUrl: imageUrl,
@@ -107,33 +105,30 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
   };
 
   return (
-    <section 
-      id="portfolio" 
+    <section
+      id="portfolio"
       className="min-h-screen py-20 relative overflow-hidden"
     >
       {/* Background with animated elements (SAME AS HERO) */}
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${
-          isDark 
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10' 
+        <div className={`absolute inset-0 ${isDark
+            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10'
             : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
-        }`} />
-        
+          }`} />
+
         {/* Floating background orbs */}
-        <div 
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDark ? 'bg-blue-500' : 'bg-blue-300'
-          }`}
+        <div
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+            }`}
           style={{
             top: '20%',
             left: '10%',
             transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
           }}
         />
-        <div 
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${
-            isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-          }`}
+        <div
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+            }`}
           style={{
             bottom: '20%',
             right: '15%',
@@ -146,7 +141,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
           <div
             key={index}
             className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{ 
+            style={{
               animationDelay: item.delay,
               animation: 'float 6s ease-in-out infinite'
             }}
@@ -169,187 +164,196 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center min-h-screen">
         <div className="w-full py-10">
-        
-        {/* Header (same style as Hero) */}
-        <div className="text-center mb-8 lg:mb-12">
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
-            <span className="text-gradient-animated">
-              {t.portfolio.title}
-            </span>
-          </h2>
-          <p className="text-lg sm:text-xl font-medium text-gradient-blue-green mb-4">
-            {t.portfolio.subtitle}
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full" />
-        </div>
 
-        {/* Featured Project Carousel */}
-        <div className="relative">
-          <div className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 hover:scale-105 ${
-            isDark 
-              ? 'glass-effect-dark border border-gray-700/50' 
-              : 'glass-effect border border-white/20 shadow-xl'
-          }`}>
+          {/* Header (same style as Hero) */}
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+              <span className="text-gradient-animated">
+                {t.portfolio.title}
+              </span>
+            </h2>
+            <p className="text-lg sm:text-xl font-medium text-gradient-blue-green mb-4">
+              {t.portfolio.subtitle}
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full" />
+          </div>
 
-            {/* Project Content */}
-            <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-              
-              {/* Left Content */}
-              <div className="space-y-4 lg:space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    isDark 
-                      ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30' 
-                      : 'bg-blue-100 text-blue-800 border border-blue-200'
-                  }`}>
-                    {projects[currentProject].category}
-                  </span>
-                  <span className={`text-sm ${
-                    isDark ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    {projects[currentProject].year}
-                  </span>
-                </div>
+          {/* Featured Project Carousel */}
+          <div className="relative">
+            <div className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 hover:scale-105 ${isDark
+                ? 'glass-effect-dark border border-gray-700/50'
+                : 'glass-effect border border-white/20 shadow-xl'
+              }`}>
 
-                <h3 className={`text-xl lg:text-2xl font-bold ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
-                  {projects[currentProject].title}
-                </h3>
+              {/* Project Content */}
+              <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
 
-                <p className={`text-sm lg:text-base leading-relaxed ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  {projects[currentProject].description}
-                </p>
+                {/* Left Content */}
+                <div className="space-y-4 lg:space-y-6">
+                  <div className="flex items-center justify-between">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${isDark
+                        ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30'
+                        : 'bg-blue-100 text-blue-800 border border-blue-200'
+                      }`}>
+                      {projects[currentProject].category}
+                    </span>
+                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'
+                      }`}>
+                      {projects[currentProject].year}
+                    </span>
+                  </div>
 
-                {/* Project Stats */}
-                <div className="grid grid-cols-3 gap-3 lg:gap-4">
-                  <div className={`text-center p-3 rounded-lg ${
-                    isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
-                  }`}>
-                    
+                  <h3 className={`text-xl lg:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    {projects[currentProject].title}
+                  </h3>
+
+                  <p className={`text-sm lg:text-base leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                    }`}>
+                    {projects[currentProject].description}
+                  </p>
+
+                  {/* Project Stats */}
+                  <div className="grid grid-cols-3 gap-3 lg:gap-4">
+                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
+                      }`}>
+                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
+                        {[3, 6, 2, 4, 5][currentProject % 5]}{currentLang === 'en' ? 'mo' : currentLang === 'az' ? 'ay' : 'me'}
+                      </div>
+                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        {currentLang === 'en' ? 'Duration' : currentLang === 'az' ? 'Müddət' : 'Duración'}
+                      </div>
+                    </div>
+                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
+                      }`}>
+                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
+                        {[8, 12, 5, 10, 7][currentProject % 5]}+
+                      </div>
+                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        {currentLang === 'en' ? 'Team Size' : currentLang === 'az' ? 'Komanda' : 'Equipo'}
+                      </div>
+                    </div>
+                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
+                      }`}>
+                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
+                        {[98, 95, 99, 97, 96][currentProject % 5]}%
+                      </div>
+                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        {currentLang === 'en' ? 'Satisfaction' : currentLang === 'az' ? 'Məmnuniyyət' : 'Satisfacción'}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Content - Visual with Images */}
-              <div className="relative">
-                <div className={`aspect-[4/3] rounded-xl overflow-hidden relative group ${
-                  isDark ? 'bg-gray-800' : 'bg-gray-200'
-                }`}>
-                  {/* Project Image */}
-                  {projects[currentProject].imageUrl ? (
-                    <>
-                      <img 
-                        src={projects[currentProject].imageUrl} 
-                        alt={projects[currentProject].title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
-                        onError={(e) => {
-                          // Şəkil yüklənməyibsə default view göstər
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
-                      
-                      {/* Fallback content */}
-                      <div className="w-full h-full flex items-center justify-center" style={{ display: 'none' }}>
-                        <div className={`text-center transition-all duration-500 ${
-                          isDark ? 'text-gray-400' : 'text-gray-500'
-                        }`}>
+                {/* Right Content - Visual with Images */}
+                <div className="relative">
+                  <div className={`aspect-[4/3] rounded-xl overflow-hidden relative group ${isDark ? 'bg-gray-800' : 'bg-gray-200'
+                    }`}>
+                    {/* Project Image */}
+                    {projects[currentProject].imageUrl ? (
+                      <>
+                        <img
+                          src={projects[currentProject].imageUrl}
+                          alt={projects[currentProject].title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
+                          onError={(e) => {
+                            // Şəkil yüklənməyibsə default view göstər
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+
+                        {/* Fallback content */}
+                        <div className="w-full h-full flex items-center justify-center" style={{ display: 'none' }}>
+                          <div className={`text-center transition-all duration-500 ${isDark ? 'text-gray-400' : 'text-gray-500'
+                            }`}>
+                            <Award className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+                            <p className="font-medium">{projects[currentProject].title}</p>
+                            <p className="text-sm mt-1">{projects[currentProject].category}</p>
+                          </div>
+                        </div>
+
+                        {/* Gradient overlay for images */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                        {/* Project info overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                          <p className="font-medium text-sm">{projects[currentProject].title}</p>
+                          <p className="text-xs opacity-80">{projects[currentProject].category}</p>
+                        </div>
+                      </>
+                    ) : (
+                      // Default view (şəkil yoxdursa)
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div className={`text-center transition-all duration-500 ${isDark ? 'text-gray-400' : 'text-gray-500'
+                          }`}>
                           <Award className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
                           <p className="font-medium">{projects[currentProject].title}</p>
                           <p className="text-sm mt-1">{projects[currentProject].category}</p>
                         </div>
                       </div>
-                      
-                      {/* Gradient overlay for images */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      {/* Project info overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="font-medium text-sm">{projects[currentProject].title}</p>
-                        <p className="text-xs opacity-80">{projects[currentProject].category}</p>
-                      </div>
-                    </>
-                  ) : (
-                    // Default view (şəkil yoxdursa)
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className={`text-center transition-all duration-500 ${
-                        isDark ? 'text-gray-400' : 'text-gray-500'
-                      }`}>
-                        <Award className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-                        <p className="font-medium">{projects[currentProject].title}</p>
-                        <p className="text-sm mt-1">{projects[currentProject].category}</p>
-                      </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={prevProject}
+                    className={`absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${isDark
+                        ? 'glass-effect-dark text-white hover:bg-gray-700'
+                        : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
+                      }`}
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={nextProject}
+                    className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${isDark
+                        ? 'glass-effect-dark text-white hover:bg-gray-700'
+                        : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
+                      }`}
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
+              </div>
 
-                {/* Navigation Arrows */}
-                <button
-                  onClick={prevProject}
-                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${
-                    isDark 
-                      ? 'glass-effect-dark text-white hover:bg-gray-700' 
-                      : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
-                  }`}
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={nextProject}
-                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${
-                    isDark 
-                      ? 'glass-effect-dark text-white hover:bg-gray-700' 
-                      : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
-                  }`}
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+              {/* Project Indicators */}
+              <div className="flex justify-center space-x-2 pb-4 lg:pb-6">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentProject(index)}
+                    className={`transition-all duration-300 ${index === currentProject
+                        ? 'w-6 h-2 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full'
+                        : 'w-2 h-2 rounded-full hover:scale-125'
+                      } ${index === currentProject
+                        ? ''
+                        : isDark
+                          ? 'bg-gray-600 hover:bg-gray-500'
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      }`}
+                  />
+                ))}
               </div>
             </div>
-
-            {/* Project Indicators */}
-            <div className="flex justify-center space-x-2 pb-4 lg:pb-6">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProject(index)}
-                  className={`transition-all duration-300 ${
-                    index === currentProject
-                      ? 'w-6 h-2 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full'
-                      : 'w-2 h-2 rounded-full hover:scale-125'
-                  } ${
-                    index === currentProject 
-                      ? '' 
-                      : isDark
-                      ? 'bg-gray-600 hover:bg-gray-500'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
-            </div>
           </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-8">
-          <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-modern text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover:scale-105"
-          >
-            <Award className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span>
-              {currentLang === 'az' ? 'Layihə Başlayaq' : currentLang === 'en' ? 'Start Project' : 'Comenzar Proyecto'}
-            </span>
-          </button>
-        </div>
+          {/* Bottom CTA */}
+          <div className="text-center mt-8">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-modern text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+            >
+              <Award className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>
+                {currentLang === 'az' ? 'Layihə Başlayaq' : currentLang === 'en' ? 'Start Project' : 'Comenzar Proyecto'}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

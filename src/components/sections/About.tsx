@@ -39,7 +39,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
           setIsVisible(false);
         }
       },
-      { 
+      {
         threshold: 0.2,
         rootMargin: '-10% 0px -10% 0px'
       }
@@ -91,112 +91,33 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
   const content = aboutContent[currentLang];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="about" 
+      id="about"
       className="min-h-screen py-20 relative overflow-hidden"
     >
-      {/* Custom CSS for animations */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
-          }
-          
-          @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-          }
-          
-          @keyframes slideInTop {
-            from { opacity: 0; transform: translateY(-80px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          @keyframes slideInBottom {
-            from { opacity: 0; transform: translateY(80px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-          }
-          
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          
-          .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animate-slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animate-slide-in-top {
-            animation: slideInTop 0.8s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animate-slide-in-bottom {
-            animation: slideInBottom 0.8s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animate-scale-in {
-            animation: scaleIn 0.6s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animate-fade-in-up {
-            animation: fadeInUp 0.7s ease-out forwards;
-            opacity: 0;
-          }
-          
-          .animation-reset {
-            opacity: 0 !important;
-            transform: none !important;
-            animation: none !important;
-          }
-          
-          .animate-with-delay-1 { animation-delay: 0.1s; }
-          .animate-with-delay-2 { animation-delay: 0.2s; }
-          .animate-with-delay-3 { animation-delay: 0.3s; }
-          .animate-with-delay-4 { animation-delay: 0.4s; }
-          .animate-with-delay-5 { animation-delay: 0.5s; }
-          .animate-with-delay-6 { animation-delay: 0.6s; }
-        `
-      }} />
+
 
       {/* Background with animated elements */}
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${
-          isDark 
-            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10' 
+        <div className={`absolute inset-0 ${isDark
+            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10'
             : 'bg-gradient-to-tr from-blue-50 via-white to-emerald-50'
-        }`} />
-        
+          }`} />
+
         {/* Floating background orbs */}
-        <div 
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDark ? 'bg-blue-500' : 'bg-blue-300'
-          }`}
+        <div
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+            }`}
           style={{
             top: '15%',
             left: '10%',
             transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
           }}
         />
-        <div 
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${
-            isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-          }`}
+        <div
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+            }`}
           style={{
             bottom: '15%',
             right: '15%',
@@ -209,7 +130,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
           <div
             key={index}
             className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{ 
+            style={{
               animationDelay: item.delay,
               animation: 'float 6s ease-in-out infinite'
             }}
@@ -232,88 +153,76 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
       {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center min-h-screen">
         <div className="w-full py-10">
-        
+
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-gray-900'
-            } ${isVisible ? 'animate-fade-in-up animate-with-delay-1' : 'animation-reset'}`}>
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
+              } ${isVisible ? 'animate-fade-in-up animate-with-delay-1' : 'animation-reset'}`}>
               <span className="text-gradient-animated">
                 {content.title}
               </span>
             </h2>
-            <p className={`text-lg sm:text-xl md:text-2xl font-medium text-gradient-blue-green mb-6 ${
-              isVisible ? 'animate-fade-in-up animate-with-delay-2' : 'animation-reset'
-            }`}>
+            <p className={`text-lg sm:text-xl md:text-2xl font-medium text-gradient-blue-green mb-6 ${isVisible ? 'animate-fade-in-up animate-with-delay-2' : 'animation-reset'
+              }`}>
               {content.subtitle}
             </p>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${
-              isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
-            }`} />
+            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
+              }`} />
           </div>
 
           {/* Content Section */}
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              
+
               {/* Paragraph 1 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${
-                isDark 
-                  ? 'glass-effect-dark border border-gray-700/50' 
+              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
+                  ? 'glass-effect-dark border border-gray-700/50'
                   : 'glass-effect border border-white/20 shadow-lg'
-              } ${isVisible ? 'animate-slide-in-left animate-with-delay-3' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                } ${isVisible ? 'animate-slide-in-left animate-with-delay-3' : 'animation-reset'}`}>
+                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                   {content.paragraph1}
                 </p>
               </div>
 
               {/* Paragraph 2 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${
-                isDark 
-                  ? 'glass-effect-dark border border-gray-700/50' 
+              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
+                  ? 'glass-effect-dark border border-gray-700/50'
                   : 'glass-effect border border-white/20 shadow-lg'
-              } ${isVisible ? 'animate-slide-in-right animate-with-delay-4' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                } ${isVisible ? 'animate-slide-in-right animate-with-delay-4' : 'animation-reset'}`}>
+                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                   {content.paragraph2}
                 </p>
               </div>
 
               {/* Paragraph 3 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${
-                isDark 
-                  ? 'glass-effect-dark border border-gray-700/50' 
+              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
+                  ? 'glass-effect-dark border border-gray-700/50'
                   : 'glass-effect border border-white/20 shadow-lg'
-              } ${isVisible ? 'animate-slide-in-left animate-with-delay-5' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${
-                  isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                } ${isVisible ? 'animate-slide-in-left animate-with-delay-5' : 'animation-reset'}`}>
+                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                   {content.paragraph3}
                 </p>
               </div>
 
               {/* CTA Section */}
-              <div className={`text-center p-6 lg:p-8 rounded-2xl ${
-                isDark 
-                  ? 'bg-gradient-to-r from-blue-900/50 to-emerald-900/50 border border-blue-500/20' 
+              <div className={`text-center p-6 lg:p-8 rounded-2xl ${isDark
+                  ? 'bg-gradient-to-r from-blue-900/50 to-emerald-900/50 border border-blue-500/20'
                   : 'bg-gradient-to-r from-blue-50 to-emerald-50 border border-blue-200'
-              } ${isVisible ? 'animate-scale-in animate-with-delay-6' : 'animation-reset'}`}>
+                } ${isVisible ? 'animate-scale-in animate-with-delay-6' : 'animation-reset'}`}>
                 <div className="flex items-center justify-center mb-4">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg">
                     <Network className="w-8 h-8 text-white" />
                   </div>
                 </div>
-                <h3 className={`text-xl lg:text-2xl font-bold mb-3 ${
-                  isDark ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-xl lg:text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'
+                  }`}>
                   BackBonix
                 </h3>
-                <p className={`text-lg lg:text-xl font-medium ${
-                  isDark ? 'text-blue-300' : 'text-blue-600'
-                }`}>
+                <p className={`text-lg lg:text-xl font-medium ${isDark ? 'text-blue-300' : 'text-blue-600'
+                  }`}>
                   {content.cta}
                 </p>
               </div>

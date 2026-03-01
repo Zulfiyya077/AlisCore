@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import type { Language } from '@/types';
 import { useTheme } from '@/hooks/useTheme';
@@ -13,29 +15,41 @@ import { VendorExperience } from '@/components/sections/VendorExperience';
 import { Portfolio } from '@/components/sections/Portfolio';
 import { Contact } from '@/components/sections/Contact';
 
-export default function PortfolioApp() {
+export default function HomeClient() {
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+
+  // Client-side mounting check
+  useEffect(() => {
+    setIsClient(true);
+    // Load saved language
+    const savedLang = localStorage.getItem('preferred-language') as Language;
+    if (savedLang && ['az', 'en', 'es'].includes(savedLang)) {
+      setCurrentLang(savedLang);
+    }
+  }, []);
 
   // Loading screen timer
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3500);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (isClient) {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [isClient]);
 
   // Scroll to section function
   const scrollToSection = (sectionId: string) => {
+    if (!isClient) return;
     const element = document.getElementById(sectionId);
     if (element) {
       const navHeight = 64;
       const elementPosition = element.offsetTop;
       const offsetPosition = elementPosition - navHeight;
-
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -45,6 +59,8 @@ export default function PortfolioApp() {
 
   // Track active section on scroll
   useEffect(() => {
+    if (!isClient) return;
+    
     const handleScroll = () => {
       const sections = ['home', 'about', 'services', 'vendors', 'portfolio', 'contact'];
       const scrollPosition = window.scrollY + 100;
@@ -63,34 +79,28 @@ export default function PortfolioApp() {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isClient]);
 
   // Handle language change
   const handleLanguageChange = (lang: Language) => {
     setCurrentLang(lang);
-    localStorage.setItem('preferred-language', lang);
-  };
-
-  // Load saved language on mount
-  useEffect(() => {
-    const savedLang = localStorage.getItem('preferred-language') as Language;
-    if (savedLang && ['az', 'en', 'es'].includes(savedLang)) {
-      setCurrentLang(savedLang);
+    if (isClient) {
+      localStorage.setItem('preferred-language', lang);
     }
-  }, []);
+  };
 
   return (
     <>
-      {isLoading && <LoadingSplashScreen />}
+      {/* Loading screen */}
+      {isLoading && isClient && <LoadingSplashScreen />}
       
       <div 
         className={`min-h-screen transition-colors duration-300 ${
           isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'
-        } ${isLoading ? 'overflow-hidden' : ''}`}
+        } ${(isLoading && isClient) ? 'overflow-hidden' : ''}`}
         style={{
-          opacity: isLoading ? 0 : 1,
+          opacity: (isLoading && isClient) ? 0 : 1,
           transition: 'opacity 0.5s ease-in-out'
         }}
       >
