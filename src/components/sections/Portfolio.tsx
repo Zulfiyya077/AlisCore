@@ -1,8 +1,9 @@
-// src/components/sections/Portfolio.tsx
-import React, { useState, useEffect } from 'react';
-import { Calendar, Users, Award, ChevronLeft, ChevronRight, Target, Briefcase } from 'lucide-react';
+import React from 'react';
+import Link from 'next/link';
+import { ArrowRight, ChartColumnIncreasing, Clock, Users } from 'lucide-react';
 import type { Language } from '../../types';
 import { translations } from '../../i18n/translations';
+import { caseStudies } from '@/lib/marketing-content';
 
 interface PortfolioProps {
   currentLang: Language;
@@ -10,350 +11,135 @@ interface PortfolioProps {
 }
 
 export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => {
-  const [currentProject, setCurrentProject] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   const t = translations[currentLang];
 
-  // Mouse tracking for 3D effects (same as Hero)
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Project images from Supabase
-  const projectImages = {
-    data: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/Data-Center-Migration-Move-Moving-Plan-Strategy.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvRGF0YS1DZW50ZXItTWlncmF0aW9uLU1vdmUtTW92aW5nLVBsYW4tU3RyYXRlZ3kud2VicCIsImlhdCI6MTc1MDQyODcxNiwiZXhwIjoxNzgxOTY0NzE2fQ.UhOs5ig2pqFPDvQAZ2InjyId8If5IfKkZZqjZORv6hY',
-    government: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/iStock-1960986400%20(1).webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvaVN0b2NrLTE5NjA5ODY0MDAgKDEpLndlYnAiLCJpYXQiOjE3NTA0Mjg3ODAsImV4cCI6MTc4MTk2NDc4MH0.1JBsGJWRRM55r8xgjmqwxDXH057hjCyMGtQgou8wudA',
-    cop29: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/cop29.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvY29wMjkuanBnIiwiaWF0IjoxNzUwNDI4ODA0LCJleHAiOjE3ODE5NjQ4MDR9.q6Y4YBdLZeY86JFoUR1pRrtNqVsR0-_oyImsfSzxGOc',
-    astronavtika: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/astro2.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvYXN0cm8yLmpwZyIsImlhdCI6MTc1MDQyODgzMywiZXhwIjoxNzgxOTY0ODMzfQ.ZBWlSXuf8GK3qdmGYvrWLnld7KewKAcChbd5ICBIAPY',
-    visa: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/visa%20(1).webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvdmlzYSAoMSkud2VicCIsImlhdCI6MTc1MDQyODg2MiwiZXhwIjoxNzgxOTY0ODYyfQ.WD3kH1tLhG5YVujsms7v6cO4N7C7lq6UrTNznT2bqS8',
-    chess: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/chess.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvY2hlc3MucG5nIiwiaWF0IjoxNzUwNDI4ODkwLCJleHAiOjE3ODE5NjQ4OTB9.nOi9oOcBdV4blMlqYNQRErW5uiN_70U74Vuysb_C6Sc'
-  };
-
-  const projects = t.portfolio.projects.map((project, index) => {
-
-    // Düzgün ardıcıllıqla şəkil təyin edirik
-    let imageUrl;
-    switch (index) {
-      case 0:
-        imageUrl = projectImages.astronavtika;   // 1-ci: Astronautika Konqresi
-        break;
-      case 1:
-        imageUrl = projectImages.cop29;          // 2-ci: COP29 Layihəsi
-        break;
-      case 2:
-        imageUrl = projectImages.chess;          // 3-cü: Şahmat Çempionatı
-        break;
-      case 3:
-        imageUrl = projectImages.government;          // 4-cü: Dövlət Şirkətləri (default)
-        break;
-      case 4:
-        imageUrl = projectImages.data;          // 5-ci: Data Center (default)
-        break;
-      case 5:
-        imageUrl = projectImages.visa;           // 6-cı: Mastercard və Visa
-        break;
-      default:
-        imageUrl = projectImages.cop29;          // Default
-    }
-
-    return {
-      ...project,
-      imageUrl: imageUrl,
-      category: index < 2 ? 'Enterprise' : index < 4 ? 'Government' : 'Migration',
-      year: '2023-2024',
-      duration: currentLang === 'az' ? '3-6 ay' : currentLang === 'en' ? '3-6 months' : '3-6 meses',
-      team: '5-15',
-      status: 'completed',
-      satisfaction: 98
-    };
-  });
-
-  // Auto-play carousel
-  useEffect(() => {
-    if (isAutoPlay) {
-      const interval = setInterval(() => {
-        setCurrentProject((prev) => (prev + 1) % projects.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isAutoPlay, projects.length]);
-
-  // Floating IT icons (same style as Hero)
-  const floatingIcons = [
-    { icon: Target, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-indigo-400' },
-    { icon: Briefcase, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-emerald-400' },
-    { icon: Award, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-blue-400' },
-    { icon: Calendar, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-cyan-400' },
+  const metrics = [
+    {
+      icon: Clock,
+      label:
+        currentLang === 'az'
+          ? 'Delivery focus'
+          : currentLang === 'es'
+            ? 'Enfoque de entrega'
+            : 'Delivery focus',
+      value:
+        currentLang === 'az'
+          ? '3-12 həftə'
+          : currentLang === 'es'
+            ? '3-12 semanas'
+            : '3-12 weeks',
+    },
+    {
+      icon: Users,
+      label:
+        currentLang === 'az'
+          ? 'Stakeholder clarity'
+          : currentLang === 'es'
+            ? 'Claridad para stakeholders'
+            : 'Stakeholder clarity',
+      value:
+        currentLang === 'az'
+          ? 'Aydın owner-lar'
+          : currentLang === 'es'
+            ? 'Owners claros'
+            : 'Clear owners',
+    },
+    {
+      icon: ChartColumnIncreasing,
+      label:
+        currentLang === 'az'
+          ? 'Business impact'
+          : currentLang === 'es'
+            ? 'Impacto de negocio'
+            : 'Business impact',
+      value:
+        currentLang === 'az'
+          ? 'Ops + growth'
+          : currentLang === 'es'
+            ? 'Ops + crecimiento'
+            : 'Ops + growth',
+    },
   ];
 
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
   return (
-    <section
-      id="portfolio"
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
-      {/* Background with animated elements (SAME AS HERO) */}
+    <section id="portfolio" className="relative overflow-hidden py-24 lg:py-28">
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
-          }`} />
-
-        {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
-            }`}
-          style={{
-            top: '20%',
-            left: '10%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-          }}
+          className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950'
+              : 'bg-gradient-to-br from-white via-zinc-50 to-white'
+          }`}
         />
-        <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-            }`}
-          style={{
-            bottom: '20%',
-            right: '15%',
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-          }}
-        />
-
-        {/* Floating IT Icons */}
-        {floatingIcons.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{
-              animationDelay: item.delay,
-              animation: 'float 6s ease-in-out infinite'
-            }}
-          >
-            <item.icon className={`${item.size} ${item.color} drop-shadow-lg`} />
-          </div>
-        ))}
-
-        {/* Mobile floating icons */}
-        <div className="lg:hidden">
-          <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Target className="w-5 h-5 text-indigo-400" />
-          </div>
-          <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Award className="w-5 h-5 text-blue-400" />
-          </div>
-        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center min-h-screen">
-        <div className="w-full py-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <p className={`mb-3 text-sm font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
+            {t.portfolio.title}
+          </p>
+          <h2 className={`text-3xl font-bold sm:text-4xl ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+            {t.portfolio.subtitle}
+          </h2>
+          <p className={`mx-auto mt-5 max-w-3xl text-lg leading-8 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
+            {t.portfolio.description}
+          </p>
+        </div>
 
-          {/* Header (same style as Hero) */}
-          <div className="text-center mb-8 lg:mb-12">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
-              }`}>
-              <span className="text-gradient-animated">
-                {t.portfolio.title}
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl font-medium text-gradient-blue-green mb-4">
-              {t.portfolio.subtitle}
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full" />
-          </div>
-
-          {/* Featured Project Carousel */}
-          <div className="relative">
-            <div className={`relative rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-300 hover:scale-105 ${isDark
-                ? 'glass-effect-dark border border-gray-700/50'
-                : 'glass-effect border border-white/20 shadow-xl'
-              }`}>
-
-              {/* Project Content */}
-              <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-
-                {/* Left Content */}
-                <div className="space-y-4 lg:space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${isDark
-                        ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30'
-                        : 'bg-blue-100 text-blue-800 border border-blue-200'
-                      }`}>
-                      {projects[currentProject].category}
-                    </span>
-                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'
-                      }`}>
-                      {projects[currentProject].year}
-                    </span>
-                  </div>
-
-                  <h3 className={`text-xl lg:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
-                    {projects[currentProject].title}
-                  </h3>
-
-                  <p className={`text-sm lg:text-base leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
-                    }`}>
-                    {projects[currentProject].description}
-                  </p>
-
-                  {/* Project Stats */}
-                  <div className="grid grid-cols-3 gap-3 lg:gap-4">
-                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
-                      }`}>
-                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
-                        {[3, 6, 2, 4, 5][currentProject % 5]}{currentLang === 'en' ? 'mo' : currentLang === 'az' ? 'ay' : 'me'}
-                      </div>
-                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {currentLang === 'en' ? 'Duration' : currentLang === 'az' ? 'Müddət' : 'Duración'}
-                      </div>
-                    </div>
-                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
-                      }`}>
-                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
-                        {[8, 12, 5, 10, 7][currentProject % 5]}+
-                      </div>
-                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {currentLang === 'en' ? 'Team Size' : currentLang === 'az' ? 'Komanda' : 'Equipo'}
-                      </div>
-                    </div>
-                    <div className={`text-center p-3 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-white/50 border border-gray-200'
-                      }`}>
-                      <div className="text-lg lg:text-xl font-bold text-gradient-animated">
-                        {[98, 95, 99, 97, 96][currentProject % 5]}%
-                      </div>
-                      <div className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {currentLang === 'en' ? 'Satisfaction' : currentLang === 'az' ? 'Məmnuniyyət' : 'Satisfacción'}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Content - Visual with Images */}
-                <div className="relative">
-                  <div className={`aspect-[4/3] rounded-xl overflow-hidden relative group ${isDark ? 'bg-gray-800' : 'bg-gray-200'
-                    }`}>
-                    {/* Project Image */}
-                    {projects[currentProject].imageUrl ? (
-                      <>
-                        <img
-                          src={projects[currentProject].imageUrl}
-                          alt={projects[currentProject].title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
-                          onError={(e) => {
-                            // Şəkil yüklənməyibsə default view göstər
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            const fallback = target.nextElementSibling as HTMLElement;
-                            if (fallback) fallback.style.display = 'flex';
-                          }}
-                        />
-
-                        {/* Fallback content */}
-                        <div className="w-full h-full flex items-center justify-center" style={{ display: 'none' }}>
-                          <div className={`text-center transition-all duration-500 ${isDark ? 'text-gray-400' : 'text-gray-500'
-                            }`}>
-                            <Award className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-                            <p className="font-medium">{projects[currentProject].title}</p>
-                            <p className="text-sm mt-1">{projects[currentProject].category}</p>
-                          </div>
-                        </div>
-
-                        {/* Gradient overlay for images */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                        {/* Project info overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <p className="font-medium text-sm">{projects[currentProject].title}</p>
-                          <p className="text-xs opacity-80">{projects[currentProject].category}</p>
-                        </div>
-                      </>
-                    ) : (
-                      // Default view (şəkil yoxdursa)
-                      <div className="w-full h-full flex items-center justify-center">
-                        <div className={`text-center transition-all duration-500 ${isDark ? 'text-gray-400' : 'text-gray-500'
-                          }`}>
-                          <Award className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-                          <p className="font-medium">{projects[currentProject].title}</p>
-                          <p className="text-sm mt-1">{projects[currentProject].category}</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Navigation Arrows */}
-                  <button
-                    onClick={prevProject}
-                    className={`absolute left-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${isDark
-                        ? 'glass-effect-dark text-white hover:bg-gray-700'
-                        : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
-                      }`}
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-
-                  <button
-                    onClick={nextProject}
-                    className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-all duration-300 hover:scale-110 ${isDark
-                        ? 'glass-effect-dark text-white hover:bg-gray-700'
-                        : 'glass-effect text-gray-900 hover:bg-white shadow-lg'
-                      }`}
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {t.portfolio.projects.map((project, index) => (
+            <Link
+              key={project.title}
+              href={caseStudies[index] ? `/case-studies/${caseStudies[index].slug}` : '/case-studies'}
+              className={`rounded-3xl p-7 ${
+                isDark
+                  ? 'glass-effect-dark border border-zinc-800'
+                  : 'glass-effect border border-white/50 shadow-lg'
+              }`}
+            >
+              <div className="mb-4 inline-flex rounded-full bg-zinc-900 px-3 py-1 text-xs font-semibold text-white ring-1 ring-zinc-600/50 dark:bg-white dark:text-zinc-950">
+                {index === 0 ? 'Healthcare' : index === 1 ? 'E-commerce' : 'Startup'}
               </div>
+              <h3 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {project.title}
+              </h3>
+              <p className={`mt-4 leading-7 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                {project.description}
+              </p>
 
-              {/* Project Indicators */}
-              <div className="flex justify-center space-x-2 pb-4 lg:pb-6">
-                {projects.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentProject(index)}
-                    className={`transition-all duration-300 ${index === currentProject
-                        ? 'w-6 h-2 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full'
-                        : 'w-2 h-2 rounded-full hover:scale-125'
-                      } ${index === currentProject
-                        ? ''
-                        : isDark
-                          ? 'bg-gray-600 hover:bg-gray-500'
-                          : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                  />
+              <div className="mt-6 grid gap-3">
+                {metrics.map((metric) => (
+                  <div
+                    key={`${project.title}-${metric.label}`}
+                    className={`flex items-center justify-between rounded-2xl border px-4 py-3 ${
+                      isDark ? 'border-zinc-800 bg-zinc-950/30' : 'border-zinc-200 bg-white/80'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <metric.icon className={`h-4 w-4 ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`} />
+                      <span className={isDark ? 'text-zinc-300' : 'text-zinc-600'}>{metric.label}</span>
+                    </div>
+                    <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>{metric.value}</span>
+                  </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </Link>
+          ))}
+        </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-8">
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-modern text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover:scale-105"
-            >
-              <Award className="w-4 h-4 sm:w-5 sm:h-5" />
+        <div className="mt-10 text-center">
+          <Link href="/case-studies" className="btn-modern inline-flex rounded-xl px-6 py-4 font-semibold text-white">
+            <span className="flex items-center justify-center gap-2">
               <span>
-                {currentLang === 'az' ? 'Layihə Başlayaq' : currentLang === 'en' ? 'Start Project' : 'Comenzar Proyecto'}
+                {currentLang === 'az'
+                  ? 'Bütün case studylərə bax'
+                  : currentLang === 'es'
+                    ? 'Ver todos los casos'
+                    : 'Explore all case studies'}
               </span>
-            </button>
-          </div>
+              <ArrowRight className="h-5 w-5" />
+            </span>
+          </Link>
         </div>
       </div>
     </section>

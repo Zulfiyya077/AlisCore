@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
+import { siteConfig } from '@/lib/site'
 
-const SITE_URL = 'https://backbonix.com'
+const SITE_URL = siteConfig.url
 
 export default function robots(): MetadataRoute.Robots {
   return {

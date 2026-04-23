@@ -1,6 +1,5 @@
-// src/components/sections/About.tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { Users, Award, Clock, Shield, Network, CheckCircle, Zap, Globe, Target } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2, Clock3, Target, Users } from 'lucide-react';
 import type { Language } from '../../types';
 import { translations } from '../../i18n/translations';
 
@@ -10,223 +9,170 @@ interface AboutProps {
 }
 
 export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   const t = translations[currentLang];
 
-  // Mouse tracking for 3D effects
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Visibility observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '-10% 0px -10% 0px'
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Floating IT icons
-  const floatingIcons = [
-    { icon: Zap, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-yellow-400' },
-    { icon: Globe, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-blue-400' },
-    { icon: Network, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2.5s', color: 'text-emerald-400' },
-    { icon: CheckCircle, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '1s', color: 'text-green-400' },
+  const highlights = [
+    {
+      icon: Target,
+      title:
+        currentLang === 'az'
+          ? 'Outcome-first strategy'
+          : currentLang === 'es'
+            ? 'Estrategia orientada a resultados'
+            : 'Outcome-first strategy',
+      description:
+        currentLang === 'az'
+          ? 'Texniki qərarlar business dəyərinə görə prioritetləşdirilir.'
+          : currentLang === 'es'
+            ? 'Las decisiones tecnicas se priorizan por impacto de negocio.'
+            : 'Technical decisions are prioritized by business value, not by trend.',
+    },
+    {
+      icon: Users,
+      title:
+        currentLang === 'az'
+          ? 'Senior communication'
+          : currentLang === 'es'
+            ? 'Comunicacion senior'
+            : 'Senior communication',
+      description:
+        currentLang === 'az'
+          ? 'Satışdan delivery-yə qədər aydın və birbaşa kommunikasiya.'
+          : currentLang === 'es'
+            ? 'Comunicacion clara desde la venta hasta la entrega.'
+            : 'Clear communication from discovery through delivery keeps projects aligned and predictable.',
+    },
+    {
+      icon: Clock3,
+      title:
+        currentLang === 'az'
+          ? 'Lean execution'
+          : currentLang === 'es'
+            ? 'Ejecucion agil'
+            : 'Lean execution',
+      description:
+        currentLang === 'az'
+          ? 'Böyük agentlik bürokratiyası olmadan sürətli irəliləyiş.'
+          : currentLang === 'es'
+            ? 'Avance rapido sin burocracia innecesaria.'
+            : 'Move quickly without enterprise-level bureaucracy slowing every decision down.',
+    },
   ];
 
-  // About content based on language
-  const aboutContent = {
-    en: {
-      title: "About BackBonix",
-      subtitle: "Professional IT Infrastructure Solutions",
-      paragraph1: "At BackBonix, we specialize in delivering comprehensive IT infrastructure solutions for businesses of all sizes. Our core services include network design and configuration, structured cabling, security implementation, wireless access point deployment, and high-performance IP camera surveillance systems. With a focus on reliability, performance, and scalability, we tailor each project to meet our clients' specific operational needs.",
-      paragraph2: "We bring deep technical expertise and industry-standard best practices to every job—whether it's setting up a secure firewall, configuring enterprise-grade switches, or managing multi-site connectivity. Our infrastructure cabling solutions ensure clean, organized, and future-ready environments. We understand that uptime and data security are vital, which is why we treat every setup with precision and care.",
-      paragraph3: "BackBonix is committed to long-term partnerships, offering ongoing support and maintenance to keep your systems running at their best. From startups to established enterprises, our goal is to build the digital backbone of your business—securely and efficiently.",
-      cta: "Let us power your business with infrastructure you can trust."
-    },
-    az: {
-      title: "BackBonix Haqqında",
-      subtitle: "Professional IT İnfrastruktur Həlləri",
-      paragraph1: "BackBonix olaraq, bütün ölçülü bizneslərgə hərtərəfli IT infrastruktur həlləri təqdim etməkdə ixtisaslaşırıq. Əsas xidmətlərimizə şəbəkə dizaynı və konfiqurasiyası, strukturlaşdırılmış kablaj, təhlükəsizlik tətbiqi, simsiz giriş nöqtələrinin yerləşdirilməsi və yüksək performanslı IP kamera nəzarət sistemləri daxildir.",
-      paragraph2: "Hər işə dərin texniki təcrübə və sənaye standartı ən yaxşı təcrübələr gətiririk - təhlükəsiz firewall quraşdırılması, müəssisə səviyyəli switchlərin konfiqurasiyası və ya çoxsaytlı əlaqənin idarə edilməsi olsun. İnfrastruktur kablaj həllərimiz təmiz, mütəşəkkil və gələcəyə hazır mühitlər təmin edir.",
-      paragraph3: "BackBonix uzunmüddətli tərəfdaşlıqlara sadiqdir, sistemlərinizin ən yaxşı vəziyyətdə işləməsini təmin etmək üçün davamlı dəstək və baxım təklif edir. Startaplardan tutmuş qurulmuş müəssisələrə qədər, məqsədimiz biznesinizin rəqəmsal arxa hissəsini təhlükəsiz və səmərəli şəkildə qurmaqdir.",
-      cta: "Biznesinizi etibar edə biləcəyiniz infrastrukturla gücləndirək."
-    },
-    es: {
-      title: "Acerca de BackBonix",
-      subtitle: "Soluciones Profesionales de Infraestructura IT",
-      paragraph1: "En BackBonix, nos especializamos en entregar soluciones integrales de infraestructura IT para empresas de todos los tamaños. Nuestros servicios principales incluyen diseño y configuración de redes, cableado estructurado, implementación de seguridad, despliegue de puntos de acceso inalámbrico y sistemas de vigilancia de cámaras IP de alto rendimiento.",
-      paragraph2: "Aportamos profunda experiencia técnica y mejores prácticas estándar de la industria a cada trabajo, ya sea configurando un firewall seguro, configurando switches de nivel empresarial o gestionando conectividad multisitio. Nuestras soluciones de cableado de infraestructura aseguran entornos limpios, organizados y preparados para el futuro.",
-      paragraph3: "BackBonix está comprometido con asociaciones a largo plazo, ofreciendo soporte continuo y mantenimiento para mantener sus sistemas funcionando en su mejor estado. Desde startups hasta empresas establecidas, nuestro objetivo es construir la columna vertebral digital de su negocio de manera segura y eficiente.",
-      cta: "Permítanos potenciar su negocio con infraestructura en la que pueda confiar."
-    }
-  };
-
-  const content = aboutContent[currentLang];
+  const processSteps = [
+    currentLang === 'az'
+      ? 'Discover: məqsəd, bottleneck və prioritetlər aydınlaşdırılır.'
+      : currentLang === 'es'
+        ? 'Discover: aclaramos objetivos, cuellos de botella y prioridades.'
+        : 'Discover: align around business goals, bottlenecks, and technical constraints.',
+    currentLang === 'az'
+      ? 'Design: UX, arxitektura və scope ölçülə bilən şəkildə qurulur.'
+      : currentLang === 'es'
+        ? 'Design: definimos UX, arquitectura y alcance.'
+        : 'Design: shape UX, architecture, and delivery scope around real user needs.',
+    currentLang === 'az'
+      ? 'Deliver: iterativ şəkildə build, launch və optimize edilir.'
+      : currentLang === 'es'
+        ? 'Deliver: construimos, lanzamos y optimizamos por iteraciones.'
+        : 'Deliver: build, launch, and optimize in focused iterations with clear accountability.',
+  ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
-
-
-      {/* Background with animated elements */}
+    <section id="about" className="relative overflow-hidden py-24 lg:py-28">
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-tr from-blue-50 via-white to-emerald-50'
-          }`} />
-
-        {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
-            }`}
-          style={{
-            top: '15%',
-            left: '10%',
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-          }}
+          className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950'
+              : 'bg-gradient-to-b from-white via-zinc-50 to-white'
+          }`}
         />
-        <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-            }`}
-          style={{
-            bottom: '15%',
-            right: '15%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-          }}
-        />
-
-        {/* Floating IT Icons */}
-        {floatingIcons.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{
-              animationDelay: item.delay,
-              animation: 'float 6s ease-in-out infinite'
-            }}
-          >
-            <item.icon className={`${item.size} ${item.color} drop-shadow-lg`} />
-          </div>
-        ))}
-
-        {/* Mobile floating icons */}
-        <div className="lg:hidden">
-          <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Zap className="w-5 h-5 text-yellow-400" />
-          </div>
-          <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Globe className="w-6 h-6 text-blue-400" />
-          </div>
-        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center min-h-screen">
-        <div className="w-full py-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 max-w-3xl">
+          <p className={`mb-3 text-sm font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
+            {t.about.title}
+          </p>
+          <h2 className={`text-3xl font-bold sm:text-4xl ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+            {t.about.subtitle}
+          </h2>
+          <p className={`mt-5 text-lg leading-8 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
+            {t.about.description}
+          </p>
+        </div>
 
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
-              } ${isVisible ? 'animate-fade-in-up animate-with-delay-1' : 'animation-reset'}`}>
-              <span className="text-gradient-animated">
-                {content.title}
-              </span>
-            </h2>
-            <p className={`text-lg sm:text-xl md:text-2xl font-medium text-gradient-blue-green mb-6 ${isVisible ? 'animate-fade-in-up animate-with-delay-2' : 'animation-reset'
-              }`}>
-              {content.subtitle}
-            </p>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
-              }`} />
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-5">
+            {highlights.map((item) => (
+              <div
+                key={item.title}
+                className={`rounded-3xl p-7 ${
+                  isDark
+                    ? 'glass-effect-dark border border-zinc-800'
+                    : 'glass-effect border border-white/50 shadow-lg'
+                }`}
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-950 ring-1 ring-zinc-700/45">
+                  <item.icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>{item.title}</h3>
+                <p className={`mt-3 leading-7 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>{item.description}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Content Section */}
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-
-              {/* Paragraph 1 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
-                  ? 'glass-effect-dark border border-gray-700/50'
-                  : 'glass-effect border border-white/20 shadow-lg'
-                } ${isVisible ? 'animate-slide-in-left animate-with-delay-3' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                  {content.paragraph1}
-                </p>
-              </div>
-
-              {/* Paragraph 2 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
-                  ? 'glass-effect-dark border border-gray-700/50'
-                  : 'glass-effect border border-white/20 shadow-lg'
-                } ${isVisible ? 'animate-slide-in-right animate-with-delay-4' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                  {content.paragraph2}
-                </p>
-              </div>
-
-              {/* Paragraph 3 */}
-              <div className={`p-6 lg:p-8 rounded-2xl ${isDark
-                  ? 'glass-effect-dark border border-gray-700/50'
-                  : 'glass-effect border border-white/20 shadow-lg'
-                } ${isVisible ? 'animate-slide-in-left animate-with-delay-5' : 'animation-reset'}`}>
-                <p className={`text-lg md:text-xl leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                  {content.paragraph3}
-                </p>
-              </div>
-
-              {/* CTA Section */}
-              <div className={`text-center p-6 lg:p-8 rounded-2xl ${isDark
-                  ? 'bg-gradient-to-r from-blue-900/50 to-emerald-900/50 border border-blue-500/20'
-                  : 'bg-gradient-to-r from-blue-50 to-emerald-50 border border-blue-200'
-                } ${isVisible ? 'animate-scale-in animate-with-delay-6' : 'animation-reset'}`}>
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg">
-                    <Network className="w-8 h-8 text-white" />
+          <div className="space-y-6">
+            <div
+              className={`rounded-3xl p-7 ${
+                isDark
+                  ? 'glass-effect-dark border border-zinc-800'
+                  : 'glass-effect border border-white/50 shadow-lg'
+              }`}
+            >
+              <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {currentLang === 'az'
+                  ? 'Core advantages'
+                  : currentLang === 'es'
+                    ? 'Ventajas clave'
+                    : 'Core advantages'}
+              </h3>
+              <div className="mt-5 space-y-4">
+                {t.about.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-zinc-500" />
+                    <span className={isDark ? 'text-zinc-300' : 'text-zinc-600'}>{feature}</span>
                   </div>
-                </div>
-                <h3 className={`text-xl lg:text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'
-                  }`}>
-                  BackBonix
-                </h3>
-                <p className={`text-lg lg:text-xl font-medium ${isDark ? 'text-blue-300' : 'text-blue-600'
-                  }`}>
-                  {content.cta}
-                </p>
+                ))}
               </div>
+            </div>
 
+            <div
+              className={`rounded-3xl p-7 ${
+                isDark
+                  ? 'bg-gradient-to-r from-zinc-900/90 to-zinc-950 border border-zinc-800'
+                  : 'bg-gradient-to-r from-zinc-50 to-zinc-100 border border-zinc-200 ring-1 ring-zinc-300/50'
+              }`}
+            >
+              <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {currentLang === 'az'
+                  ? 'Necə işləyirik'
+                  : currentLang === 'es'
+                    ? 'Como trabajamos'
+                    : 'How we work'}
+              </h3>
+              <div className="mt-5 space-y-4">
+                {processSteps.map((step) => (
+                  <div
+                    key={step}
+                    className={`rounded-2xl border p-4 ${
+                      isDark ? 'border-zinc-800 bg-zinc-950/30 text-zinc-300' : 'border-white bg-white/80 text-zinc-600'
+                    }`}
+                  >
+                    {step}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

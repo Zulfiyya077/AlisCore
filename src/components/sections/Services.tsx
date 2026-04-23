@@ -1,265 +1,235 @@
-// src/components/sections/Services.tsx
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import {
-  Shield,
-  Network,
-  Server,
-  Camera,
-  Cable,
-  Wifi,
   ArrowRight,
-  Settings,
-  Monitor,
-  HardDrive,
-  Router,
-  Lock
+  BrainCircuit,
+  CloudCog,
+  LayoutTemplate,
+  MonitorSmartphone,
+  Settings2,
+  Workflow,
 } from 'lucide-react';
 import type { Language } from '../../types';
 import { translations } from '../../i18n/translations';
+import { servicePages } from '@/lib/marketing-content';
 
 interface ServicesProps {
   currentLang: Language;
   isDark: boolean;
 }
 
-export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+const serviceIcons = [
+  Settings2,
+  MonitorSmartphone,
+  Workflow,
+  CloudCog,
+  LayoutTemplate,
+  BrainCircuit,
+];
 
+export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
   const t = translations[currentLang];
 
-  // Mouse tracking for 3D effects (same as Hero)
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Visibility observer for box animations - REPEATABLE
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        } else {
-          // Reset animation when scrolling away
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '-10% 0px -10% 0px' // More sensitive detection
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const services = [
-    {
-      icon: Shield,
-      title: t.services.items[0].title,
-      description: t.services.items[0].description,
-      color: 'from-blue-600 to-blue-700',
-      animationClass: 'animate-slide-in-left'
-    },
-    {
-      icon: Network,
-      title: t.services.items[1].title,
-      description: t.services.items[1].description,
-      color: 'from-emerald-600 to-emerald-700',
-      animationClass: 'animate-slide-in-top'
-    },
-    {
-      icon: Server,
-      title: t.services.items[2].title,
-      description: t.services.items[2].description,
-      color: 'from-indigo-600 to-indigo-700',
-      animationClass: 'animate-slide-in-right'
-    },
-    {
-      icon: Camera,
-      title: t.services.items[3].title,
-      description: t.services.items[3].description,
-      color: 'from-cyan-600 to-cyan-700',
-      animationClass: 'animate-bounce-in'
-    },
-    {
-      icon: Cable,
-      title: t.services.items[4].title,
-      description: t.services.items[4].description,
-      color: 'from-teal-600 to-teal-700',
-      animationClass: 'animate-scale-in'
-    },
-    {
-      icon: Wifi,
-      title: t.services.items[5].title,
-      description: t.services.items[5].description,
-      color: 'from-purple-600 to-purple-700',
-      animationClass: 'animate-fade-in-up'
-    }
+  const serviceBenefits = [
+    currentLang === 'az'
+      ? 'Custom build-lər off-the-shelf limitlərini aradan qaldırır.'
+      : currentLang === 'es'
+        ? 'Los desarrollos a medida eliminan limites de herramientas genericas.'
+        : 'Custom builds remove the limitations of generic off-the-shelf tools.',
+    currentLang === 'az'
+      ? 'Automation komanda vaxtını daha dəyərli işlərə qaytarır.'
+      : currentLang === 'es'
+        ? 'La automatizacion devuelve tiempo al equipo.'
+        : 'Automation gives your team time back for higher-value work.',
+    currentLang === 'az'
+      ? 'Discovery mərhələsi rework və scope drift riskini azaldır.'
+      : currentLang === 'es'
+        ? 'Discovery reduce retrabajo y desviacion de alcance.'
+        : 'Discovery reduces rework, misalignment, and scope drift before delivery starts.',
   ];
 
-  // Floating IT icons (same as Hero)
-  const floatingIcons = [
-    { icon: Monitor, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-cyan-400' },
-    { icon: HardDrive, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1.5s', color: 'text-purple-400' },
-    { icon: Router, size: 'w-6 h-6', position: 'bottom-32 left-20', delay: '2s', color: 'text-blue-400' },
-    { icon: Lock, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-emerald-400' },
+  const engagementTypes = [
+    {
+      title:
+        currentLang === 'az'
+          ? 'Discovery sprint'
+          : currentLang === 'es'
+            ? 'Sprint de discovery'
+            : 'Discovery sprint',
+      description:
+        currentLang === 'az'
+          ? 'Scope, texniki istiqamət və prioritetləri aydınlaşdırmaq üçün.'
+          : currentLang === 'es'
+            ? 'Para definir alcance, direccion tecnica y prioridades.'
+            : 'Clarify business scope, technical direction, and delivery priorities.',
+    },
+    {
+      title:
+        currentLang === 'az'
+          ? 'Project delivery'
+          : currentLang === 'es'
+            ? 'Entrega por proyecto'
+            : 'Project delivery',
+      description:
+        currentLang === 'az'
+          ? 'Aydın nəticəsi olan fokuslanmış build və launch işi üçün.'
+          : currentLang === 'es'
+            ? 'Para una entrega enfocada con resultado claro.'
+            : 'Best for focused builds with clear deliverables and launch goals.',
+    },
+    {
+      title:
+        currentLang === 'az'
+          ? 'Ongoing optimization'
+          : currentLang === 'es'
+            ? 'Optimizacion continua'
+            : 'Ongoing optimization',
+      description:
+        currentLang === 'az'
+          ? 'Launch sonrası inkişaf və support üçün.'
+          : currentLang === 'es'
+            ? 'Para soporte y mejora despues del lanzamiento.'
+            : 'Support, iteration, and feature improvement after launch.',
+    },
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="services"
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
-
-
-      {/* Background with animated elements (SAME AS HERO) */}
+    <section id="services" className="relative overflow-hidden py-24 lg:py-28">
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
-          }`} />
-
-        {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
-            }`}
-          style={{
-            top: '20%',
-            left: '10%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-          }}
+          className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950'
+              : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-100'
+          }`}
         />
-        <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-            }`}
-          style={{
-            bottom: '20%',
-            right: '15%',
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-          }}
-        />
-
-        {/* Floating IT Icons */}
-        {floatingIcons.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{
-              animationDelay: item.delay,
-              animation: 'float 6s ease-in-out infinite'
-            }}
-          >
-            <item.icon className={`${item.size} ${item.color} drop-shadow-lg`} />
-          </div>
-        ))}
-
-        {/* Mobile floating icons */}
-        <div className="lg:hidden">
-          <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Monitor className="w-5 h-5 text-cyan-400" />
-          </div>
-          <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Router className="w-5 h-5 text-blue-400" />
-          </div>
-        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center min-h-screen">
-        <div className="w-full py-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 max-w-3xl">
+          <p className={`mb-3 text-sm font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
+            {t.services.title}
+          </p>
+          <h2 className={`text-3xl font-bold sm:text-4xl ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+            {t.services.subtitle}
+          </h2>
+          <p className={`mt-5 text-lg leading-8 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
+            {currentLang === 'az'
+              ? 'Hər xidmət ayrıca satılmır, birlikdə daha güclü growth sistemi yaradır: strategy, UX, engineering və optimization.'
+              : currentLang === 'es'
+                ? 'Cada servicio funciona mejor como parte de un sistema conectado de estrategia, UX, engineering y optimizacion.'
+                : 'Each service works best as part of a connected growth system spanning strategy, UX, engineering, and optimization.'}
+          </p>
+        </div>
 
-          {/* Header (same style as Hero) */}
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
-              } ${isVisible ? 'animate-fade-in-up animate-with-delay-1' : 'animation-reset'}`}>
-              <span className="text-gradient-animated">
-                {t.services.title}
-              </span>
-            </h2>
-            <p className={`text-lg sm:text-xl md:text-2xl font-medium text-gradient-blue-green mb-6 ${isVisible ? 'animate-fade-in-up animate-with-delay-2' : 'animation-reset'
-              }`}>
-              {t.services.subtitle}
-            </p>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
-              }`} />
-          </div>
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid gap-5 md:grid-cols-2">
+            {t.services.items.map((service, index) => {
+              const Icon = serviceIcons[index];
+              const servicePage = servicePages[index];
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-5xl mx-auto mb-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`card-3d group relative p-4 lg:p-6 rounded-xl transition-all duration-300 cursor-pointer hover:scale-102 ${isDark
-                    ? 'glass-effect-dark border border-gray-700/50 hover:border-gray-600/70'
-                    : 'glass-effect border border-white/20 shadow-lg hover:shadow-xl'
-                  } ${isVisible ? `${service.animationClass} animate-with-delay-${index + 4}` : 'animation-reset'}`}
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                {/* Service Icon */}
-                <div className="mb-4">
-                  <div className={`w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-gradient-to-r ${service.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-md`}>
-                    <service.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white drop-shadow-sm" />
+              return (
+                <Link
+                  key={service.title}
+                  href={servicePage ? `/services/${servicePage.slug}` : '/services'}
+                  className={`rounded-3xl p-7 ${
+                    isDark
+                      ? 'glass-effect-dark border border-zinc-800'
+                      : 'glass-effect border border-white/50 shadow-lg'
+                  }`}
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-950 ring-1 ring-zinc-700/45">
+                    <Icon className="h-5 w-5 text-white" />
                   </div>
-                </div>
-
-                {/* Service Content */}
-                <div className="space-y-3">
-                  <h3 className={`text-base lg:text-lg font-bold transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
+                  <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
                     {service.title}
                   </h3>
-
-                  <p className={`text-sm leading-relaxed line-clamp-3 ${isDark ? 'text-gray-300' : 'text-gray-600'
-                    }`}>
+                  <p className={`mt-3 leading-7 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
                     {service.description}
                   </p>
-
-                  {/* CTA */}
-                  <div className="pt-2">
-                    <div className={`flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 ${isDark ? 'text-blue-400' : 'text-blue-600'
-                      }`}>
-                      <span className="text-xs font-medium">
-                        {currentLang === 'en' ? 'Learn more' : currentLang === 'az' ? 'Ətraflı öyrən' : 'Saber más'}
-                      </span>
-                      <ArrowRight className="w-3 h-3" />
-                    </div>
+                  <div className={`mt-5 flex items-center gap-2 text-sm font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                    <span>
+                      {currentLang === 'az'
+                        ? 'Xidmət səhifəsinə keç'
+                        : currentLang === 'es'
+                          ? 'Ir a la pagina del servicio'
+                          : 'Go to service page'}
+                    </span>
+                    <ArrowRight className="h-4 w-4" />
                   </div>
-                </div>
-
-                {/* Subtle Hover Glow - Much reduced */}
-                <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-gradient-to-r ${service.color} blur-xl -z-10`} />
-              </div>
-            ))}
+                </Link>
+              );
+            })}
           </div>
 
-          {/* Bottom CTA */}
-          <div className={`text-center ${isVisible ? 'animate-scale-in animate-with-delay-8' : 'animation-reset'}`}>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-modern text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold inline-flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+          <div className="space-y-6">
+            <div
+              className={`rounded-3xl p-7 ${
+                isDark
+                  ? 'glass-effect-dark border border-zinc-800'
+                  : 'glass-effect border border-white/50 shadow-lg'
+              }`}
             >
-              <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>
-                {currentLang === 'en' ? 'Get Quote' : currentLang === 'az' ? 'Təklif İstəyin' : 'Solicitar Cotización'}
-              </span>
-            </button>
+              <h3 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {currentLang === 'az'
+                  ? 'Why these services convert'
+                  : currentLang === 'es'
+                    ? 'Por que estos servicios convierten'
+                    : 'Why these services convert'}
+              </h3>
+              <div className="mt-5 space-y-4">
+                {serviceBenefits.map((benefit) => (
+                  <div
+                    key={benefit}
+                    className={`rounded-2xl border p-4 ${
+                      isDark ? 'border-zinc-800 bg-zinc-950/30 text-zinc-300' : 'border-zinc-200 bg-white/80 text-zinc-600'
+                    }`}
+                  >
+                    {benefit}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className={`rounded-3xl p-7 ${
+                isDark
+                  ? 'bg-gradient-to-r from-zinc-900/90 to-zinc-950 border border-zinc-800'
+                  : 'bg-gradient-to-r from-zinc-50 to-zinc-100 border border-zinc-200 ring-1 ring-zinc-300/50'
+              }`}
+            >
+              <h3 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {currentLang === 'az'
+                  ? 'Engagement model'
+                  : currentLang === 'es'
+                    ? 'Modelo de trabajo'
+                    : 'Engagement model'}
+              </h3>
+              <div className="mt-5 space-y-4">
+                {engagementTypes.map((item) => (
+                  <div
+                    key={item.title}
+                    className={`rounded-2xl border p-4 ${
+                      isDark ? 'border-zinc-800 bg-zinc-950/30' : 'border-white bg-white/80'
+                    }`}
+                  >
+                    <h4 className={`font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>{item.title}</h4>
+                    <p className={`mt-2 leading-7 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>{item.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/services"
+                className="btn-modern mt-6 inline-flex rounded-xl px-6 py-4 font-semibold text-white"
+              >
+                {currentLang === 'az'
+                  ? 'Bütün xidmətlərə bax'
+                  : currentLang === 'es'
+                    ? 'Ver todos los servicios'
+                    : 'Explore all services'}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

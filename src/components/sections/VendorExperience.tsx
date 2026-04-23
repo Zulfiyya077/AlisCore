@@ -1,362 +1,262 @@
-// src/components/sections/VendorExperience.tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { Award, Star, Shield, Network, Settings, Trophy, Target, Cpu, Server, Monitor, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import Link from 'next/link';
+import { Building2, HeartPulse, ShoppingCart, Sparkles, Star, Trophy } from 'lucide-react';
 import type { Language } from '../../types';
 import { translations } from '../../i18n/translations';
+import { MOCK_VENDOR_BRANDS } from '@/lib/mock-vendors';
 
 interface VendorExperienceProps {
   currentLang: Language;
   isDark: boolean;
 }
 
-export const VendorExperience: React.FC<VendorExperienceProps> = ({
-  currentLang,
-  isDark
-}) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
+export const VendorExperience: React.FC<VendorExperienceProps> = ({ currentLang, isDark }) => {
   const t = translations[currentLang];
 
-  // Mouse tracking for 3D effects (same as Hero)
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Visibility observer for box animations - REPEATABLE
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        } else {
-          // Reset animation when scrolling away
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '-10% 0px -10% 0px' // More sensitive detection
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Floating IT icons (same style as Hero)
-  const floatingIcons = [
-    { icon: Trophy, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-yellow-400' },
-    { icon: Target, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-blue-400' },
-    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-emerald-400' },
-    { icon: Server, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-purple-400' },
-    { icon: Monitor, size: 'w-6 h-6', position: 'top-48 left-32', delay: '2.5s', color: 'text-cyan-400' },
+  const industryCards = [
+    {
+      icon: HeartPulse,
+      title:
+        currentLang === 'az'
+          ? 'Healthcare workflow systems'
+          : currentLang === 'es'
+            ? 'Sistemas para flujos de salud'
+            : 'Healthcare workflow systems',
+      description:
+        currentLang === 'az'
+          ? 'Admin workload-u azaltmaq, koordinasiyanı yaxşılaşdırmaq və xidmət keyfiyyətini artırmaq üçün.'
+          : currentLang === 'es'
+            ? 'Para reducir carga administrativa y mejorar coordinacion.'
+            : 'Reduce administrative overhead and improve coordination across patient-facing operations.',
+    },
+    {
+      icon: ShoppingCart,
+      title:
+        currentLang === 'az'
+          ? 'E-commerce operations'
+          : currentLang === 'es'
+            ? 'Operaciones e-commerce'
+            : 'E-commerce operations',
+      description:
+        currentLang === 'az'
+          ? 'Inventory, order və reporting proseslərini vahid axında toplamaq üçün.'
+          : currentLang === 'es'
+            ? 'Para unificar inventario, pedidos y reportes.'
+            : 'Unify order, inventory, and reporting workflows into one scalable operating layer.',
+    },
+    {
+      icon: Building2,
+      title:
+        currentLang === 'az'
+          ? 'SMB modernization'
+          : currentLang === 'es'
+            ? 'Modernizacion SMB'
+            : 'SMB modernization',
+      description:
+        currentLang === 'az'
+          ? 'Köhnə alət və prosesləri daha etibarlı digital sistemlərlə əvəz etmək üçün.'
+          : currentLang === 'es'
+            ? 'Para reemplazar procesos y herramientas obsoletas.'
+            : 'Replace disconnected tools and legacy workflows with a cleaner, more manageable stack.',
+    },
   ];
 
-  const vendors = [
-    {
-      name: 'Fortinet',
-      logo: <img src="https://exceldisc.com/_next/image?url=https%3A%2F%2Fapiv2.exceldisc.com%2Fmedia%2F135327%2FFortinet-logo.png&w=3840&q=75" alt="Fortinet" className="w-full h-full object-contain" />,
-      color: 'from-red-500 to-red-600',
-      animationClass: 'animate-slide-in-left'
-    },
-    {
-      name: 'Cisco',
-      logo: <img src="https://brandlogos.net/wp-content/uploads/2021/11/cisco_systems-logo.png" alt="Cisco" className="w-full h-full object-contain" />,
-      color: 'from-blue-500 to-blue-600',
-      animationClass: 'animate-slide-in-top'
-    },
-    {
-      name: 'Aruba',
-      logo: <img src="https://www.svgrepo.com/show/354803/aruba.svg" alt="Aruba" className="w-full h-full object-contain" />,
-      color: 'from-orange-500 to-orange-600',
-      animationClass: 'animate-bounce-in'
-    },
-    {
-      name: 'HP',
-      logo: <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/HP_logo_2008.svg" alt="HP" className="w-full h-full object-contain" />,
-      color: 'from-indigo-500 to-indigo-600',
-      animationClass: 'animate-scale-in'
-    },
-    {
-      name: 'TP-Link',
-      logo: <img src="https://brandlogos.net/wp-content/uploads/2020/12/tp-link-logo-300x300.png" alt="TP-Link" className="w-full h-full object-contain" />,
-      color: 'from-green-500 to-green-600',
-      animationClass: 'animate-slide-in-right'
-    },
-    {
-      name: 'Juniper',
-      logo: <img src="https://cdn.freebiesupply.com/logos/thumbs/1x/juniper-networks-logo.png" alt="Juniper" className="w-full h-full object-contain" />,
-      color: 'from-teal-500 to-teal-600',
-      animationClass: 'animate-rotate-in'
-    },
-    {
-      name: 'Huawei',
-      logo: <img src="https://icon2.cleanpng.com/20180920/aib/kisspng-logo-huawei-169126-network-2311cxh-bc2mfgec-sm212-huawei-logo-vector-ai-svg-eps-pdf-free-graphic-1713938787603.webp" alt="Huawei" className="w-full h-full object-contain" />,
-      color: 'from-purple-500 to-purple-600',
-      animationClass: 'animate-fade-in-up'
-    }
+  const trustPoints = [
+    currentLang === 'az'
+      ? 'Discovery call və scope alignment ilə layihə riski erkən mərhələdə azaldılır.'
+      : currentLang === 'es'
+        ? 'Reducimos riesgo temprano con discovery y alineacion de alcance.'
+        : 'Project risk is reduced early through structured discovery and scope alignment.',
+    currentLang === 'az'
+      ? 'Əlaqə nöqtələri aydın olur, qərarlar sürətli verilir.'
+      : currentLang === 'es'
+        ? 'Los responsables y decisiones se mantienen claros y rapidos.'
+        : 'You get clear points of contact and faster decisions throughout delivery.',
+    currentLang === 'az'
+      ? 'Launch-dan sonra da support və optimization düşünülür.'
+      : currentLang === 'es'
+        ? 'Pensamos en soporte y optimizacion despues del lanzamiento.'
+        : 'Support, iteration, and optimization are part of the plan, not an afterthought.',
   ];
 
-  const features = [
-    {
-      icon: Settings,
-      title: currentLang === 'en' ? 'Continuous Support' : currentLang === 'az' ? 'Davamlı Dəstək' : 'Soporte Continuo',
-      description: currentLang === 'en' ? 'Continuous technical support after installation' : currentLang === 'az' ? 'Quraşdırılmadan sonra davamlı texniki dəstək' : 'Soporte técnico continuo después de la instalación',
-      color: 'from-green-500 to-green-600',
-      animationClass: 'animate-scale-in'
-    }
-  ];
-
-  const stats = [
-    {
-      number: '24/7',
-      label: currentLang === 'en' ? 'Support' : currentLang === 'az' ? 'Dəstək' : 'Soporte',
-      icon: Settings,
-      animationClass: 'animate-scale-in'
-    }
-  ];
-
-  // Auto-slide functionality - Not needed for marquee
-  // Removed auto-slide logic
+  const vendorCardClass = `card-3d group relative overflow-hidden rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] sm:p-5 ${
+    isDark ? 'glass-effect-dark border border-zinc-800' : 'glass-effect border border-zinc-200/80 shadow-lg'
+  }`;
 
   return (
-    <section
-      ref={sectionRef}
-      id="vendors"
-      className="py-20 relative overflow-hidden"
-    >
-
-
-      {/* Background with animated elements (SAME AS OTHER SECTIONS) */}
+    <section id="vendors" className="relative overflow-hidden py-24 lg:py-28">
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-tr from-blue-50 via-white to-emerald-50'
-          }`} />
-
-        {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
-            }`}
-          style={{
-            top: '15%',
-            right: '10%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-          }}
+          className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950'
+              : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-50'
+          }`}
         />
-        <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-            }`}
-          style={{
-            bottom: '15%',
-            left: '15%',
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-          }}
-        />
-
-        {/* Floating IT Icons */}
-        {floatingIcons.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{
-              animationDelay: item.delay,
-              animation: 'float 6s ease-in-out infinite'
-            }}
-          >
-            <item.icon className={`${item.size} ${item.color} drop-shadow-lg`} />
-          </div>
-        ))}
-
-        {/* Mobile floating icons */}
-        <div className="lg:hidden">
-          <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Trophy className="w-5 h-5 text-yellow-400" />
-          </div>
-          <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Target className="w-6 h-6 text-blue-400" />
-          </div>
-        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Header (same style as Hero) */}
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'
-            } ${isVisible ? 'animate-fade-in-up animate-with-delay-1' : 'animation-reset'}`}>
-            <span className="text-gradient-animated">
-              {t.vendors.title}
-            </span>
-          </h2>
-          <p className={`text-lg sm:text-xl md:text-2xl font-medium text-gradient-blue-green mb-6 ${isVisible ? 'animate-fade-in-up animate-with-delay-2' : 'animation-reset'
-            }`}>
-            {t.vendors.subtitle}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <p
+            className={`mb-3 text-sm font-semibold uppercase tracking-[0.2em] ${isDark ? 'text-zinc-300' : 'text-zinc-700'}`}
+          >
+            {t.vendors.title}
           </p>
-          <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
-            }`} />
-        </div>
-
-        {/* Description */}
-        <div className="text-center mb-12">
-          <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
-            } ${isVisible ? 'animate-fade-in-up animate-with-delay-4' : 'animation-reset'}`}>
+          <h2 className={`text-3xl font-bold sm:text-4xl ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+            {t.vendors.subtitle}
+          </h2>
+          <p
+            className={`mx-auto mt-5 max-w-3xl text-lg leading-8 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}
+          >
             {t.vendors.description}
           </p>
         </div>
 
-        {/* Vendors Section */}
+        {/* Mock vendor / ecosystem brands (restored from earlier site version) */}
         <div className="mb-16">
-          {/* Mobile and Tablet: Static Grid */}
+          <p
+            className={`mb-8 text-center text-sm font-medium ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}
+          >
+            {t.vendors.brandsCaption}
+          </p>
+
           <div className="block lg:hidden">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-              {vendors.map((vendor, index) => (
-                <div
-                  key={index}
-                  className={`card-3d group p-4 sm:p-6 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer ${isDark
-                      ? 'glass-effect-dark border border-gray-700/50'
-                      : 'glass-effect border border-white/20 shadow-lg'
-                    } ${isVisible ? `${vendor.animationClass} animate-with-delay-${index + 5}` : 'animation-reset'}`}
-                >
-                  <div className="text-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
-                      {vendor.logo}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
+              {MOCK_VENDOR_BRANDS.map((vendor) => (
+                <div key={vendor.name} className={vendorCardClass}>
+                  <div className="flex flex-col items-center text-center">
+                    <div
+                      className={`mb-3 flex h-12 w-full max-w-[7rem] items-center justify-center rounded-lg border p-2 ${
+                        isDark ? 'border-zinc-700 bg-white' : 'border-zinc-200 bg-white'
+                      }`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={vendor.logoSrc}
+                        alt={vendor.name}
+                        className="max-h-9 w-full object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
-                    <h3 className={`text-xs sm:text-sm font-bold mb-1 group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
-                      }`}>
+                    <h3
+                      className={`text-xs font-semibold sm:text-sm ${isDark ? 'text-zinc-100' : 'text-zinc-900'}`}
+                    >
                       {vendor.name}
                     </h3>
                   </div>
-
-                  {/* Corner Star */}
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                  <div className="absolute right-2 top-2 opacity-0 transition-opacity group-hover:opacity-100">
+                    <Star className="h-3 w-3 fill-amber-400 text-amber-400" aria-hidden />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Desktop: Marquee Style */}
-          <div className="hidden lg:block">
-            <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden">
-              {/* Marquee Container */}
-              <div className="animate-marquee flex whitespace-nowrap">
-                {/* First Set */}
-                {vendors.map((vendor, index) => (
-                  <div
-                    key={`first-${index}`}
-                    className="flex-shrink-0 mx-3"
-                  >
+          <div className="relative -mx-4 hidden overflow-hidden sm:-mx-6 lg:block lg:-mx-8">
+            <div className="animate-marquee flex w-max gap-4 pr-4">
+              {[...MOCK_VENDOR_BRANDS, ...MOCK_VENDOR_BRANDS].map((vendor, index) => (
+                <div key={`${vendor.name}-${index}`} className={`w-44 flex-shrink-0 ${vendorCardClass}`}>
+                  <div className="flex flex-col items-center text-center">
                     <div
-                      className={`card-3d group p-6 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer w-48 ${isDark
-                          ? 'glass-effect-dark border border-gray-700/50'
-                          : 'glass-effect border border-white/20 shadow-lg'
-                        } ${isVisible ? 'animate-scale-in' : 'animation-reset'}`}
+                      className={`mb-3 flex h-14 w-28 items-center justify-center rounded-lg border p-2 ${
+                        isDark ? 'border-zinc-700 bg-white' : 'border-zinc-200 bg-white'
+                      }`}
                     >
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
-                          {vendor.logo}
-                        </div>
-                        <h3 className={`text-sm font-bold group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
-                          }`}>
-                          {vendor.name}
-                        </h3>
-                      </div>
-
-                      {/* Corner Star */}
-                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <Star className="w-3 h-3 text-yellow-400 fill-current" />
-                      </div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={vendor.logoSrc}
+                        alt={vendor.name}
+                        className="max-h-10 w-full object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
+                    <h3 className={`text-sm font-semibold ${isDark ? 'text-zinc-100' : 'text-zinc-900'}`}>
+                      {vendor.name}
+                    </h3>
                   </div>
-                ))}
-
-                {/* Second Set (Duplicate for seamless loop) */}
-                {vendors.map((vendor, index) => (
-                  <div
-                    key={`second-${index}`}
-                    className="flex-shrink-0 mx-3"
-                  >
-                    <div
-                      className={`card-3d group p-6 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer w-48 ${isDark
-                          ? 'glass-effect-dark border border-gray-700/50'
-                          : 'glass-effect border border-white/20 shadow-lg'
-                        } ${isVisible ? 'animate-scale-in' : 'animation-reset'}`}
-                    >
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
-                          {vendor.logo}
-                        </div>
-                        <h3 className={`text-sm font-bold group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
-                          }`}>
-                          {vendor.name}
-                        </h3>
-                      </div>
-
-                      {/* Corner Star */}
-                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <Star className="w-3 h-3 text-yellow-400 fill-current" />
-                      </div>
-                    </div>
+                  <div className="absolute right-2 top-2 opacity-0 transition-opacity group-hover:opacity-100">
+                    <Star className="h-3 w-3 fill-amber-400 text-amber-400" aria-hidden />
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-
-        {/* Call to Action */}
-        <div className={`text-center ${isVisible ? 'animate-scale-in animate-with-delay-15' : 'animation-reset'}`}>
-          <div className={`inline-flex items-center justify-center p-6 lg:p-8 rounded-2xl max-w-4xl mx-auto ${isDark
-              ? 'glass-effect-dark border border-gray-700/50'
-              : 'glass-effect border border-white/20 shadow-lg'
-            }`}>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-4">
-                <Trophy className={`w-8 h-8 mr-3 ${isDark ? 'text-yellow-400' : 'text-yellow-500'
-                  }`} />
-                <h3 className={`text-xl lg:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
-                  }`}>
-                  {currentLang === 'en'
-                    ? 'We can work with your vendor products too'
-                    : currentLang === 'az'
-                      ? 'Sizin vendor məhsullarınızla da işləyə bilərik'
-                      : 'También podemos trabajar con sus productos de proveedores'
-                  }
-                </h3>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {industryCards.map((item) => (
+            <div
+              key={item.title}
+              className={`rounded-3xl p-7 ${
+                isDark ? 'glass-effect-dark border border-zinc-800' : 'glass-effect border border-white/50 shadow-lg'
+              }`}
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-950 ring-1 ring-zinc-700/45">
+                <item.icon className="h-5 w-5 text-white" />
               </div>
-              <p className={`text-base lg:text-lg mb-6 max-w-2xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                {currentLang === 'en'
-                  ? 'We can work with vendor products not listed here. Contact us to discuss your project.'
-                  : currentLang === 'az'
-                    ? 'Siyahıda olmayan vendor məhsulları ilə də işləyə bilirik. Bizimlə əlaqə saxlayın və layihənizi müzakirə edək.'
-                    : 'Podemos trabajar con productos de proveedores que no están listados aquí. Contáctanos para discutir tu proyecto.'
-                }
-              </p>
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn-modern text-white px-6 py-3 lg:px-8 lg:py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
-              >
-                {currentLang === 'en' ? 'Get Consultation' : currentLang === 'az' ? 'Məsləhət Alın' : 'Obtener Consulta'}
-              </button>
+              <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>{item.title}</h3>
+              <p className={`mt-3 leading-7 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>{item.description}</p>
             </div>
+          ))}
+        </div>
+
+        <div
+          className={`mt-10 rounded-3xl p-7 sm:p-9 ${
+            isDark
+              ? 'border border-zinc-800 bg-gradient-to-r from-zinc-900/90 to-zinc-950'
+              : 'border border-zinc-200 bg-gradient-to-r from-zinc-50 to-zinc-100 ring-1 ring-zinc-300/50'
+          }`}
+        >
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-zinc-700 to-zinc-950 ring-1 ring-zinc-700/45">
+              <Sparkles className="h-5 w-5 text-white" />
+            </div>
+            <h3 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+              {currentLang === 'az'
+                ? 'Why this positioning works'
+                : currentLang === 'es'
+                  ? 'Por que este posicionamiento funciona'
+                  : 'Why this positioning works'}
+            </h3>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {trustPoints.map((point) => (
+              <div
+                key={point}
+                className={`rounded-2xl border p-4 ${
+                  isDark ? 'border-zinc-800 bg-zinc-950/30 text-zinc-300' : 'border-white bg-white/80 text-zinc-600'
+                }`}
+              >
+                {point}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <div
+            className={`w-full max-w-3xl rounded-3xl p-8 text-center ${
+              isDark ? 'glass-effect-dark border border-zinc-800' : 'glass-effect border border-zinc-200/80 shadow-lg'
+            }`}
+          >
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <Trophy className={`h-8 w-8 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} aria-hidden />
+              <h3 className={`text-xl font-bold sm:text-2xl ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+                {t.vendors.vendorCtaTitle}
+              </h3>
+            </div>
+            <p className={`mb-6 text-base leading-relaxed sm:text-lg ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`}>
+              {t.vendors.vendorCtaBody}
+            </p>
+            <Link
+              href="/#contact"
+              className="btn-modern inline-flex items-center justify-center rounded-xl px-8 py-3 font-semibold text-white transition-transform hover:scale-[1.02]"
+            >
+              {t.vendors.vendorCtaButton}
+            </Link>
           </div>
         </div>
       </div>

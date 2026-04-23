@@ -1,8 +1,9 @@
-// src/components/sections/Hero.tsx
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Network, Shield, Server, ChevronDown, Wifi, Database, Globe, Monitor, Cpu, HardDrive, Router, Lock } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, ChevronDown, LineChart, Settings, ShieldCheck } from 'lucide-react';
 import type { Language } from '../../types';
 import { translations } from '../../i18n/translations';
+import { trackCtaClick } from '@/lib/analytics';
+import { siteConfig } from '@/lib/site';
 
 interface HeroProps {
   currentLang: Language;
@@ -10,196 +11,277 @@ interface HeroProps {
   onContactClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ 
-  currentLang, 
-  isDark, 
-  onContactClick 
-}) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+export const Hero: React.FC<HeroProps> = ({ currentLang, isDark, onContactClick }) => {
   const t = translations[currentLang];
 
-  // Mouse tracking for 3D effects
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30,
-      });
-    };
+  const proofItems = [
+    {
+      icon: Settings,
+      title:
+        currentLang === 'az'
+          ? 'Senior-led delivery'
+          : currentLang === 'es'
+            ? 'Entrega liderada por seniors'
+            : 'Senior-led delivery',
+    },
+    {
+      icon: LineChart,
+      title:
+        currentLang === 'az'
+          ? 'Biznes nəticəsinə fokus'
+          : currentLang === 'es'
+            ? 'Enfoque en resultados'
+            : 'Business outcome focused',
+    },
+    {
+      icon: ShieldCheck,
+      title:
+        currentLang === 'az'
+          ? 'Scalable və etibarlı build'
+          : currentLang === 'es'
+            ? 'Build escalable y confiable'
+            : 'Scalable, reliable builds',
+    },
+  ];
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  const valuePoints = [
+    currentLang === 'az'
+      ? 'Discovery-first yanaşma ilə scope və risklər əvvəlcədən aydınlaşdırılır.'
+      : currentLang === 'es'
+        ? 'El enfoque discovery-first aclara alcance y riesgos antes de construir.'
+        : 'A discovery-first approach clarifies scope, priorities, and delivery risks before code is written.',
+    currentLang === 'az'
+      ? 'Clean architecture və maintainable code ilə gələcək dəyişikliklərin dəyəri azalır.'
+      : currentLang === 'es'
+        ? 'La arquitectura limpia reduce el costo de cambios futuros.'
+        : 'Clean architecture and maintainable code reduce the cost of future changes.',
+    currentLang === 'az'
+      ? 'Conversion, UX və business ops birlikdə düşünülür.'
+      : currentLang === 'es'
+        ? 'Conversion, UX y operaciones se consideran juntos.'
+        : 'Conversion, UX, and business operations are designed as one connected system.',
+  ];
 
-  // Floating IT icons with different positions and delays
-  const floatingIcons = [
-    { icon: Wifi, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-blue-400' },
-    { icon: Database, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1s', color: 'text-emerald-400' },
-    { icon: Globe, size: 'w-7 h-7', position: 'top-48 left-32', delay: '2s', color: 'text-indigo-400' },
-    { icon: Monitor, size: 'w-6 h-6', position: 'bottom-32 right-16', delay: '0.5s', color: 'text-cyan-400' },
-    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-48 left-20', delay: '1.5s', color: 'text-purple-400' },
-    { icon: HardDrive, size: 'w-6 h-6', position: 'top-64 right-32', delay: '2.5s', color: 'text-teal-400' },
-    { icon: Router, size: 'w-5 h-5', position: 'bottom-20 left-40', delay: '3s', color: 'text-blue-300' },
-    { icon: Lock, size: 'w-4 h-4', position: 'top-40 left-64', delay: '0.8s', color: 'text-emerald-300' },
+  const trustStats = [
+    {
+      value: currentLang === 'az' ? '1 call' : currentLang === 'es' ? '1 llamada' : '1 call',
+      label:
+        currentLang === 'az'
+          ? 'to clarify fit'
+          : currentLang === 'es'
+            ? 'para validar encaje'
+            : 'to clarify fit',
+    },
+    {
+      value: currentLang === 'az' ? 'Senior-led' : currentLang === 'es' ? 'Senior-led' : 'Senior-led',
+      label:
+        currentLang === 'az'
+          ? 'delivery model'
+          : currentLang === 'es'
+            ? 'modelo de entrega'
+            : 'delivery model',
+    },
+    {
+      value: currentLang === 'az' ? 'US SMB' : currentLang === 'es' ? 'US SMB' : 'US SMB',
+      label:
+        currentLang === 'az'
+          ? 'market focus'
+          : currentLang === 'es'
+            ? 'enfoque de mercado'
+            : 'market focus',
+    },
   ];
 
   return (
-    <section 
-      id="home" 
-      className="h-screen flex items-center justify-center relative overflow-hidden"
-    >
-      {/* Background with animated elements */}
+    <section id="home" className="relative overflow-hidden pt-32 lg:pt-36">
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 ${
-          isDark 
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10' 
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
-        }`} />
-        
-        {/* Floating background orbs */}
-        <div 
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDark ? 'bg-blue-500' : 'bg-blue-300'
+        <div
+          className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-br from-zinc-950 via-neutral-950 to-zinc-900'
+              : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-100'
           }`}
-          style={{
-            top: '20%',
-            left: '10%',
-            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
-          }}
         />
-        <div 
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${
-            isDark ? 'bg-emerald-500' : 'bg-emerald-300'
-          }`}
-          style={{
-            bottom: '20%',
-            right: '15%',
-            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
-          }}
-        />
-
-        {/* Floating IT Icons */}
-        {floatingIcons.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute ${item.position} opacity-30 pointer-events-none hidden lg:block`}
-            style={{ 
-              animationDelay: item.delay,
-              animation: 'float 6s ease-in-out infinite'
-            }}
-          >
-            <div className={`${item.color} drop-shadow-lg transform hover:scale-110 transition-transform duration-300`}>
-              <item.icon className={item.size} />
-            </div>
-          </div>
-        ))}
-
-        {/* Mobile floating icons (simplified) */}
-        <div className="lg:hidden">
-          <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Wifi className="w-5 h-5 text-blue-400" />
-          </div>
-          <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Database className="w-4 h-4 text-emerald-400" />
-          </div>
-          <div className="absolute top-48 right-16 opacity-20 animate-pulse" style={{ animationDelay: '2s' }}>
-            <Globe className="w-6 h-6 text-indigo-400" />
-          </div>
-        </div>
+        <div className="absolute left-[-10rem] top-16 h-72 w-72 rounded-full bg-zinc-400/10 blur-3xl dark:bg-zinc-500/10" />
+        <div className="absolute right-[-6rem] top-1/3 h-64 w-64 -translate-y-1/2 rounded-full bg-zinc-500/10 blur-3xl dark:bg-zinc-400/12" />
+        <div className="absolute bottom-0 right-[-8rem] h-72 w-72 rounded-full bg-zinc-900/20 blur-3xl" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        {/* Title Section */}
-        <div className="mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="text-gradient-animated">
-              {t.hero.title}
-            </span>
-          </h1>
-          
-          <p className={`text-lg sm:text-xl md:text-2xl font-medium mb-4 ${
-            isDark ? 'text-gray-300' : 'text-gray-600'
-          }`}>
-            {t.hero.subtitle}
-          </p>
-          
-          <p className={`text-base md:text-lg max-w-2xl mx-auto ${
-            isDark ? 'text-gray-400' : 'text-gray-500'
-          }`}>
-            {t.hero.description}
-          </p>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <button
-            onClick={onContactClick}
-            className="btn-modern text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold group transition-all duration-300 hover:scale-105"
-          >
-            <span className="flex items-center justify-center space-x-2">
-              <span>{t.hero.cta}</span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </button>
-          
-          <button
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold border-2 transition-all duration-300 hover:scale-105 ${
-              isDark 
-                ? 'border-emerald-500 text-emerald-400 hover:bg-emerald-500/10' 
-                : 'border-blue-500 text-blue-600 hover:bg-blue-500/10'
-            }`}
-          >
-            {currentLang === 'az' ? 'Ətraflı' : currentLang === 'en' ? 'Learn More' : 'Más'}
-          </button>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
-          {[
-            { 
-              icon: Network, 
-              title: currentLang === 'az' ? 'Şəbəkə' : currentLang === 'en' ? 'Network' : 'Red',
-              color: 'from-blue-500 to-cyan-600'
-            },
-            { 
-              icon: Shield, 
-              title: currentLang === 'az' ? 'Təhlükəsizlik' : currentLang === 'en' ? 'Security' : 'Seguridad',
-              color: 'from-emerald-500 to-teal-600'
-            },
-            { 
-              icon: Server, 
-              title: currentLang === 'az' ? 'İnfrastruktur' : currentLang === 'en' ? 'Infrastructure' : 'Infraestructura',
-              color: 'from-indigo-500 to-purple-600'
-            }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className={`card-3d p-4 sm:p-6 rounded-xl transition-all duration-300 hover:scale-105 ${
-                isDark 
-                  ? 'glass-effect-dark border border-gray-700/50' 
-                  : 'glass-effect border border-white/20 shadow-lg'
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+        <div className="grid w-full gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <div
+              className={`mb-6 inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium ${
+                isDark
+                  ? 'border-zinc-700 bg-zinc-900/40 text-zinc-100 ring-1 ring-zinc-700/35'
+                  : 'border-zinc-200 bg-white text-zinc-800 ring-1 ring-zinc-300/50'
               }`}
             >
-              <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${item.color} flex items-center justify-center shadow-lg`}>
-                <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <h3 className={`text-sm sm:text-base font-semibold ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>
-                {item.title}
-              </h3>
+              {currentLang === 'az'
+                ? 'US SMB-lər üçün software + automation partner'
+                : currentLang === 'es'
+                  ? 'Partner de software y automatizacion para SMBs'
+                  : 'Software and automation partner for US SMBs'}
             </div>
-          ))}
+
+            <h1
+              className={`max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl ${
+                isDark ? 'text-white' : 'text-zinc-950'
+              }`}
+            >
+              {t.hero.subtitle}
+            </h1>
+
+            <p
+              className={`hero-description mt-6 max-w-2xl text-lg leading-8 ${
+                isDark ? 'text-zinc-300' : 'text-zinc-600'
+              }`}
+            >
+              {t.hero.description}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
+                href={siteConfig.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackCtaClick('hero', 'book_strategy_call')}
+                className="btn-modern rounded-xl px-6 py-4 font-semibold text-white"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  <span>{t.hero.cta}</span>
+                  <ArrowRight className="h-5 w-5" />
+                </span>
+              </a>
+
+              <button
+                onClick={() => {
+                  trackCtaClick('hero', 'request_project_estimate');
+                  onContactClick();
+                }}
+                className={`rounded-xl border px-6 py-4 font-semibold transition-all duration-300 ${
+                  isDark
+                    ? 'border-zinc-700 text-zinc-200 hover:border-zinc-500 hover:bg-zinc-900'
+                    : 'border-zinc-300 text-zinc-900 hover:border-zinc-500 hover:bg-white'
+                }`}
+              >
+                {currentLang === 'az'
+                  ? 'Layihəni müzakirə et'
+                  : currentLang === 'es'
+                    ? 'Hablar del proyecto'
+                    : 'Discuss your project'}
+              </button>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-zinc-500">
+              <button
+                onClick={() => {
+                  trackCtaClick('hero', 'view_case_studies');
+                  document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`${isDark ? 'text-zinc-300' : 'text-zinc-600'} underline decoration-zinc-500/60 underline-offset-4`}
+              >
+                {currentLang === 'az'
+                  ? 'Əvvəlcə case studylərə bax'
+                  : currentLang === 'es'
+                    ? 'Ver casos primero'
+                    : 'See case studies first'}
+              </button>
+              <span className={isDark ? 'text-zinc-500' : 'text-zinc-400'}>•</span>
+              <span className={isDark ? 'text-zinc-400' : 'text-zinc-500'}>
+                {currentLang === 'az'
+                  ? 'Discovery-first engagements'
+                  : currentLang === 'es'
+                    ? 'Engagements con discovery'
+                    : 'Discovery-first engagements'}
+              </span>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {trustStats.map((item) => (
+                <div
+                  key={`${item.value}-${item.label}`}
+                  className={`rounded-2xl border px-4 py-4 ${
+                    isDark
+                      ? 'border-zinc-800 bg-zinc-950/30 text-zinc-300'
+                      : 'border-zinc-200 bg-white/80 text-zinc-600'
+                  }`}
+                >
+                  <div className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>{item.value}</div>
+                  <div className="mt-1 text-sm">{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              {proofItems.map((item) => (
+                <div
+                  key={item.title}
+                  className={`rounded-2xl p-4 ${
+                    isDark
+                      ? 'glass-effect-dark border border-zinc-800'
+                      : 'glass-effect border border-white/40 shadow-lg'
+                  }`}
+                >
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-700 to-zinc-950 ring-1 ring-zinc-700/40">
+                    <item.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+                    {item.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className={`rounded-3xl p-7 sm:p-9 ${
+              isDark
+                ? 'glass-effect-dark border border-zinc-800'
+                : 'glass-effect border border-white/50 shadow-xl'
+            }`}
+          >
+            <div className="mb-6">
+              <p
+                className={`text-sm font-semibold uppercase tracking-[0.2em] ${
+                  isDark ? 'text-zinc-300' : 'text-zinc-700'
+                }`}
+              >
+                {currentLang === 'az'
+                  ? 'Nələr edirik'
+                  : currentLang === 'es'
+                    ? 'Lo que entregamos'
+                    : 'What we deliver'}
+              </p>
+              <h2 className={`mt-3 text-2xl font-bold ${isDark ? 'text-white' : 'text-zinc-950'}`}>
+                {currentLang === 'az'
+                  ? 'Daha sürətli əməliyyat, daha aydın sistem, daha güclü böyümə'
+                  : currentLang === 'es'
+                    ? 'Operaciones mas rapidas y sistemas mas claros'
+                    : 'Faster operations, clearer systems, stronger growth'}
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {valuePoints.map((item) => (
+                <div
+                  key={item}
+                  className={`rounded-2xl border p-4 ${
+                    isDark
+                      ? 'border-zinc-800 bg-zinc-900/40 text-zinc-300'
+                      : 'border-zinc-200 bg-white/70 text-zinc-600'
+                  }`}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className={`w-5 h-5 sm:w-6 sm:h-6 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ChevronDown className={`h-6 w-6 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`} />
       </div>
     </section>
   );

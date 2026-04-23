@@ -5,7 +5,6 @@ import type { Language } from '@/types';
 import { useTheme } from '@/hooks/useTheme';
 
 // Components
-import LoadingSplashScreen from '@/components/common/LoadingSplashScreen';
 import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import { Hero } from '@/components/sections/Hero';
@@ -13,12 +12,13 @@ import { About } from '@/components/sections/About';
 import { Services } from '@/components/sections/Services';
 import { VendorExperience } from '@/components/sections/VendorExperience';
 import { Portfolio } from '@/components/sections/Portfolio';
+import { Faq } from '@/components/sections/Faq';
 import { Contact } from '@/components/sections/Contact';
+import { HomepageSkeleton } from '@/components/layout/HomepageSkeleton';
 
 export default function HomeClient() {
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [activeSection, setActiveSection] = useState('home');
-  const [isLoading, setIsLoading] = useState(true);
   const [isClient, setIsClient] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
@@ -31,16 +31,6 @@ export default function HomeClient() {
       setCurrentLang(savedLang);
     }
   }, []);
-
-  // Loading screen timer
-  useEffect(() => {
-    if (isClient) {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 3500);
-      return () => clearTimeout(timer);
-    }
-  }, [isClient]);
 
   // Scroll to section function
   const scrollToSection = (sectionId: string) => {
@@ -62,7 +52,7 @@ export default function HomeClient() {
     if (!isClient) return;
     
     const handleScroll = () => {
-      const sections = ['home', 'about', 'services', 'vendors', 'portfolio', 'contact'];
+      const sections = ['home', 'about', 'services', 'vendors', 'portfolio', 'faq', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -92,17 +82,10 @@ export default function HomeClient() {
 
   return (
     <>
-      {/* Loading screen */}
-      {isLoading && isClient && <LoadingSplashScreen />}
-      
       <div 
         className={`min-h-screen transition-colors duration-300 ${
-          isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'
-        } ${(isLoading && isClient) ? 'overflow-hidden' : ''}`}
-        style={{
-          opacity: (isLoading && isClient) ? 0 : 1,
-          transition: 'opacity 0.5s ease-in-out'
-        }}
+          isDark ? 'dark bg-zinc-950 text-zinc-50' : 'bg-white text-zinc-950'
+        }`}
       >
         <Navbar
           currentLang={currentLang}
@@ -114,36 +97,47 @@ export default function HomeClient() {
         />
 
         <main>
-          <Hero
-            currentLang={currentLang}
-            isDark={isDark}
-            onContactClick={() => scrollToSection('contact')}
-          />
+          {!isClient ? (
+            <HomepageSkeleton isDark={isDark} />
+          ) : (
+            <>
+              <Hero
+                currentLang={currentLang}
+                isDark={isDark}
+                onContactClick={() => scrollToSection('contact')}
+              />
 
-          <About
-            currentLang={currentLang}
-            isDark={isDark}
-          />
+              <About
+                currentLang={currentLang}
+                isDark={isDark}
+              />
 
-          <Services
-            currentLang={currentLang}
-            isDark={isDark}
-          />
+              <Services
+                currentLang={currentLang}
+                isDark={isDark}
+              />
 
-          <VendorExperience
-            currentLang={currentLang}
-            isDark={isDark}
-          />
+              <VendorExperience
+                currentLang={currentLang}
+                isDark={isDark}
+              />
 
-          <Portfolio
-            currentLang={currentLang}
-            isDark={isDark}
-          />
+              <Portfolio
+                currentLang={currentLang}
+                isDark={isDark}
+              />
 
-          <Contact
-            currentLang={currentLang}
-            isDark={isDark}
-          />
+              <Faq
+                currentLang={currentLang}
+                isDark={isDark}
+              />
+
+              <Contact
+                currentLang={currentLang}
+                isDark={isDark}
+              />
+            </>
+          )}
         </main>
 
         <Footer
