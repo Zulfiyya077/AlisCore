@@ -16,7 +16,7 @@ export function PageFooter() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-900 dark:text-emerald-500">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-900">
               Navigation
             </h3>
             <div className="mt-4 grid gap-3">
@@ -33,7 +33,7 @@ export function PageFooter() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-900 dark:text-emerald-500">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-900">
               Contact
             </h3>
             <div className="mt-4 space-y-4 text-slate-600">

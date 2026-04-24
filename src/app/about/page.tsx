@@ -45,15 +45,15 @@ export default function AboutPage() {
     <PageShell>
       <JsonLd data={aboutSchema} />
 
-      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
             About AlisCore
           </p>
-          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950 dark:text-white">
+          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950">
             A network-first IT partner for companies that need uptime, security, and predictable support
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
             AlisCore is positioned to help growing businesses modernize operations, launch
             software products, and replace inefficient workflows with scalable digital systems.
           </p>
@@ -66,23 +66,23 @@ export default function AboutPage() {
             {pillars.map((pillar) => (
               <article
                 key={pillar.title}
-                className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/40"
+                className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm"
               >
-                <h2 className="text-2xl font-semibold text-zinc-950 dark:text-white">{pillar.title}</h2>
-                <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-300">{pillar.description}</p>
+                <h2 className="text-2xl font-semibold text-zinc-950">{pillar.title}</h2>
+                <p className="mt-4 leading-7 text-zinc-600">{pillar.description}</p>
               </article>
             ))}
           </div>
 
-          <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/40">
-            <h2 className="text-2xl font-semibold text-zinc-950 dark:text-white">How engagements typically start</h2>
+          <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-zinc-950">How engagements typically start</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
                 'Discovery call to understand goals and constraints',
                 'Scope and solution direction aligned around business impact',
                 'Execution plan shaped for delivery speed and long-term maintainability',
               ].map((item) => (
-                <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+                <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-600">
                   {item}
                 </div>
               ))}

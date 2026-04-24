@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
               {currentLang === 'az' ? 'Sürətli keçidlər' : currentLang === 'es' ? 'Enlaces' : 'Quick links'}
             </h3>
             <div className="mt-4 grid gap-3">
@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
               {currentLang === 'az' ? 'Əlaqə' : currentLang === 'es' ? 'Contacto' : 'Contact'}
             </h3>
             <div className="mt-4 space-y-4">

@@ -102,8 +102,8 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, isDark, onContactClick 
               : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-100'
           }`}
         />
-        <div className="absolute left-[-10rem] top-16 h-72 w-72 rounded-full bg-zinc-400/10 blur-3xl dark:bg-zinc-500/10" />
-        <div className="absolute right-[-6rem] top-1/3 h-64 w-64 -translate-y-1/2 rounded-full bg-zinc-500/10 blur-3xl dark:bg-zinc-400/12" />
+        <div className="absolute left-[-10rem] top-16 h-72 w-72 rounded-full bg-zinc-400/10 blur-3xl" />
+        <div className="absolute right-[-6rem] top-1/3 h-64 w-64 -translate-y-1/2 rounded-full bg-zinc-500/10 blur-3xl" />
         <div className="absolute bottom-0 right-[-8rem] h-72 w-72 rounded-full bg-zinc-900/20 blur-3xl" />
       </div>
 

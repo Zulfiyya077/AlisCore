@@ -41,15 +41,15 @@ export default function ContactPage() {
     <PageShell>
       <JsonLd data={contactSchema} />
 
-      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
             Contact
           </p>
-          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950 dark:text-white">
+          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950">
             Start with a focused conversation about your goals, bottlenecks, and timeline
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
             The fastest way to start is by sharing your business context and current
             challenge. From there, AlisCore can recommend the best next step.
           </p>
@@ -59,8 +59,8 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <div className="premium-panel rounded-3xl p-8 sm:p-10">
-            <h2 className="text-2xl font-semibold text-zinc-950 dark:text-white">Send an inquiry</h2>
-            <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-300">
+            <h2 className="text-2xl font-semibold text-zinc-950">Send an inquiry</h2>
+            <p className="mt-3 leading-7 text-zinc-600">
               Share enough context for a senior engineer to understand scope, urgency, and constraints.
             </p>
             <div className="mt-8">
@@ -70,21 +70,21 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <div className="premium-panel rounded-3xl p-8">
-              <h2 className="text-2xl font-semibold text-zinc-950 dark:text-white">Direct contact</h2>
-              <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-300">
+              <h2 className="text-2xl font-semibold text-zinc-950">Direct contact</h2>
+              <p className="mt-4 leading-7 text-zinc-600">
                 Prefer email or phone first? Reach out directly and reference your timeline and industry.
               </p>
               <div className="mt-8 space-y-4">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-3 rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:bg-zinc-900"
+                  className="flex items-center gap-3 rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-700 transition-colors hover:bg-zinc-200"
                 >
                   <Mail className="h-4 w-4" />
                   <span>{siteConfig.email}</span>
                 </a>
                 <a
                   href={`tel:${siteConfig.phone.replace(/[^\d+]/g, '')}`}
-                  className="flex items-center gap-3 rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:bg-zinc-900"
+                  className="flex items-center gap-3 rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-700 transition-colors hover:bg-zinc-200"
                 >
                   <Phone className="h-4 w-4" />
                   <span>{siteConfig.phone}</span>
@@ -92,10 +92,10 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl bg-gradient-to-r from-zinc-50 to-zinc-100 p-8 ring-1 ring-zinc-300/50 dark:from-zinc-900 dark:to-zinc-950 dark:ring-zinc-700/60">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">Prefer a live call?</p>
-              <h3 className="mt-3 text-xl font-semibold text-zinc-950 dark:text-white">Book a strategy call</h3>
-              <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-300">
+            <div className="rounded-3xl bg-gradient-to-r from-zinc-50 to-zinc-100 p-8 ring-1 ring-zinc-300/50">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">Prefer a live call?</p>
+              <h3 className="mt-3 text-xl font-semibold text-zinc-950">Book a strategy call</h3>
+              <p className="mt-3 leading-7 text-zinc-600">
                 Use the calendar link to pick a time that works for your team.
               </p>
               <a
@@ -108,8 +108,8 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/40">
-              <h2 className="text-2xl font-semibold text-zinc-950 dark:text-white">What to include</h2>
+            <div className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-semibold text-zinc-950">What to include</h2>
               <div className="mt-6 space-y-4">
                 {[
                   'A short description of the business problem',
@@ -117,7 +117,7 @@ export default function ContactPage() {
                   'The systems, tools, or workflows involved',
                   'Any idea of budget or delivery expectations',
                 ].map((item) => (
-                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-4 text-zinc-600">
                     {item}
                   </div>
                 ))}

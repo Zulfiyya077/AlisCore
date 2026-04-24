@@ -97,7 +97,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
                   : 'glass-effect border border-white/50 shadow-lg'
               }`}
             >
-              <div className="mb-4 inline-flex rounded-full bg-zinc-900 px-3 py-1 text-xs font-semibold text-white ring-1 ring-zinc-600/50 dark:bg-white dark:text-zinc-950">
+              <div className="mb-4 inline-flex rounded-full bg-zinc-900 px-3 py-1 text-xs font-semibold text-white ring-1 ring-zinc-600/50">
                 {index === 0 ? 'Healthcare' : index === 1 ? 'E-commerce' : 'Startup'}
               </div>
               <h3 className={`text-2xl font-semibold ${isDark ? 'text-white' : 'text-zinc-950'}`}>

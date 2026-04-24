@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { NavigationProgress } from "@/components/layout/NavigationProgress";
@@ -27,9 +28,9 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: dark)", color: "#ffffff" },
   ],
-  colorScheme: "light dark",
+  colorScheme: "light",
 };
 
 // ─── SEO Metadata ───────────────────────────────────────────
@@ -190,6 +191,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
+        <Script id="force-light-mode" strategy="beforeInteractive">
+          {`
+            try {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('theme-preference', 'light');
+            } catch (e) {}
+          `}
+        </Script>
         <NavigationProgress />
         <AnalyticsProvider />
         {children}

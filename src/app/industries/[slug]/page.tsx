@@ -58,37 +58,37 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
     <PageShell>
       <JsonLd data={industrySchema} />
 
-      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link href="/industries" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+          <Link href="/industries" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-700">
             <ArrowLeft className="h-4 w-4" />
             Back to industries
           </Link>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
             Industry Focus
           </p>
-          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950 dark:text-white">
+          <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950">
             {industry.title}
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600 dark:text-zinc-300">{industry.hero}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600">{industry.hero}</p>
         </div>
       </section>
 
       <section className="py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8">
           <div className="space-y-8">
-            <div className="rounded-3xl bg-gradient-to-r from-zinc-50 to-zinc-100 p-8 ring-1 ring-zinc-300/50 dark:from-zinc-900 dark:to-zinc-950 dark:ring-zinc-700/60">
-              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
+            <div className="rounded-3xl bg-gradient-to-r from-zinc-50 to-zinc-100 p-8 ring-1 ring-zinc-300/50">
+              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700">
                 Why this niche matters
               </div>
-              <p className="mt-4 text-lg leading-8 text-zinc-600 dark:text-zinc-300">{industry.summary}</p>
+              <p className="mt-4 text-lg leading-8 text-zinc-600">{industry.summary}</p>
             </div>
 
             <div className="premium-panel rounded-3xl p-8">
               <h2 className="text-2xl font-semibold">Common challenges</h2>
               <div className="mt-5 space-y-3">
                 {industry.challenges.map((item) => (
-                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600">
                     {item}
                   </div>
                 ))}
@@ -99,7 +99,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
               <h2 className="text-2xl font-semibold">AlisCore approach</h2>
               <div className="mt-5 space-y-3">
                 {industry.solutions.map((item) => (
-                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600">
                     {item}
                   </div>
                 ))}
@@ -112,7 +112,7 @@ export default async function IndustryDetailPage({ params }: IndustryDetailPageP
               <h2 className="text-2xl font-semibold">Why AlisCore is a fit</h2>
               <div className="mt-5 space-y-3">
                 {industry.whyAlisCore.map((item) => (
-                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600 dark:bg-zinc-900/60 dark:text-zinc-300">
+                  <div key={item} className="rounded-2xl bg-zinc-100 px-4 py-3 text-zinc-600">
                     {item}
                   </div>
                 ))}

@@ -123,7 +123,7 @@ export function ContactLeadForm({ leadSource, isDark = false, labels, className 
     }
   };
 
-  const inputClass = `w-full rounded-2xl border px-4 py-3 outline-none transition-shadow focus:ring-2 focus:ring-zinc-500/30 focus:shadow-[0_0_0_3px_rgba(82,82,91,0.16)] dark:focus:ring-zinc-400/30 dark:focus:shadow-[0_0_0_3px_rgba(161,161,170,0.2)] ${
+  const inputClass = `w-full rounded-2xl border px-4 py-3 outline-none transition-shadow focus:ring-2 focus:ring-zinc-500/30 focus:shadow-[0_0_0_3px_rgba(82,82,91,0.16)] ${
     isDark ? 'border-zinc-700 bg-zinc-900/60 text-white' : 'border-zinc-200 bg-white text-zinc-900'
   }`;
 
@@ -209,8 +209,8 @@ export function ContactLeadForm({ leadSource, isDark = false, labels, className 
       </button>
 
       {submitStatus === 'success' && (
-        <div className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-zinc-800 ring-1 ring-emerald-900/15 dark:border-zinc-700 dark:bg-zinc-900/50 dark:text-emerald-100">
-          <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-700 dark:text-emerald-400" />
+        <div className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-zinc-800 ring-1 ring-emerald-900/15">
+          <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-700" />
           <span>{labels.success}</span>
         </div>
       )}

@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavigate(item.key)}
                 className={`rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
                   activeSection === item.key
-                    ? 'bg-zinc-900 text-white ring-1 ring-zinc-500/50 dark:bg-white dark:text-zinc-950 dark:ring-zinc-400/40'
+                    ? 'bg-zinc-900 text-white ring-1 ring-zinc-500/50'
                     : isDark
                       ? 'text-zinc-300 hover:bg-zinc-800 hover:text-white'
                       : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
@@ -185,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => handleNavigate(item.key)}
                   className={`rounded-xl px-4 py-3 text-left text-sm font-medium ${
                     activeSection === item.key
-                      ? 'bg-zinc-900 text-white ring-1 ring-zinc-500/50 dark:bg-white dark:text-zinc-950 dark:ring-zinc-400/40'
+                      ? 'bg-zinc-900 text-white ring-1 ring-zinc-500/50'
                       : isDark
                         ? 'text-zinc-300 hover:bg-zinc-800'
                         : 'text-zinc-700 hover:bg-zinc-100'

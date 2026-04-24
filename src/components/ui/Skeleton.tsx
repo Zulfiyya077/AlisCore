@@ -17,7 +17,7 @@ const roundedMap = {
 export function Skeleton({ className = '', rounded = 'md', ...props }: SkeletonProps) {
   return (
     <div
-      className={`skeleton-pulse bg-zinc-200/80 dark:bg-zinc-800/90 ${roundedMap[rounded]} ${className}`}
+      className={`skeleton-pulse bg-zinc-200/80 ${roundedMap[rounded]} ${className}`}
       aria-hidden
       {...props}
     />
@@ -36,7 +36,7 @@ export function SkeletonText({ className = '', lines = 3 }: { className?: string
 
 export function SkeletonCard({ className = '' }: { className?: string }) {
   return (
-    <div className={`space-y-4 rounded-3xl border border-zinc-200/80 bg-white/50 p-6 dark:border-zinc-800 dark:bg-zinc-900/40 ${className}`}>
+    <div className={`space-y-4 rounded-3xl border border-zinc-200/80 bg-white/50 p-6 ${className}`}>
       <Skeleton className="h-10 w-10" rounded="lg" />
       <Skeleton className="h-5 w-3/4" />
       <SkeletonText lines={2} />
