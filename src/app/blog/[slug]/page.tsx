@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     description: post.seoDescription,
     path: `/blog/${post.slug}`,
     type: 'article',
-    keywords: [post.category, post.title, 'business software insights'],
+    keywords: [post.targetKeyword, ...post.supportingKeywords, post.category, 'network administration services'],
   });
 }
 
@@ -42,10 +42,13 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
   const contentProvider = getContentProvider();
   const post = await contentProvider.getBlogPostBySlug(slug);
+  const services = await contentProvider.getServices();
 
   if (!post) {
     notFound();
   }
+
+  const relatedServices = services.filter((service) => post.relatedServiceSlugs.includes(service.slug));
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -72,27 +75,27 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     <PageShell>
       <JsonLd data={articleSchema} />
 
-      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20">
+      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
+          <Link href="/blog" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
             <ArrowLeft className="h-4 w-4" />
             Back to blog
           </Link>
-          <div className="mb-4 flex items-center gap-3 text-sm text-slate-500">
-            <span className="rounded-full bg-zinc-100 px-3 py-1 font-semibold text-emerald-900 ring-1 ring-emerald-900/15">
+          <div className="mb-4 flex items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
+            <span className="rounded-full bg-zinc-100 px-3 py-1 font-semibold text-zinc-700 ring-1 ring-zinc-300/60 dark:bg-zinc-900/70 dark:text-zinc-300 dark:ring-zinc-700/60">
               {post.category}
             </span>
             <span>{post.publishedAt}</span>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{post.title}</h1>
-          <p className="mt-6 text-lg leading-8 text-slate-600">{post.summary}</p>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-950 dark:text-white">{post.title}</h1>
+          <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-300">{post.summary}</p>
         </div>
       </section>
 
       <article className="py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="premium-panel rounded-3xl p-8 sm:p-10">
-            <p className="border-l-4 border-emerald-800 pl-5 text-lg leading-8 text-slate-600">
+            <p className="border-l-4 border-zinc-500 pl-5 text-lg leading-8 text-zinc-600 dark:text-zinc-300">
               {post.excerpt}
             </p>
             <div className="article-content mt-10">
@@ -104,16 +107,34 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               ))}
             </div>
 
-            <div className="mt-12 rounded-3xl bg-gradient-to-r from-zinc-50 to-emerald-50/50 p-6 ring-1 ring-emerald-900/10">
-              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-900">
+            <div className="mt-10 rounded-3xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-700 dark:bg-zinc-900/40">
+              <h3 className="text-xl font-semibold text-zinc-950 dark:text-white">Related services</h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+                If this topic matches your current priority, start with one of these service tracks:
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {relatedServices.map((service) => (
+                  <Link
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    className="rounded-xl border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12 rounded-3xl bg-gradient-to-r from-zinc-50 to-zinc-100 p-6 ring-1 ring-zinc-300/60 dark:from-zinc-900 dark:to-zinc-950 dark:ring-zinc-700/60">
+              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-700 dark:text-zinc-300">
                 Next step
               </div>
-              <h3 className="mt-3 text-2xl font-semibold text-slate-950">
+              <h3 className="mt-3 text-2xl font-semibold text-zinc-950 dark:text-white">
                 Want to apply this thinking to your business?
               </h3>
-              <p className="mt-3 leading-7 text-slate-600">
-                If you are evaluating software, automation, or modernization priorities,
-                AlisCore can help shape the right next move.
+              <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-300">
+                If you are evaluating network upgrades, support process maturity, cybersecurity controls,
+                or disaster recovery priorities, AlisCore can help shape the right next move.
               </p>
               <Link
                 href="/contact"

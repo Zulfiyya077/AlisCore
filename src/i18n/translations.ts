@@ -8,9 +8,9 @@ export const translations = {
     },
     hero: {
       title: 'AlisCore',
-      subtitle: 'US biznesləri üçün custom software və IT həlləri',
+      subtitle: 'US biznesləri üçün network administration və IT infrastruktur xidmətləri',
       description:
-        'Artımı yavaşladan manual prosesləri, köhnə sistemləri və əlaqəsiz alətləri daha sürətli, ölçülə bilən və etibarlı rəqəmsal həllərlə əvəz edirik.',
+        'Şəbəkə sabitliyi, helpdesk, server idarəetməsi və təhlükəsizlik nəzarəti ilə əməliyyat riskini azaldır, işin davamlılığını gücləndiririk.',
       cta: 'Strategy Call Sifariş Et',
     },
     about: {
@@ -27,31 +27,31 @@ export const translations = {
     },
     services: {
       title: 'Əsas Xidmətlər',
-      subtitle: 'Growth üçün qurulmuş digital execution',
+      subtitle: 'Network-first IT idarəetmə modeli',
       items: [
         {
-          title: 'Custom Software Development',
-          description: 'Komandanızın iş axınlarına uyğun daxili sistemlər, portal-lar və biznes tətbiqləri hazırlayırıq.',
+          title: 'Network Setup & Management',
+          description: 'Ofis və filial şəbəkələrinin qurulması, VLAN/firewall konfiqurasiyası və davamlı monitorinq.',
         },
         {
-          title: 'Web Application Development',
-          description: 'Sürətli, təhlükəsiz və SEO-friendly web platformalar və SaaS məhsulları qururuq.',
+          title: 'IT Support (Helpdesk)',
+          description: 'Gündəlik istifadəçi problemləri üçün ticket əsaslı operativ dəstək və eskalasiya idarəetməsi.',
         },
         {
-          title: 'Workflow Automation',
-          description: 'Manual əməliyyatları azaltmaq və məhsuldarlığı artırmaq üçün prosesləri avtomatlaşdırırıq.',
+          title: 'Cybersecurity',
+          description: 'MFA, endpoint, firewall və e-mail təhlükəsizlik bazası ilə riskin azaldılması.',
         },
         {
-          title: 'Cloud & Legacy Modernization',
-          description: 'Köhnə sistemləri modern, etibarlı və future-ready arxitekturaya keçiririk.',
+          title: 'Server & System Administration',
+          description: 'Windows/Linux serverlər üçün patching, AD idarəetməsi və performans nəzarəti.',
         },
         {
-          title: 'UX/UI Design for Conversion',
-          description: 'Daha çox lead və daha yaxşı user experience gətirən interfeyslər dizayn edirik.',
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Microsoft 365 və Google Workspace tenant quruluşu, migration və governance.',
         },
         {
-          title: 'Discovery & Product Strategy',
-          description: 'Layihə başlamazdan əvvəl scope, prioritetlər və riskləri aydınlaşdırırıq.',
+          title: 'Backup, DR & VPN',
+          description: 'Backup siyasəti, bərpa testləri və təhlükəsiz uzaq giriş/VPN arxitekturası.',
         },
       ],
     },
@@ -117,9 +117,9 @@ export const translations = {
     },
     hero: {
       title: 'AlisCore',
-      subtitle: 'Custom software and IT solutions for growing US businesses',
+      subtitle: 'Network administration and IT infrastructure services for growing US businesses',
       description:
-        'We replace manual workflows, disconnected tools, and outdated systems with modern digital solutions built for efficiency, scale, and measurable growth.',
+        'We improve operational reliability with network management, helpdesk support, server administration, and practical cybersecurity controls.',
       cta: 'Book a Strategy Call',
     },
     about: {
@@ -136,31 +136,31 @@ export const translations = {
     },
     services: {
       title: 'Core Services',
-      subtitle: 'Built to solve operational and growth bottlenecks',
+      subtitle: 'Network-first IT operations model',
       items: [
         {
-          title: 'Custom Software Development',
-          description: 'Tailored business systems, portals, and internal tools designed around your workflows and growth goals.',
+          title: 'Network Setup & Management',
+          description: 'Network design, firewall/switch configuration, segmentation, and proactive monitoring.',
         },
         {
-          title: 'Web Application Development',
-          description: 'Fast, secure, and scalable web apps for customer platforms, internal operations, and SaaS products.',
+          title: 'IT Support (Helpdesk)',
+          description: 'Ticket-based user support with clear escalation paths and response accountability.',
         },
         {
-          title: 'Workflow Automation',
-          description: 'Automation that reduces manual work, connects systems, and removes friction across daily operations.',
+          title: 'Cybersecurity',
+          description: 'Practical hardening for identity, endpoint, firewall, and email security posture.',
         },
         {
-          title: 'Cloud & Legacy Modernization',
-          description: 'Modernize aging systems and move critical workflows onto reliable, scalable infrastructure.',
+          title: 'Server & System Administration',
+          description: 'Reliable server lifecycle management, patching, access controls, and monitoring.',
         },
         {
-          title: 'UX/UI Design for Conversion',
-          description: 'User experiences that increase adoption, improve clarity, and support lead generation.',
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Microsoft 365 and Google Workspace setup, migration, governance, and support.',
         },
         {
-          title: 'Discovery & Product Strategy',
-          description: 'Clarify scope, priorities, architecture, and delivery risks before development begins.',
+          title: 'Backup, DR & VPN',
+          description: 'Tested backups, disaster recovery planning, and secure remote access architecture.',
         },
       ],
     },
@@ -226,9 +226,9 @@ export const translations = {
     },
     hero: {
       title: 'AlisCore',
-      subtitle: 'Software a medida y soluciones IT para empresas en crecimiento',
+      subtitle: 'Servicios de administracion de redes e infraestructura IT para empresas en crecimiento',
       description:
-        'Reemplazamos procesos manuales, herramientas desconectadas y sistemas obsoletos con soluciones digitales modernas orientadas a eficiencia y crecimiento.',
+        'Mejoramos la continuidad operativa con gestion de red, helpdesk, administracion de servidores y controles practicos de ciberseguridad.',
       cta: 'Reservar una llamada',
     },
     about: {
@@ -245,31 +245,31 @@ export const translations = {
     },
     services: {
       title: 'Servicios principales',
-      subtitle: 'Pensados para resolver cuellos de botella',
+      subtitle: 'Modelo IT orientado a red y operaciones',
       items: [
         {
-          title: 'Desarrollo de software a medida',
-          description: 'Sistemas empresariales, portales y herramientas internas adaptadas a tus procesos.',
+          title: 'Network Setup & Management',
+          description: 'Diseno de red, configuracion de firewall/switch, segmentacion y monitoreo continuo.',
         },
         {
-          title: 'Desarrollo de aplicaciones web',
-          description: 'Aplicaciones web rapidas, seguras y escalables para clientes, operaciones o SaaS.',
+          title: 'IT Support (Helpdesk)',
+          description: 'Soporte diario por tickets con escalamiento claro y tiempos de respuesta definidos.',
         },
         {
-          title: 'Automatizacion de flujos',
-          description: 'Automatizaciones que reducen trabajo manual y conectan procesos clave.',
+          title: 'Cybersecurity',
+          description: 'Endurecimiento practico de identidad, endpoints, firewall y correo corporativo.',
         },
         {
-          title: 'Modernizacion cloud y legacy',
-          description: 'Actualizamos sistemas antiguos y migramos procesos criticos a infraestructura escalable.',
+          title: 'Server & System Administration',
+          description: 'Administracion confiable de servidores, parches, accesos y monitoreo operativo.',
         },
         {
-          title: 'UX/UI orientado a conversion',
-          description: 'Interfaces claras que mejoran adopcion, confianza y conversion.',
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Implementacion, migracion y gobierno de Microsoft 365 y Google Workspace.',
         },
         {
-          title: 'Discovery y estrategia de producto',
-          description: 'Definimos alcance, prioridades y riesgos antes de iniciar el desarrollo.',
+          title: 'Backup, DR & VPN',
+          description: 'Backups verificados, plan de recuperacion y acceso remoto seguro por VPN.',
         },
       ],
     },

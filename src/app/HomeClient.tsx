@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import type { Language } from '@/types';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -17,20 +18,27 @@ import { Contact } from '@/components/sections/Contact';
 import { HomepageSkeleton } from '@/components/layout/HomepageSkeleton';
 
 export default function HomeClient() {
+  const searchParams = useSearchParams();
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [activeSection, setActiveSection] = useState('home');
   const [isClient, setIsClient] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark } = useTheme();
 
   // Client-side mounting check
   useEffect(() => {
     setIsClient(true);
+    const queryLang = searchParams.get('lang') as Language | null;
+    if (queryLang && ['az', 'en', 'es'].includes(queryLang)) {
+      setCurrentLang(queryLang);
+      localStorage.setItem('preferred-language', queryLang);
+      return;
+    }
     // Load saved language
     const savedLang = localStorage.getItem('preferred-language') as Language;
     if (savedLang && ['az', 'en', 'es'].includes(savedLang)) {
       setCurrentLang(savedLang);
     }
-  }, []);
+  }, [searchParams]);
 
   // Scroll to section function
   const scrollToSection = (sectionId: string) => {
@@ -77,6 +85,9 @@ export default function HomeClient() {
     setCurrentLang(lang);
     if (isClient) {
       localStorage.setItem('preferred-language', lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
     }
   };
 
@@ -91,7 +102,6 @@ export default function HomeClient() {
           currentLang={currentLang}
           onLangChange={handleLanguageChange}
           isDark={isDark}
-          onThemeToggle={toggleTheme}
           activeSection={activeSection}
           onNavigate={scrollToSection}
         />

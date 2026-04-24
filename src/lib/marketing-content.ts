@@ -42,6 +42,9 @@ export interface BlogPostContent {
   slug: string;
   title: string;
   category: string;
+  targetKeyword: string;
+  supportingKeywords: string[];
+  relatedServiceSlugs: string[];
   summary: string;
   excerpt: string;
   publishedAt: string;
@@ -391,124 +394,168 @@ export const industryPages: IndustryPageContent[] = [
 
 export const blogPosts: BlogPostContent[] = [
   {
-    slug: 'custom-software-vs-off-the-shelf-tools',
-    title: 'Custom Software vs Off-the-Shelf Tools',
-    category: 'Strategy',
+    slug: 'how-to-design-a-reliable-smb-network',
+    title: 'How to Design a Reliable SMB Network',
+    category: 'Network Operations',
+    targetKeyword: 'smb network setup',
+    supportingKeywords: [
+      'network administration services',
+      'office network design',
+      'managed network monitoring',
+    ],
+    relatedServiceSlugs: [
+      'network-setup-management',
+      'server-system-administration',
+      'cybersecurity-hardening',
+    ],
     summary:
-      'How growing businesses can evaluate when to keep using generic tools and when custom software becomes the better investment.',
+      'A practical framework for building office and branch networks that stay stable under real operational load.',
     excerpt:
-      'Off-the-shelf tools are fast to adopt, but they can create friction as a business scales. This guide explains when custom software starts making more sense.',
+      'Most small business outages are design issues, not hardware issues. Here is how to avoid them before they become recurring incidents.',
     publishedAt: '2026-04-15',
     sections: [
       {
-        heading: 'Where off-the-shelf tools work well',
+        heading: 'Start with topology and traffic reality',
         body:
-          'Generic software is often the right choice when a business is early, the process is standard, and the team needs speed over customization.',
+          'Document WAN, LAN, VLAN, and critical business traffic first. Without this baseline, scaling decisions become guesswork.',
       },
       {
-        heading: 'Where custom software starts winning',
+        heading: 'Segment early, not after incidents',
         body:
-          'Once operations become process-heavy, multi-step, or unique to the business model, custom software can reduce friction and create stronger visibility.',
+          'Separate user devices, guest traffic, servers, and management networks early. Basic segmentation reduces blast radius and troubleshooting time.',
       },
       {
-        heading: 'How to decide',
+        heading: 'Treat monitoring as part of deployment',
         body:
-          'The decision should be based on operational pain, growth constraints, and the long-term cost of keeping teams inside tools that no longer fit.',
+          'A network without alerting and log visibility is not production-ready. Monitoring should launch on day one, not after first downtime.',
       },
     ],
-    seoTitle: 'Custom Software vs Off-the-Shelf Tools',
+    seoTitle: 'How to Design a Reliable SMB Network',
     seoDescription:
-      'Learn when growing businesses should move from generic software tools to custom software solutions.',
+      'Learn practical network design steps for SMB environments to reduce outages and improve operational reliability.',
   },
   {
-    slug: 'how-workflow-automation-reduces-operational-friction',
-    title: 'How Workflow Automation Reduces Operational Friction',
-    category: 'Automation',
+    slug: 'what-an-it-helpdesk-needs-to-run-well',
+    title: 'What an IT Helpdesk Needs to Run Well',
+    category: 'IT Support',
+    targetKeyword: 'managed it helpdesk',
+    supportingKeywords: [
+      'it support for smb',
+      'helpdesk triage process',
+      'it escalation model',
+    ],
+    relatedServiceSlugs: [
+      'it-support-helpdesk',
+      'server-system-administration',
+      'cloud-solutions-m365-google-workspace',
+    ],
     summary:
-      'A practical look at how automation improves speed, consistency, and team capacity across daily business operations.',
+      'Helpdesk quality depends on process discipline more than tool count. These are the standards that actually matter.',
     excerpt:
-      'Operational friction often hides inside repetitive tasks and disconnected handoffs. Workflow automation helps remove that drag.',
+      'If support depends on one person memory, service quality will break under load. Use this model to create a dependable support operation.',
     publishedAt: '2026-04-15',
     sections: [
       {
-        heading: 'Why friction grows over time',
+        heading: 'Ticket triage must be predictable',
         body:
-          'As teams expand and tools multiply, manual processes become harder to manage. That creates more follow-up work, more delays, and more errors.',
+          'Define incident categories, priorities, and expected response windows. Clear triage rules remove daily chaos from support operations.',
       },
       {
-        heading: 'What automation should target first',
+        heading: 'Escalation paths should be explicit',
         body:
-          'The best automation targets repetitive coordination, status updates, routing, reconciliation, and reporting tasks that waste team time.',
+          'Document who owns endpoint issues, identity access, network incidents, and vendor tickets. Escalation clarity reduces MTTR.',
       },
       {
-        heading: 'What businesses gain',
+        heading: 'Use monthly support reporting',
         body:
-          'The main value is not just speed. It is cleaner operations, better consistency, and more capacity for higher-value work.',
+          'Track recurring ticket themes, response times, and unresolved categories. Reporting turns support from reactive work into continuous improvement.',
       },
     ],
-    seoTitle: 'How Workflow Automation Reduces Operational Friction',
+    seoTitle: 'What an IT Helpdesk Needs to Run Well',
     seoDescription:
-      'See how workflow automation helps businesses reduce manual work, improve consistency, and scale operations.',
+      'Build a practical IT helpdesk model with triage standards, escalation ownership, and reporting that improves service quality.',
   },
   {
-    slug: 'what-a-discovery-sprint-should-actually-produce',
-    title: 'What a Discovery Sprint Should Actually Produce',
-    category: 'Delivery',
+    slug: 'cybersecurity-baseline-for-growing-businesses',
+    title: 'Cybersecurity Baseline for Growing Businesses',
+    category: 'Cybersecurity',
+    targetKeyword: 'smb cybersecurity baseline',
+    supportingKeywords: [
+      'mfa policy for small business',
+      'firewall hardening checklist',
+      'endpoint security standards',
+    ],
+    relatedServiceSlugs: [
+      'cybersecurity-hardening',
+      'network-setup-management',
+      'backup-disaster-recovery-vpn',
+    ],
     summary:
-      'A discovery sprint should reduce delivery risk, clarify scope, and help teams make better product and architecture decisions before development starts.',
+      'Security maturity starts with repeatable controls, not expensive tooling. This baseline covers what SMB teams should implement first.',
     excerpt:
-      'If discovery ends with vague notes and no decisions, it did not do its job. Here is what a strong discovery sprint should actually produce.',
+      'Most incidents exploit basic gaps: weak identity controls, missing patching standards, and poor email hygiene.',
     publishedAt: '2026-04-15',
     sections: [
       {
-        heading: 'Clarity before commitment',
+        heading: 'Identity is your first perimeter',
         body:
-          'The main purpose of discovery is to align goals, constraints, user needs, and delivery assumptions before a project moves into build mode.',
+          'Enforce MFA, review privileged accounts, and standardize access lifecycle processes. Identity controls reduce risk faster than most tooling upgrades.',
       },
       {
-        heading: 'Outputs that matter',
+        heading: 'Patch and endpoint hygiene are non-negotiable',
         body:
-          'Good discovery should produce a scoped roadmap, clear priorities, user flow direction, technical assumptions, and visible risks.',
+          'Define patch windows, endpoint security baseline, and exception handling. Consistency matters more than occasional deep cleanups.',
       },
       {
-        heading: 'Why it protects budget',
+        heading: 'Email and firewall policy need routine review',
         body:
-          'Without structured discovery, teams tend to discover misalignment too late, after time and money have already been committed.',
+          'SPF, DKIM, DMARC, and firewall rules should be reviewed on cadence. Most avoidable exposure lives in stale policy.',
       },
     ],
-    seoTitle: 'What a Discovery Sprint Should Produce',
+    seoTitle: 'Cybersecurity Baseline for Growing Businesses',
     seoDescription:
-      'Understand the real outputs of a strong discovery sprint and how it reduces software project risk.',
+      'Implement practical SMB cybersecurity controls across identity, endpoint, email, and firewall policy.',
   },
   {
-    slug: 'signs-your-legacy-system-is-blocking-growth',
-    title: 'Signs Your Legacy System Is Blocking Growth',
-    category: 'Modernization',
+    slug: 'backup-and-disaster-recovery-checklist-for-smbs',
+    title: 'Backup and Disaster Recovery Checklist for SMBs',
+    category: 'Business Continuity',
+    targetKeyword: 'backup disaster recovery smb',
+    supportingKeywords: [
+      'rto rpo planning',
+      'backup restore testing',
+      'business continuity it',
+    ],
+    relatedServiceSlugs: [
+      'backup-disaster-recovery-vpn',
+      'server-system-administration',
+      'cloud-solutions-m365-google-workspace',
+    ],
     summary:
-      'Legacy systems often create hidden operational and technical costs long before a business decides to replace them.',
+      'Backups are only useful when restore workflows are tested. Use this checklist to validate readiness before an incident.',
     excerpt:
-      'A legacy system does not need to crash to become a problem. Often it simply slows down growth, visibility, and change.',
+      'Many teams discover backup gaps only during downtime. A tested DR process is what separates recovery from prolonged outage.',
     publishedAt: '2026-04-15',
     sections: [
       {
-        heading: 'Operational warning signs',
+        heading: 'Define clear RTO and RPO targets',
         body:
-          'If teams rely on workarounds, duplicate data entry, or manual reporting because a system cannot adapt, the platform is already creating hidden cost.',
+          'Recovery targets should be documented per system. Without RTO/RPO alignment, backup tooling cannot be validated against business expectations.',
       },
       {
-        heading: 'Technical warning signs',
+        heading: 'Test restore procedures on schedule',
         body:
-          'Fragile integrations, slow change cycles, and poor maintainability are strong indicators that modernization should be evaluated.',
+          'Run restore drills quarterly and verify data integrity. Successful backup jobs do not guarantee successful recovery.',
       },
       {
-        heading: 'How to approach modernization',
+        heading: 'Secure remote access for incident mode',
         body:
-          'Modernization should be driven by business constraints, not just technical frustration. A staged roadmap is often safer than a total reset.',
+          'During outages, teams rely on remote access. Ensure VPN and admin pathways are hardened and tested as part of DR readiness.',
       },
     ],
-    seoTitle: 'Signs Your Legacy System Is Blocking Growth',
+    seoTitle: 'Backup and Disaster Recovery Checklist for SMBs',
     seoDescription:
-      'Learn the operational and technical signs that a legacy system is limiting business growth.',
+      'Use this practical SMB backup and disaster recovery checklist to improve restore confidence and operational resilience.',
   },
 ];
 

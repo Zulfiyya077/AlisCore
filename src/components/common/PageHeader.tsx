@@ -1,29 +1,70 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Globe, Moon, Sun } from 'lucide-react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Globe } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useTheme } from '@/hooks/useTheme';
 import { primaryRoutes } from '@/lib/navigation';
 import { siteConfig } from '@/lib/site';
 
 export function PageHeader() {
   const pathname = usePathname();
-  const { isDark, toggleTheme } = useTheme();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [lang, setLang] = useState<'en' | 'az' | 'es'>('en');
 
   useEffect(() => {
+    const queryLang = searchParams.get('lang');
+    if (queryLang === 'az' || queryLang === 'en' || queryLang === 'es') {
+      setLang(queryLang);
+      localStorage.setItem('preferred-language', queryLang);
+      return;
+    }
     const savedLang = localStorage.getItem('preferred-language');
     if (savedLang === 'az' || savedLang === 'en' || savedLang === 'es') {
       setLang(savedLang);
     }
-  }, []);
+  }, [searchParams]);
 
   const onLangChange = (value: 'en' | 'az' | 'es') => {
     setLang(value);
     localStorage.setItem('preferred-language', value);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('lang', value);
+    router.replace(`${pathname}?${params.toString()}`);
   };
+
+  const withLang = (href: string) => `${href}?lang=${lang}`;
+  const routeLabels =
+    lang === 'az'
+      ? {
+          '/': 'Ana səhifə',
+          '/services': 'Xidmətlər',
+          '/industries': 'Sahələr',
+          '/case-studies': 'Case Studylər',
+          '/blog': 'Blog',
+          '/about': 'Haqqımızda',
+          '/contact': 'Əlaqə',
+        }
+      : lang === 'es'
+        ? {
+            '/': 'Inicio',
+            '/services': 'Servicios',
+            '/industries': 'Industrias',
+            '/case-studies': 'Casos',
+            '/blog': 'Blog',
+            '/about': 'Acerca de',
+            '/contact': 'Contacto',
+          }
+        : {
+            '/': 'Home',
+            '/services': 'Services',
+            '/industries': 'Industries',
+            '/case-studies': 'Case Studies',
+            '/blog': 'Blog',
+            '/about': 'About',
+            '/contact': 'Contact',
+          };
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200/90 bg-white/95 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/95">
@@ -43,7 +84,7 @@ export function PageHeader() {
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={withLang(item.href)}
                 scroll
                 className={`rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
                   isActive
@@ -51,7 +92,7 @@ export function PageHeader() {
                     : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white'
                 }`}
               >
-                {item.label}
+                {routeLabels[item.href as keyof typeof routeLabels] ?? item.label}
               </Link>
             );
           })}
@@ -72,20 +113,12 @@ export function PageHeader() {
             </select>
           </div>
 
-          <button
-            onClick={toggleTheme}
-            className="rounded-xl bg-zinc-100 p-2.5 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-200"
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </button>
-
           <Link
-            href="/contact"
+            href={withLang('/contact')}
             scroll
             className="btn-modern rounded-xl px-5 py-2.5 text-sm font-semibold text-white"
           >
-            Book Call
+            {lang === 'az' ? 'Zəng sifariş et' : lang === 'es' ? 'Reservar llamada' : 'Book Call'}
           </Link>
         </div>
       </div>

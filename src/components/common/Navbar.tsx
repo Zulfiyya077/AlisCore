@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Globe, Menu, Moon, Sun, X } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 import type { Language } from '../../types';
 
 interface NavbarProps {
   currentLang: Language;
   onLangChange: (lang: Language) => void;
   isDark: boolean;
-  onThemeToggle: () => void;
   activeSection: string;
   onNavigate: (section: string) => void;
 }
@@ -16,10 +15,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   currentLang,
   onLangChange,
   isDark,
-  onThemeToggle,
   activeSection,
   onNavigate,
 }) => {
+  const withLang = (href: string) => `${href}?lang=${currentLang}`;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : (
               <Link
                 key={item.key}
-                href={item.href}
+                href={withLang(item.href)}
                 scroll
                 className={`rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
                   isDark
@@ -155,19 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </select>
           </div>
 
-          <button
-            onClick={onThemeToggle}
-            className={`rounded-xl p-2.5 ${
-              isDark
-                ? 'bg-zinc-900 text-zinc-200'
-                : 'bg-zinc-100 text-zinc-700'
-            }`}
-            aria-label="Toggle theme"
-          >
-            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </button>
-
-          <Link href="/contact" scroll className="btn-modern rounded-xl px-5 py-2.5 text-sm font-semibold text-white">
+          <Link href={withLang('/contact')} scroll className="btn-modern rounded-xl px-5 py-2.5 text-sm font-semibold text-white">
             {currentLang === 'az' ? 'Əlaqə' : currentLang === 'es' ? 'Contacto' : 'Book Call'}
           </Link>
         </div>
@@ -208,7 +196,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               ) : (
                 <Link
                   key={item.key}
-                  href={item.href}
+                  href={withLang(item.href)}
                   scroll
                   onClick={() => setIsMenuOpen(false)}
                   className={`rounded-xl px-4 py-3 text-left text-sm font-medium ${
@@ -238,14 +226,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <option value="es">Spanish</option>
             </select>
 
-            <button
-              onClick={onThemeToggle}
-              className={`rounded-xl px-4 ${
-                isDark ? 'bg-zinc-900 text-zinc-200' : 'bg-zinc-100 text-zinc-700'
-              }`}
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
           </div>
         </div>
       )}

@@ -2,36 +2,18 @@
 import { useState, useEffect } from 'react';
 
 export const useTheme = () => {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme-preference');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    }
+    // Force light mode globally.
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme-preference', 'light');
   }, []);
 
   const toggleTheme = () => {
-    setIsDark((prev: boolean) => {
-      const newTheme = !prev;
-      
-      if (newTheme) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme-preference', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme-preference', 'light');
-      }
-      
-      return newTheme;
-    });
+    // Disabled intentionally: project is light-mode only.
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme-preference', 'light');
   };
 
   return { isDark, toggleTheme };

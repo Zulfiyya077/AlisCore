@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: 'AlisCore',
   legalName: 'AlisCore IT Solutions',
-  title: 'AlisCore | Custom Software, Automation, and IT Solutions',
+  title: 'AlisCore | Network Administration and IT Infrastructure Solutions',
   description:
-    'AlisCore helps growing US businesses modernize operations with custom software, workflow automation, cloud modernization, and scalable digital solutions.',
+    'AlisCore helps growing US businesses with network setup, managed IT support, cybersecurity hardening, server administration, and resilient infrastructure operations.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://aliscore.com',
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@aliscore.com',
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+1-571-315-9611',
