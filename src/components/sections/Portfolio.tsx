@@ -90,10 +90,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
 
   // Floating IT icons (same style as Hero)
   const floatingIcons = [
-    { icon: Target, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-indigo-400' },
-    { icon: Briefcase, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-emerald-400' },
-    { icon: Award, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-blue-400' },
-    { icon: Calendar, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-cyan-400' },
+    { icon: Target, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: Briefcase, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: Award, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-zinc-400' },
+    { icon: Calendar, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-zinc-400' },
   ];
 
   const nextProject = () => {
@@ -112,13 +112,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
       {/* Background with animated elements (SAME AS HERO) */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-br from-gray-900 via-zinc-900/20 to-zinc-900/10'
+            : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-50'
           }`} />
 
         {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             top: '20%',
@@ -127,7 +127,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
           }}
         />
         <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             bottom: '20%',
@@ -153,10 +153,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
         {/* Mobile floating icons */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Target className="w-5 h-5 text-indigo-400" />
+            <Target className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Award className="w-5 h-5 text-blue-400" />
+            <Award className="w-5 h-5 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
             <p className="text-lg sm:text-xl font-medium text-gradient-blue-green mb-4">
               {t.portfolio.subtitle}
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-zinc-600 to-zinc-600 mx-auto rounded-full" />
           </div>
 
           {/* Featured Project Carousel */}
@@ -193,8 +193,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
                 <div className="space-y-4 lg:space-y-6">
                   <div className="flex items-center justify-between">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${isDark
-                        ? 'bg-blue-900/50 text-blue-300 border border-blue-500/30'
-                        : 'bg-blue-100 text-blue-800 border border-blue-200'
+                        ? 'bg-zinc-900/50 text-zinc-300 border border-zinc-500/30'
+                        : 'bg-zinc-100 text-zinc-800 border border-zinc-200'
                       }`}>
                       {projects[currentProject].category}
                     </span>
@@ -328,7 +328,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
                     key={index}
                     onClick={() => setCurrentProject(index)}
                     className={`transition-all duration-300 ${index === currentProject
-                        ? 'w-6 h-2 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full'
+                        ? 'w-6 h-2 bg-gradient-to-r from-zinc-500 to-zinc-500 rounded-full'
                         : 'w-2 h-2 rounded-full hover:scale-125'
                       } ${index === currentProject
                         ? ''

@@ -34,14 +34,14 @@ export const Hero: React.FC<HeroProps> = ({
 
   // Floating IT icons with different positions and delays
   const floatingIcons = [
-    { icon: Wifi, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-blue-400' },
-    { icon: Database, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1s', color: 'text-emerald-400' },
-    { icon: Globe, size: 'w-7 h-7', position: 'top-48 left-32', delay: '2s', color: 'text-indigo-400' },
-    { icon: Monitor, size: 'w-6 h-6', position: 'bottom-32 right-16', delay: '0.5s', color: 'text-cyan-400' },
-    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-48 left-20', delay: '1.5s', color: 'text-purple-400' },
-    { icon: HardDrive, size: 'w-6 h-6', position: 'top-64 right-32', delay: '2.5s', color: 'text-teal-400' },
-    { icon: Router, size: 'w-5 h-5', position: 'bottom-20 left-40', delay: '3s', color: 'text-blue-300' },
-    { icon: Lock, size: 'w-4 h-4', position: 'top-40 left-64', delay: '0.8s', color: 'text-emerald-300' },
+    { icon: Wifi, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: Database, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1s', color: 'text-zinc-400' },
+    { icon: Globe, size: 'w-7 h-7', position: 'top-48 left-32', delay: '2s', color: 'text-zinc-400' },
+    { icon: Monitor, size: 'w-6 h-6', position: 'bottom-32 right-16', delay: '0.5s', color: 'text-zinc-400' },
+    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-48 left-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: HardDrive, size: 'w-6 h-6', position: 'top-64 right-32', delay: '2.5s', color: 'text-zinc-400' },
+    { icon: Router, size: 'w-5 h-5', position: 'bottom-20 left-40', delay: '3s', color: 'text-zinc-300' },
+    { icon: Lock, size: 'w-4 h-4', position: 'top-40 left-64', delay: '0.8s', color: 'text-zinc-300' },
   ];
 
   return (
@@ -53,14 +53,14 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${
           isDark 
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10' 
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-br from-gray-900 via-zinc-900/20 to-zinc-900/10' 
+            : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-50'
         }`} />
         
         {/* Floating background orbs */}
         <div 
           className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDark ? 'bg-blue-500' : 'bg-blue-300'
+            isDark ? 'bg-zinc-500' : 'bg-zinc-300'
           }`}
           style={{
             top: '20%',
@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({
         />
         <div 
           className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${
-            isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+            isDark ? 'bg-zinc-500' : 'bg-zinc-300'
           }`}
           style={{
             bottom: '20%',
@@ -98,13 +98,13 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Mobile floating icons (simplified) */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Wifi className="w-5 h-5 text-blue-400" />
+            <Wifi className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Database className="w-4 h-4 text-emerald-400" />
+            <Database className="w-4 h-4 text-zinc-400" />
           </div>
           <div className="absolute top-48 right-16 opacity-20 animate-pulse" style={{ animationDelay: '2s' }}>
-            <Globe className="w-6 h-6 text-indigo-400" />
+            <Globe className="w-6 h-6 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -149,8 +149,8 @@ export const Hero: React.FC<HeroProps> = ({
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             className={`px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold border-2 transition-all duration-300 hover:scale-105 ${
               isDark 
-                ? 'border-emerald-500 text-emerald-400 hover:bg-emerald-500/10' 
-                : 'border-blue-500 text-blue-600 hover:bg-blue-500/10'
+                ? 'border-zinc-500 text-zinc-400 hover:bg-zinc-500/10' 
+                : 'border-zinc-500 text-zinc-600 hover:bg-zinc-500/10'
             }`}
           >
             {currentLang === 'az' ? 'Ətraflı' : currentLang === 'en' ? 'Learn More' : 'Más'}
@@ -163,17 +163,17 @@ export const Hero: React.FC<HeroProps> = ({
             { 
               icon: Network, 
               title: currentLang === 'az' ? 'Şəbəkə' : currentLang === 'en' ? 'Network' : 'Red',
-              color: 'from-blue-500 to-cyan-600'
+              color: 'from-zinc-500 to-zinc-600'
             },
             { 
               icon: Shield, 
               title: currentLang === 'az' ? 'Təhlükəsizlik' : currentLang === 'en' ? 'Security' : 'Seguridad',
-              color: 'from-emerald-500 to-teal-600'
+              color: 'from-zinc-500 to-zinc-600'
             },
             { 
               icon: Server, 
               title: currentLang === 'az' ? 'İnfrastruktur' : currentLang === 'en' ? 'Infrastructure' : 'Infraestructura',
-              color: 'from-indigo-500 to-purple-600'
+              color: 'from-zinc-500 to-zinc-600'
             }
           ].map((item, index) => (
             <div 

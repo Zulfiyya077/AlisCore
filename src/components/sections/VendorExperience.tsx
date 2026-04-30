@@ -59,54 +59,54 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
 
   // Floating IT icons (same style as Hero)
   const floatingIcons = [
-    { icon: Trophy, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-yellow-400' },
-    { icon: Target, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-blue-400' },
-    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-emerald-400' },
-    { icon: Server, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-purple-400' },
-    { icon: Monitor, size: 'w-6 h-6', position: 'top-48 left-32', delay: '2.5s', color: 'text-cyan-400' },
+    { icon: Trophy, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: Target, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: Cpu, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-zinc-400' },
+    { icon: Server, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-zinc-400' },
+    { icon: Monitor, size: 'w-6 h-6', position: 'top-48 left-32', delay: '2.5s', color: 'text-zinc-400' },
   ];
 
   const vendors = [
     {
       name: 'Fortinet',
       logo: <img src="https://exceldisc.com/_next/image?url=https%3A%2F%2Fapiv2.exceldisc.com%2Fmedia%2F135327%2FFortinet-logo.png&w=3840&q=75" alt="Fortinet" className="w-full h-full object-contain" />,
-      color: 'from-red-500 to-red-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-slide-in-left'
     },
     {
       name: 'Cisco',
       logo: <img src="https://brandlogos.net/wp-content/uploads/2021/11/cisco_systems-logo.png" alt="Cisco" className="w-full h-full object-contain" />,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-slide-in-top'
     },
     {
       name: 'Aruba',
       logo: <img src="https://www.svgrepo.com/show/354803/aruba.svg" alt="Aruba" className="w-full h-full object-contain" />,
-      color: 'from-orange-500 to-orange-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-bounce-in'
     },
     {
       name: 'HP',
       logo: <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/HP_logo_2008.svg" alt="HP" className="w-full h-full object-contain" />,
-      color: 'from-indigo-500 to-indigo-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-scale-in'
     },
     {
       name: 'TP-Link',
       logo: <img src="https://brandlogos.net/wp-content/uploads/2020/12/tp-link-logo-300x300.png" alt="TP-Link" className="w-full h-full object-contain" />,
-      color: 'from-green-500 to-green-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-slide-in-right'
     },
     {
       name: 'Juniper',
       logo: <img src="https://cdn.freebiesupply.com/logos/thumbs/1x/juniper-networks-logo.png" alt="Juniper" className="w-full h-full object-contain" />,
-      color: 'from-teal-500 to-teal-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-rotate-in'
     },
     {
       name: 'Huawei',
       logo: <img src="https://icon2.cleanpng.com/20180920/aib/kisspng-logo-huawei-169126-network-2311cxh-bc2mfgec-sm212-huawei-logo-vector-ai-svg-eps-pdf-free-graphic-1713938787603.webp" alt="Huawei" className="w-full h-full object-contain" />,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-fade-in-up'
     }
   ];
@@ -116,7 +116,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
       icon: Settings,
       title: currentLang === 'en' ? 'Continuous Support' : currentLang === 'az' ? 'Davamlı Dəstək' : 'Soporte Continuo',
       description: currentLang === 'en' ? 'Continuous technical support after installation' : currentLang === 'az' ? 'Quraşdırılmadan sonra davamlı texniki dəstək' : 'Soporte técnico continuo después de la instalación',
-      color: 'from-green-500 to-green-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-scale-in'
     }
   ];
@@ -144,13 +144,13 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
       {/* Background with animated elements (SAME AS OTHER SECTIONS) */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-tr from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-tr from-gray-900 via-zinc-900/20 to-zinc-900/10'
+            : 'bg-gradient-to-tr from-zinc-50 via-white to-zinc-50'
           }`} />
 
         {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             top: '15%',
@@ -159,7 +159,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
           }}
         />
         <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             bottom: '15%',
@@ -185,10 +185,10 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
         {/* Mobile floating icons */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Trophy className="w-5 h-5 text-yellow-400" />
+            <Trophy className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Target className="w-6 h-6 text-blue-400" />
+            <Target className="w-6 h-6 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
             }`}>
             {t.vendors.subtitle}
           </p>
-          <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
+          <div className={`w-24 h-1 bg-gradient-to-r from-zinc-600 to-zinc-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
             }`} />
         </div>
 
@@ -236,7 +236,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
                     <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
                       {vendor.logo}
                     </div>
-                    <h3 className={`text-xs sm:text-sm font-bold mb-1 group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
+                    <h3 className={`text-xs sm:text-sm font-bold mb-1 group-hover:text-zinc-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
                       }`}>
                       {vendor.name}
                     </h3>
@@ -244,7 +244,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
 
                   {/* Corner Star */}
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                    <Star className="w-3 h-3 text-zinc-400 fill-current" />
                   </div>
                 </div>
               ))}
@@ -272,7 +272,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
                         <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
                           {vendor.logo}
                         </div>
-                        <h3 className={`text-sm font-bold group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
+                        <h3 className={`text-sm font-bold group-hover:text-zinc-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
                           }`}>
                           {vendor.name}
                         </h3>
@@ -280,7 +280,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
 
                       {/* Corner Star */}
                       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                        <Star className="w-3 h-3 text-zinc-400 fill-current" />
                       </div>
                     </div>
                   </div>
@@ -302,7 +302,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
                         <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg border border-gray-200">
                           {vendor.logo}
                         </div>
-                        <h3 className={`text-sm font-bold group-hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
+                        <h3 className={`text-sm font-bold group-hover:text-zinc-500 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
                           }`}>
                           {vendor.name}
                         </h3>
@@ -310,7 +310,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
 
                       {/* Corner Star */}
                       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <Star className="w-3 h-3 text-yellow-400 fill-current" />
+                        <Star className="w-3 h-3 text-zinc-400 fill-current" />
                       </div>
                     </div>
                   </div>
@@ -329,7 +329,7 @@ export const VendorExperience: React.FC<VendorExperienceProps> = ({
             }`}>
             <div className="text-center">
               <div className="flex items-center justify-center mb-4">
-                <Trophy className={`w-8 h-8 mr-3 ${isDark ? 'text-yellow-400' : 'text-yellow-500'
+                <Trophy className={`w-8 h-8 mr-3 ${isDark ? 'text-zinc-400' : 'text-zinc-500'
                   }`} />
                 <h3 className={`text-xl lg:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'
                   }`}>

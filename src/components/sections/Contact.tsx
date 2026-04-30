@@ -77,10 +77,10 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
 
   // Floating IT icons
   const floatingIcons = [
-    { icon: Mail, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-blue-400' },
-    { icon: Phone, size: 'w-4 h-4', position: 'top-32 right-20', delay: '1.5s', color: 'text-emerald-400' },
-    { icon: MapPin, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-purple-400' },
-    { icon: Zap, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-cyan-400' },
+    { icon: Mail, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: Phone, size: 'w-4 h-4', position: 'top-32 right-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: MapPin, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2s', color: 'text-zinc-400' },
+    { icon: Zap, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-zinc-400' },
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -150,7 +150,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
       label: currentLang === 'en' ? 'Phone' : currentLang === 'az' ? 'Telefon' : 'Teléfono',
       value: '+1 (571) 315-9611',
       href: 'tel:+15713159611',
-      color: 'from-emerald-500 to-teal-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-slide-in-right'
     },
     {
@@ -158,7 +158,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
       label: 'Email',
       value: 'backbonix@gmail.com',
       href: 'mailto:backbonix@gmail.com',
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-scale-in'
     },
     {
@@ -166,7 +166,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
       label: currentLang === 'en' ? 'Address' : currentLang === 'az' ? 'Ünvan' : 'Dirección',
       value: 'Fairfax, VA 20171',
       href: 'https://maps.google.com/?q=Fairfax,VA,20171',
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-bounce-in'
     }
   ];
@@ -184,13 +184,13 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
       {/* Background - Portfolio-nun əksi (mirror) */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-bl from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-bl from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-bl from-gray-900 via-zinc-900/20 to-zinc-900/10'
+            : 'bg-gradient-to-bl from-zinc-50 via-white to-zinc-50'
           }`} />
 
         {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             top: '20%',
@@ -199,7 +199,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
           }}
         />
         <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             bottom: '20%',
@@ -225,10 +225,10 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
         {/* Mobile floating icons */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Mail className="w-5 h-5 text-blue-400" />
+            <Mail className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Phone className="w-5 h-5 text-emerald-400" />
+            <Phone className="w-5 h-5 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
             }`}>
             {t.contact.subtitle}
           </p>
-          <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
+          <div className={`w-24 h-1 bg-gradient-to-r from-zinc-600 to-zinc-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
             }`} />
         </div>
 
@@ -276,7 +276,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                   </label>
                   <div className="relative">
                     <User className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${focusedField === 'name'
-                        ? 'text-blue-500'
+                        ? 'text-zinc-500'
                         : isDark ? 'text-gray-400' : 'text-gray-500'
                       }`} />
                     <input
@@ -288,7 +288,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                       onBlur={() => setFocusedField(null)}
                       required
                       disabled={isSubmitting}
-                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 ${isDark
+                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500 ${isDark
                           ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                         }`}
@@ -304,7 +304,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                   </label>
                   <div className="relative">
                     <Mail className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${focusedField === 'email'
-                        ? 'text-blue-500'
+                        ? 'text-zinc-500'
                         : isDark ? 'text-gray-400' : 'text-gray-500'
                       }`} />
                     <input
@@ -316,7 +316,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                       onBlur={() => setFocusedField(null)}
                       required
                       disabled={isSubmitting}
-                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 ${isDark
+                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500 ${isDark
                           ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                         }`}
@@ -335,7 +335,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                   </label>
                   <div className="relative">
                     <Phone className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${focusedField === 'phone'
-                        ? 'text-blue-500'
+                        ? 'text-zinc-500'
                         : isDark ? 'text-gray-400' : 'text-gray-500'
                       }`} />
                     <input
@@ -346,7 +346,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                       onFocus={() => setFocusedField('phone')}
                       onBlur={() => setFocusedField(null)}
                       disabled={isSubmitting}
-                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 ${isDark
+                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500 ${isDark
                           ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                         }`}
@@ -362,7 +362,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                   </label>
                   <div className="relative">
                     <Building className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${focusedField === 'company'
-                        ? 'text-blue-500'
+                        ? 'text-zinc-500'
                         : isDark ? 'text-gray-400' : 'text-gray-500'
                       }`} />
                     <input
@@ -373,7 +373,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                       onFocus={() => setFocusedField('company')}
                       onBlur={() => setFocusedField(null)}
                       disabled={isSubmitting}
-                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 ${isDark
+                      className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500 ${isDark
                           ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                         }`}
@@ -391,7 +391,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                 </label>
                 <div className="relative">
                   <MessageSquare className={`absolute left-3 top-3 w-4 h-4 ${focusedField === 'message'
-                      ? 'text-blue-500'
+                      ? 'text-zinc-500'
                       : isDark ? 'text-gray-400' : 'text-gray-500'
                     }`} />
                   <textarea
@@ -403,7 +403,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                     required
                     rows={4}
                     disabled={isSubmitting}
-                    className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 resize-none ${isDark
+                    className={`w-full pl-10 pr-3 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500 resize-none ${isDark
                         ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                       }`}
@@ -433,7 +433,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
 
               {/* Status Messages */}
               {submitStatus === 'success' && (
-                <div className="flex items-center space-x-2 p-3 bg-emerald-100 border border-emerald-200 rounded-lg text-emerald-800">
+                <div className="flex items-center space-x-2 p-3 bg-zinc-100 border border-zinc-200 rounded-lg text-zinc-800">
                   <CheckCircle className="w-5 h-5" />
                   <div>
                     <p className="font-medium text-sm">{t.contact.form.success}</p>
@@ -442,7 +442,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
               )}
 
               {submitStatus === 'error' && (
-                <div className="flex items-center space-x-2 p-3 bg-red-100 border border-red-200 rounded-lg text-red-800">
+                <div className="flex items-center space-x-2 p-3 bg-zinc-100 border border-zinc-200 rounded-lg text-zinc-800">
                   <AlertCircle className="w-5 h-5" />
                   <div>
                     <p className="font-medium text-sm">{t.contact.form.error}</p>
@@ -492,7 +492,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                 : 'glass-effect border border-white/20 shadow-lg'
               } ${isVisible ? 'animate-slide-in-bottom animate-with-delay-8' : 'animation-reset'}`}>
               <div className="flex items-center mb-3">
-                <Clock className={`w-5 h-5 mr-2 ${isDark ? 'text-emerald-400' : 'text-emerald-500'}`} />
+                <Clock className={`w-5 h-5 mr-2 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`} />
                 <h3 className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'
                   }`}>
                   {currentLang === 'en' ? 'Business Hours' : currentLang === 'az' ? 'İş Saatları' : 'Horario de Trabajo'}
@@ -516,8 +516,8 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
 
             {/* Quick Contact CTA - Animated */}
             <div className={`p-4 rounded-xl text-center ${isDark
-                ? 'bg-gradient-to-r from-blue-900/50 to-emerald-900/50 border border-blue-500/20'
-                : 'bg-gradient-to-r from-blue-50 to-emerald-50 border border-blue-200'
+                ? 'bg-gradient-to-r from-zinc-900/50 to-zinc-900/50 border border-zinc-500/20'
+                : 'bg-gradient-to-r from-zinc-50 to-zinc-50 border border-zinc-200'
               } ${isVisible ? 'animate-slide-in-center animate-with-delay-9' : 'animation-reset'}`}>
               <h3 className={`font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'
                 }`}>
@@ -538,7 +538,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                 : 'glass-effect border border-white/20 shadow-lg'
               } ${isVisible ? 'animate-scale-in animate-with-delay-10' : 'animation-reset'}`}>
               <div className="flex items-center justify-center mb-2">
-                <Globe className={`w-5 h-5 mr-2 ${isDark ? 'text-cyan-400' : 'text-cyan-500'}`} />
+                <Globe className={`w-5 h-5 mr-2 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`} />
                 <h3 className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'
                   }`}>
                   Website
@@ -548,7 +548,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                 href="https://www.backbonix.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-medium transition-colors duration-300 hover:underline ${isDark ? 'text-cyan-400 hover:text-cyan-300' : 'text-cyan-600 hover:text-cyan-500'
+                className={`text-sm font-medium transition-colors duration-300 hover:underline ${isDark ? 'text-zinc-400 hover:text-zinc-300' : 'text-zinc-600 hover:text-zinc-500'
                   }`}
               >
                 www.backbonix.com

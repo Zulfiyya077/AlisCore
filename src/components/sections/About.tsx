@@ -54,10 +54,10 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
 
   // Floating IT icons
   const floatingIcons = [
-    { icon: Zap, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-yellow-400' },
-    { icon: Globe, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-blue-400' },
-    { icon: Network, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2.5s', color: 'text-emerald-400' },
-    { icon: CheckCircle, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '1s', color: 'text-green-400' },
+    { icon: Zap, size: 'w-5 h-5', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: Globe, size: 'w-6 h-6', position: 'top-32 right-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: Network, size: 'w-5 h-5', position: 'bottom-32 left-20', delay: '2.5s', color: 'text-zinc-400' },
+    { icon: CheckCircle, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '1s', color: 'text-zinc-400' },
   ];
 
   // About content based on language
@@ -101,13 +101,13 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
       {/* Background with animated elements */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-tr from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-tr from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-tr from-gray-900 via-zinc-900/20 to-zinc-900/10'
+            : 'bg-gradient-to-tr from-zinc-50 via-white to-zinc-50'
           }`} />
 
         {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             top: '15%',
@@ -116,7 +116,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
           }}
         />
         <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             bottom: '15%',
@@ -142,10 +142,10 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
         {/* Mobile floating icons */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Zap className="w-5 h-5 text-yellow-400" />
+            <Zap className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Globe className="w-6 h-6 text-blue-400" />
+            <Globe className="w-6 h-6 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
               }`}>
               {content.subtitle}
             </p>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
+            <div className={`w-24 h-1 bg-gradient-to-r from-zinc-600 to-zinc-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
               }`} />
           </div>
 
@@ -209,11 +209,11 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
 
               {/* CTA Section */}
               <div className={`text-center p-6 lg:p-8 rounded-2xl ${isDark
-                  ? 'bg-gradient-to-r from-blue-900/50 to-emerald-900/50 border border-blue-500/20'
-                  : 'bg-gradient-to-r from-blue-50 to-emerald-50 border border-blue-200'
+                  ? 'bg-gradient-to-r from-zinc-900/50 to-zinc-900/50 border border-zinc-500/20'
+                  : 'bg-gradient-to-r from-zinc-50 to-zinc-50 border border-zinc-200'
                 } ${isVisible ? 'animate-scale-in animate-with-delay-6' : 'animation-reset'}`}>
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-zinc-500 to-zinc-500 flex items-center justify-center shadow-lg">
                     <Network className="w-8 h-8 text-white" />
                   </div>
                 </div>
@@ -221,7 +221,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
                   }`}>
                   BackBonix
                 </h3>
-                <p className={`text-lg lg:text-xl font-medium ${isDark ? 'text-blue-300' : 'text-blue-600'
+                <p className={`text-lg lg:text-xl font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-600'
                   }`}>
                   {content.cta}
                 </p>

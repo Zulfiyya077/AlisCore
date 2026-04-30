@@ -72,52 +72,52 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
       icon: Shield,
       title: t.services.items[0].title,
       description: t.services.items[0].description,
-      color: 'from-blue-600 to-blue-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-slide-in-left'
     },
     {
       icon: Network,
       title: t.services.items[1].title,
       description: t.services.items[1].description,
-      color: 'from-emerald-600 to-emerald-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-slide-in-top'
     },
     {
       icon: Server,
       title: t.services.items[2].title,
       description: t.services.items[2].description,
-      color: 'from-indigo-600 to-indigo-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-slide-in-right'
     },
     {
       icon: Camera,
       title: t.services.items[3].title,
       description: t.services.items[3].description,
-      color: 'from-cyan-600 to-cyan-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-bounce-in'
     },
     {
       icon: Cable,
       title: t.services.items[4].title,
       description: t.services.items[4].description,
-      color: 'from-teal-600 to-teal-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-scale-in'
     },
     {
       icon: Wifi,
       title: t.services.items[5].title,
       description: t.services.items[5].description,
-      color: 'from-purple-600 to-purple-700',
+      color: 'from-zinc-600 to-zinc-700',
       animationClass: 'animate-fade-in-up'
     }
   ];
 
   // Floating IT icons (same as Hero)
   const floatingIcons = [
-    { icon: Monitor, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-cyan-400' },
-    { icon: HardDrive, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1.5s', color: 'text-purple-400' },
-    { icon: Router, size: 'w-6 h-6', position: 'bottom-32 left-20', delay: '2s', color: 'text-blue-400' },
-    { icon: Lock, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-emerald-400' },
+    { icon: Monitor, size: 'w-6 h-6', position: 'top-20 left-16', delay: '0s', color: 'text-zinc-400' },
+    { icon: HardDrive, size: 'w-5 h-5', position: 'top-32 right-20', delay: '1.5s', color: 'text-zinc-400' },
+    { icon: Router, size: 'w-6 h-6', position: 'bottom-32 left-20', delay: '2s', color: 'text-zinc-400' },
+    { icon: Lock, size: 'w-4 h-4', position: 'bottom-48 right-32', delay: '0.8s', color: 'text-zinc-400' },
   ];
 
   return (
@@ -131,13 +131,13 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
       {/* Background with animated elements (SAME AS HERO) */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10'
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-br from-gray-900 via-zinc-900/20 to-zinc-900/10'
+            : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-50'
           }`} />
 
         {/* Floating background orbs */}
         <div
-          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-blue-500' : 'bg-blue-300'
+          className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             top: '20%',
@@ -146,7 +146,7 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
           }}
         />
         <div
-          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+          className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${isDark ? 'bg-zinc-500' : 'bg-zinc-300'
             }`}
           style={{
             bottom: '20%',
@@ -172,10 +172,10 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
         {/* Mobile floating icons */}
         <div className="lg:hidden">
           <div className="absolute top-20 right-8 opacity-20 animate-pulse">
-            <Monitor className="w-5 h-5 text-cyan-400" />
+            <Monitor className="w-5 h-5 text-zinc-400" />
           </div>
           <div className="absolute bottom-32 left-8 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-            <Router className="w-5 h-5 text-blue-400" />
+            <Router className="w-5 h-5 text-zinc-400" />
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
               }`}>
               {t.services.subtitle}
             </p>
-            <div className={`w-24 h-1 bg-gradient-to-r from-blue-600 to-emerald-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
+            <div className={`w-24 h-1 bg-gradient-to-r from-zinc-600 to-zinc-600 mx-auto rounded-full ${isVisible ? 'animate-scale-in animate-with-delay-3' : 'animation-reset'
               }`} />
           </div>
 
@@ -233,7 +233,7 @@ export const Services: React.FC<ServicesProps> = ({ currentLang, isDark }) => {
 
                   {/* CTA */}
                   <div className="pt-2">
-                    <div className={`flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 ${isDark ? 'text-blue-400' : 'text-blue-600'
+                    <div className={`flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 ${isDark ? 'text-zinc-400' : 'text-zinc-600'
                       }`}>
                       <span className="text-xs font-medium">
                         {currentLang === 'en' ? 'Learn more' : currentLang === 'az' ? 'Ətraflı öyrən' : 'Saber más'}

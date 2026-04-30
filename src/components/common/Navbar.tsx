@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Logo şəkli */}
               <div className="relative mr-3">
 
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="80" height="60" viewBox="0 -70 50 500" preserveAspectRatio="xMidYMid meet">  <g transform="translate(0.000000,777.000000) scale(0.050000,-0.050000)" fill="#44cad5" stroke="none"> <path d="M4375 14849 c-102 -56 -140 -182 -86 -287 28 -54 21 -73 -195 -531 l-224 -476 -83 -5 c-46 -4 -101 -16 -123 -28 -77 -41 -1222 491 -1223 569 -3 249 -322 420 -517 275 -361 -267 8 -791 380 -539 l71 48 561 -250 c498 -223 560 -255 543 -287 -26 -48 -24 -231 3 -282 20 -37 -9 -72 -285 -349 -331 -331 -318 -323 -419 -273 -215 108 -517 21 -661 -190 l-32 -45 -437 198 -438 199 -16 83 c-45 224 -313 305 -476 142 -238 -238 107 -598 383 -399 35 26 946 -374 926 -407 -28 -45 19 -237 84 -345 l69 -115 -203 -302 c-245 -366 -251 -373 -311 -373 -170 0 -243 -207 -118 -332 146 -146 340 -52 343 165 1 151 398 762 477 737 167 -54 354 -28 498 66 l76 51 124 -87 c68 -48 187 -133 264 -190 l140 -103 -7 -105 c-26 -387 498 -526 664 -176 31 66 39 70 621 251 685 213 616 202 697 110 126 -143 336 -186 512 -107 l87 40 268 -252 c212 -200 268 -264 268 -305 0 -167 194 -285 348 -213 226 108 149 450 -102 450 -54 0 -108 -10 -121 -23 -18 -18 -545 439 -545 473 0 3 14 37 30 77 91 219 -22 481 -245 566 l-85 32 0 677 0 676 69 33 69 33 504 -297 504 -297 427 -595 c350 -488 427 -607 427 -661 0 -166 200 -225 291 -85 55 84 -1 203 -110 231 -22 6 -217 260 -449 584 l-410 575 371 315 c296 252 382 315 424 312 213 -18 272 2 344 120 107 175 -23 394 -233 394 -152 0 -285 -148 -262 -292 11 -66 5 -72 -379 -399 l-390 -332 -494 291 -494 290 -2 77 c-5 196 -177 328 -367 280 -38 -10 -83 -19 -100 -21 -73 -6 -900 685 -900 753 0 158 -182 259 -325 182z m672 -738 l437 -349 3 -109 c3 -127 50 -206 149 -253 l63 -30 1 -681 0 -680 -59 -22 c-79 -30 -1462 1145 -1482 1259 -11 60 -50 143 -102 216 -19 27 18 120 195 500 222 474 232 488 338 495 11 1 217 -155 457 -346z m-252 -1698 l643 -558 -40 -54 c-22 -29 -50 -107 -63 -172 l-22 -119 -580 -179 c-319 -99 -583 -171 -587 -160 -65 195 -289 294 -476 211 -52 -23 -105 -35 -117 -28 -26 16 -351 248 -445 318 l-63 46 28 106 c32 120 21 224 -36 355 l-38 89 308 309 308 308 101 -26 c125 -32 234 -5 330 80 78 70 -10 132 749 -526z" /> </g> </svg>
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="80" height="60" viewBox="0 -70 50 500" preserveAspectRatio="xMidYMid meet">  <g transform="translate(0.000000,777.000000) scale(0.050000,-0.050000)" fill="#18181b" stroke="none"> <path d="M4375 14849 c-102 -56 -140 -182 -86 -287 28 -54 21 -73 -195 -531 l-224 -476 -83 -5 c-46 -4 -101 -16 -123 -28 -77 -41 -1222 491 -1223 569 -3 249 -322 420 -517 275 -361 -267 8 -791 380 -539 l71 48 561 -250 c498 -223 560 -255 543 -287 -26 -48 -24 -231 3 -282 20 -37 -9 -72 -285 -349 -331 -331 -318 -323 -419 -273 -215 108 -517 21 -661 -190 l-32 -45 -437 198 -438 199 -16 83 c-45 224 -313 305 -476 142 -238 -238 107 -598 383 -399 35 26 946 -374 926 -407 -28 -45 19 -237 84 -345 l69 -115 -203 -302 c-245 -366 -251 -373 -311 -373 -170 0 -243 -207 -118 -332 146 -146 340 -52 343 165 1 151 398 762 477 737 167 -54 354 -28 498 66 l76 51 124 -87 c68 -48 187 -133 264 -190 l140 -103 -7 -105 c-26 -387 498 -526 664 -176 31 66 39 70 621 251 685 213 616 202 697 110 126 -143 336 -186 512 -107 l87 40 268 -252 c212 -200 268 -264 268 -305 0 -167 194 -285 348 -213 226 108 149 450 -102 450 -54 0 -108 -10 -121 -23 -18 -18 -545 439 -545 473 0 3 14 37 30 77 91 219 -22 481 -245 566 l-85 32 0 677 0 676 69 33 69 33 504 -297 504 -297 427 -595 c350 -488 427 -607 427 -661 0 -166 200 -225 291 -85 55 84 -1 203 -110 231 -22 6 -217 260 -449 584 l-410 575 371 315 c296 252 382 315 424 312 213 -18 272 2 344 120 107 175 -23 394 -233 394 -152 0 -285 -148 -262 -292 11 -66 5 -72 -379 -399 l-390 -332 -494 291 -494 290 -2 77 c-5 196 -177 328 -367 280 -38 -10 -83 -19 -100 -21 -73 -6 -900 685 -900 753 0 158 -182 259 -325 182z m672 -738 l437 -349 3 -109 c3 -127 50 -206 149 -253 l63 -30 1 -681 0 -680 -59 -22 c-79 -30 -1462 1145 -1482 1259 -11 60 -50 143 -102 216 -19 27 18 120 195 500 222 474 232 488 338 495 11 1 217 -155 457 -346z m-252 -1698 l643 -558 -40 -54 c-22 -29 -50 -107 -63 -172 l-22 -119 -580 -179 c-319 -99 -583 -171 -587 -160 -65 195 -289 294 -476 211 -52 -23 -105 -35 -117 -28 -26 16 -351 248 -445 318 l-63 46 28 106 c32 120 21 224 -36 355 l-38 89 308 309 308 308 101 -26 c125 -32 234 -5 330 80 78 70 -10 132 749 -526z" /> </g> </svg>
 
               </div>
 
@@ -124,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.key}
                   onClick={() => handleNavClick(item.key)}
                   className={`group relative px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${activeSection === item.key
-                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white shadow-lg scale-105'
+                    ? 'bg-gradient-to-r from-zinc-600 to-zinc-600 text-white shadow-lg scale-105'
                     : isDark
                       ? 'text-gray-300 hover:text-white hover:bg-gray-700/50'
                       : 'text-gray-700 hover:text-gray-900 hover:bg-white/50'
@@ -134,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                   {/* Hover effect */}
                   {activeSection !== item.key && (
-                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-blue-600/10 to-emerald-600/10" />
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-zinc-600/10 to-zinc-600/10" />
                   )}
                 </button>
               ))}
@@ -148,9 +148,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <select
                   value={currentLang}
                   onChange={(e) => onLangChange(e.target.value as Language)}
-                  className={`appearance-none bg-transparent border-2 rounded-xl px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 cursor-pointer ${isDark
-                    ? 'border-gray-600 text-white hover:border-emerald-500 focus:border-emerald-500'
-                    : 'border-gray-300 text-gray-900 hover:border-blue-500 focus:border-blue-500'
+                  className={`appearance-none bg-transparent border-2 rounded-xl px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500 transition-all duration-300 cursor-pointer ${isDark
+                    ? 'border-gray-600 text-white hover:border-zinc-500 focus:border-zinc-500'
+                    : 'border-gray-300 text-gray-900 hover:border-zinc-500 focus:border-zinc-500'
                     }`}
                 >
                   <option value="en" className="bg-white text-gray-900">EN</option>
@@ -162,9 +162,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Dark Mode Toggle */}
               <button
                 onClick={onThemeToggle}
-                className={`p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 ${isDark
-                  ? 'bg-gray-700/50 text-yellow-400 hover:bg-yellow-400/20 shadow-lg'
-                  : 'bg-gray-100/50 text-gray-600 hover:bg-blue-100/50 shadow-lg'
+                className={`p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-zinc-500 ${isDark
+                  ? 'bg-gray-700/50 text-zinc-400 hover:bg-zinc-400/20 shadow-lg'
+                  : 'bg-gray-100/50 text-gray-600 hover:bg-zinc-100/50 shadow-lg'
                   }`}
               >
                 {isDark ?
@@ -207,7 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.key}
                 onClick={() => handleNavClick(item.key)}
                 className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 transform hover:scale-102 ${activeSection === item.key
-                  ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-zinc-600 to-zinc-600 text-white shadow-lg'
                   : isDark
                     ? 'text-gray-300 hover:text-white hover:bg-gray-700/50'
                     : 'text-gray-700 hover:text-gray-900 hover:bg-white/50'
@@ -246,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="relative mobile-lang-menu">
           <button
             onClick={handleMobileLangClick}
-            className={`w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center bg-gradient-to-r from-blue-600 to-emerald-600 text-white hover:from-blue-700 hover:to-emerald-700 active:scale-95 ${isMobileLangOpen ? 'scale-110 ring-4 ring-blue-400/50' : 'hover:scale-110'
+            className={`w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center bg-gradient-to-r from-zinc-600 to-zinc-600 text-white hover:from-zinc-700 hover:to-zinc-700 active:scale-95 ${isMobileLangOpen ? 'scale-110 ring-4 ring-zinc-400/50' : 'hover:scale-110'
               }`}
           >
             <Globe className="w-5 h-5" />
@@ -265,7 +265,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={lang}
                   onClick={() => handleMobileLangChange(lang)}
                   className={`block w-full px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 min-w-[60px] text-center active:scale-95 ${currentLang === lang
-                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
+                    ? 'bg-gradient-to-r from-zinc-600 to-zinc-600 text-white'
                     : isDark
                       ? 'text-gray-300 hover:bg-gray-700/50 active:bg-gray-700'
                       : 'text-gray-700 hover:bg-gray-100/50 active:bg-gray-100'
@@ -282,8 +282,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           onClick={onThemeToggle}
           className={`w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center active:scale-95 hover:scale-110 ${isDark
-            ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-yellow-400 hover:from-purple-700 hover:to-indigo-700'
-            : 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700'
+            ? 'bg-gradient-to-r from-zinc-600 to-zinc-600 text-zinc-400 hover:from-zinc-700 hover:to-zinc-700'
+            : 'bg-gradient-to-r from-zinc-600 to-zinc-600 text-white hover:from-zinc-700 hover:to-zinc-700'
             }`}
         >
           {isDark ?

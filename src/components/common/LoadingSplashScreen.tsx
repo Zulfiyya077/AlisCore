@@ -63,7 +63,7 @@ const LoadingSplashScreen = () => {
         }
       `}</style>
 
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-emerald-900 overflow-hidden">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-zinc-900 to-zinc-900 overflow-hidden">
         
         {/* Subtle background grid */}
         <div className="absolute inset-0 opacity-10">
@@ -82,11 +82,11 @@ const LoadingSplashScreen = () => {
           {/* Company logo */}
           <div className="mb-16">
             <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 text-shadow-3d animate-fadeIn">
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
                 BackBonix
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-emerald-300 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+            <p className="text-lg sm:text-xl text-zinc-300 animate-fadeIn" style={{ animationDelay: '0.3s' }}>
               IT Infrastructure Excellence
             </p>
             <p className="text-base sm:text-lg text-gray-300 font-medium animate-fadeIn" style={{ animationDelay: '0.6s' }}>
@@ -100,26 +100,26 @@ const LoadingSplashScreen = () => {
             {/* Central 3D Box */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <div className="w-20 h-20 sm:w-24 sm:h-24 glass-effect rounded-xl animate-rotate3d flex items-center justify-center">
-                <Server className="w-8 h-8 sm:w-10 sm:h-10 text-blue-400" />
+                <Server className="w-8 h-8 sm:w-10 sm:h-10 text-zinc-400" />
               </div>
             </div>
 
             {/* Floating Side Elements */}
             <div className="absolute top-8 left-8 animate-float3d" style={{ animationDelay: '0.5s' }}>
               <div className="w-12 h-12 glass-effect rounded-lg flex items-center justify-center">
-                <Network className="w-6 h-6 text-emerald-400" />
+                <Network className="w-6 h-6 text-zinc-400" />
               </div>
             </div>
 
             <div className="absolute top-8 right-8 animate-float3d" style={{ animationDelay: '1s' }}>
               <div className="w-12 h-12 glass-effect rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-indigo-400" />
+                <Shield className="w-6 h-6 text-zinc-400" />
               </div>
             </div>
 
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float3d" style={{ animationDelay: '1.5s' }}>
               <div className="w-12 h-12 glass-effect rounded-lg flex items-center justify-center">
-                <Server className="w-6 h-6 text-cyan-400" />
+                <Server className="w-6 h-6 text-zinc-400" />
               </div>
             </div>
           </div>

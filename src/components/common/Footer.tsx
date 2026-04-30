@@ -54,14 +54,14 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${
           isDark 
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900/20 to-emerald-900/10' 
-            : 'bg-gradient-to-br from-blue-50 via-white to-emerald-50'
+            ? 'bg-gradient-to-br from-gray-900 via-zinc-900/20 to-zinc-900/10' 
+            : 'bg-gradient-to-br from-zinc-50 via-white to-zinc-50'
         }`} />
         
         {/* Floating background orbs */}
         <div 
           className={`absolute w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            isDark ? 'bg-blue-500' : 'bg-blue-300'
+            isDark ? 'bg-zinc-500' : 'bg-zinc-300'
           }`}
           style={{
             top: '20%',
@@ -70,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
         />
         <div 
           className={`absolute w-48 h-48 rounded-full blur-3xl opacity-15 ${
-            isDark ? 'bg-emerald-500' : 'bg-emerald-300'
+            isDark ? 'bg-zinc-500' : 'bg-zinc-300'
           }`}
           style={{
             bottom: '20%',
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-lg flex items-center justify-center mr-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-zinc-600 to-zinc-600 rounded-lg flex items-center justify-center mr-3">
                   <Network className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gradient-animated">
@@ -131,8 +131,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                     href="https://www.backbonix.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className={`text-sm transition-colors duration-200 hover:text-blue-500 ${
-                      isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
+                    className={`text-sm transition-colors duration-200 hover:text-zinc-500 ${
+                      isDark ? 'text-gray-300 hover:text-zinc-400' : 'text-gray-600 hover:text-zinc-600'
                     }`}
                   >
                     www.backbonix.com
@@ -154,8 +154,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                     <li key={linkIndex}>
                       <button
                         onClick={link.action}
-                        className={`text-sm transition-colors duration-200 hover:text-blue-500 ${
-                          isDark ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
+                        className={`text-sm transition-colors duration-200 hover:text-zinc-500 ${
+                          isDark ? 'text-gray-300 hover:text-zinc-400' : 'text-gray-600 hover:text-zinc-600'
                         }`}
                       >
                         {link.name}
@@ -198,13 +198,13 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
               <input
                 type="email"
                 placeholder={currentLang === 'en' ? 'Email' : currentLang === 'az' ? 'E-mail' : 'Email'}
-                className={`px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm ${
+                className={`px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-zinc-500 text-sm ${
                   isDark 
                     ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400' 
                     : 'bg-white/70 border-gray-300 text-gray-900 placeholder-gray-500'
                 }`}
               />
-              <button className="bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-1">
+              <button className="bg-gradient-to-r from-zinc-600 to-zinc-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-1">
                 <span className="text-sm">{currentLang === 'en' ? 'Subscribe' : currentLang === 'az' ? 'Abunə ol' : 'Suscribirse'}</span>
                 <ExternalLink className="w-3 h-3" />
               </button>
@@ -232,8 +232,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
             <div className="flex items-center space-x-4">
               <a 
                 href="tel:+15713159611"
-                className={`text-sm flex items-center space-x-1 transition-colors duration-200 hover:text-blue-500 ${
-                  isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-500 hover:text-blue-600'
+                className={`text-sm flex items-center space-x-1 transition-colors duration-200 hover:text-zinc-500 ${
+                  isDark ? 'text-gray-400 hover:text-zinc-400' : 'text-gray-500 hover:text-zinc-600'
                 }`}
               >
                 <Phone className="w-3 h-3" />
@@ -241,8 +241,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
               </a>
               <a 
                 href="mailto:backbonix@gmail.com"
-                className={`text-sm flex items-center space-x-1 transition-colors duration-200 hover:text-blue-500 ${
-                  isDark ? 'text-gray-400 hover:text-blue-400' : 'text-gray-500 hover:text-blue-600'
+                className={`text-sm flex items-center space-x-1 transition-colors duration-200 hover:text-zinc-500 ${
+                  isDark ? 'text-gray-400 hover:text-zinc-400' : 'text-gray-500 hover:text-zinc-600'
                 }`}
               >
                 <Mail className="w-3 h-3" />

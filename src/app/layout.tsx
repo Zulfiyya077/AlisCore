@@ -24,9 +24,9 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+    { media: "(prefers-color-scheme: dark)", color: "#ffffff" },
   ],
-  colorScheme: "light dark",
+  colorScheme: "light",
 };
 
 // ─── SEO Metadata ───────────────────────────────────────────
@@ -199,10 +199,10 @@ export const metadata: Metadata = {
     "copyright": `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
 
     // Design & Theme
-    "msapplication-TileColor": "#0f172a",
+    "msapplication-TileColor": "#ffffff",
     "msapplication-config": "/browserconfig.xml",
     "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": SITE_NAME,
     "format-detection": "telephone=yes",
     "mobile-web-app-capable": "yes",
