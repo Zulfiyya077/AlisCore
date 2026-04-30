@@ -1,363 +1,329 @@
-// src/i18n/translations.ts
 export const translations = {
   az: {
     nav: {
-      about: 'Haqqımızda',
+      about: 'Niyə AlisCore',
       services: 'Xidmətlər',
-      portfolio: 'Portfolio',
-      contact: 'Əlaqə'
+      portfolio: 'Case Studylər',
+      contact: 'Əlaqə',
     },
     hero: {
-      title: 'BackBonix',
-      subtitle: 'Professional IT Infrastructure Solutions',
-      description: 'Şəbəkə təhlükəsizliyi, infrastruktur idarəetməsi və tam IT həlləri ilə biznesinizi gələcəyə hazırlayırıq',
-      cta: 'Bizimlə Əlaqə'
+      title: 'AlisCore',
+      subtitle: 'US biznesləri üçün network administration və IT infrastruktur xidmətləri',
+      description:
+        'Şəbəkə sabitliyi, helpdesk, server idarəetməsi və təhlükəsizlik nəzarəti ilə əməliyyat riskini azaldır, işin davamlılığını gücləndiririk.',
+      cta: 'Strategy Call Sifariş Et',
     },
     about: {
-      title: 'Haqqımızda',
-      subtitle: 'Peşəkar IT Komandası',
-      description: 'BackBonix olaraq, müasir IT infrastruktur həlləri sahəsində ixtisaslaşmış peşəkar komandayıq. Müştərilərimizə yüksək keyfiyyətli xidmət göstərməkdən məmnunuq.',
+      title: 'Niyə AlisCore',
+      subtitle: 'Strategiya, icra və nəticə bir yerdə',
+      description:
+        'AlisCore biznes nəticələrinə fokuslanan software partner-dir. Məqsədimiz sadəcə development deyil, satışa, əməliyyata və ölçülə bilən performansa təsir edən sistemlər qurmaqdır.',
       features: [
-        'Təcrübəli mühəndislər komandası',
-        'Müasir texnologiyalar',
-        '24/7 dəstək xidməti',
-        'Keyfiyyətə zəmanət'
-      ]
+        'Biznes nəticəsinə fokuslanan yanaşma',
+        'Senior-led delivery və şəffaf kommunikasiya',
+        'Scalable architecture və clean code',
+        'Uzunmüddətli dəstək və optimizasiya',
+      ],
     },
     services: {
-      title: 'Xidmətlərimiz',
-      subtitle: 'Tam IT Həlləri',
+      title: 'Əsas Xidmətlər',
+      subtitle: 'Network-first IT idarəetmə modeli',
       items: [
-        { 
-          title: 'Şəbəkə Təhlükəsizliyi', 
-          description: 'Korporativ şəbəkələrin qorunması və monitoring sistemləri' 
+        {
+          title: 'Network Setup & Management',
+          description: 'Ofis və filial şəbəkələrinin qurulması, VLAN/firewall konfiqurasiyası və davamlı monitorinq.',
         },
-        { 
-          title: 'Şəbəkə İdarəetməsi', 
-          description: 'Professional network management və optimization xidmətləri' 
+        {
+          title: 'IT Support (Helpdesk)',
+          description: 'Gündəlik istifadəçi problemləri üçün ticket əsaslı operativ dəstək və eskalasiya idarəetməsi.',
         },
-        { 
-          title: 'IT İnfrastruktur Təhlili', 
-          description: 'Mövcud sistemlərin analizi və təkmilləşdirilməsi' 
+        {
+          title: 'Cybersecurity',
+          description: 'MFA, endpoint, firewall və e-mail təhlükəsizlik bazası ilə riskin azaldılması.',
         },
-        { 
-          title: 'Video Nəzarət Sistemləri', 
-          description: 'Modern surveillance həlləri və quraşdırılması' 
+        {
+          title: 'Server & System Administration',
+          description: 'Windows/Linux serverlər üçün patching, AD idarəetməsi və performans nəzarəti.',
         },
-        { 
-          title: 'Aşağı Gərginlik Kablajı', 
-          description: 'LAN kabel çəkilişi və strukturlaşdırılmış kablaj' 
+        {
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Microsoft 365 və Google Workspace tenant quruluşu, migration və governance.',
         },
-        { 
-          title: 'Simsiz Şəbəkə Xidmətləri', 
-          description: 'WiFi infrastruktur dizaynı və quraşdırılması' 
+        {
+          title: 'Backup, DR & VPN',
+          description: 'Backup siyasəti, bərpa testləri və təhlükəsiz uzaq giriş/VPN arxitekturası.',
         },
-        { 
-          title: 'IT İnfrastruktur Miqrasiyası', 
-          description: 'Sistem köçürülməsi və modernləşdirilməsi' 
-        },
-        { 
-          title: 'Ev/Ofis Şəbəkə Quraşdırılması', 
-          description: 'Tam şəbəkə həlləri və quraşdırılması' 
-        }
-      ]
+      ],
     },
     vendors: {
-      title: 'Vendor Təcrübəmiz',
-      subtitle: 'Geniş Vendor Təcrübəsi',
-      description: 'Aparıcı texnologiya şirkətlərinin məhsulları ilə geniş təcrübə'
+      title: 'Etibar və Proses',
+      subtitle: 'Daha sürətli, daha aydın, daha accountable',
+      description:
+        'US SMB-lər üçün enterprise səviyyəli düşüncə və çevik icra modeli təqdim edirik.',
+      brandsCaption: 'Əvvəlki layihələrdə işlədiyimiz vendor və şəbəkə ekosistemləri (nümunə)',
+      vendorCtaTitle: 'Sizin vendor məhsullarınızla da işləyə bilərik',
+      vendorCtaBody:
+        'Burada göstərilməyən vendor və alətlərlə də işləmək mümkündür. Layihənizi müzakirə etmək üçün yazın.',
+      vendorCtaButton: 'Məsləhət alın',
     },
     portfolio: {
-      title: 'Portfolio',
-      subtitle: 'Uğurlu Layihələrimiz',
-      description: 'Böyük miqyaslı layihələrdə əldə etdiyimiz nəticələr',
+      title: 'Case Studylər',
+      subtitle: 'Biznes dəyəri yaradan nümunələr',
+      description: 'Aşağıdakı nümunələr AlisCore-un yönəldiyi layihə tipini göstərir.',
       projects: [
         {
-          title: '74-cü Beynəlxalq Astronautika Konqresi',
-          description: 'Tam IT infrastruktur quraşdırılması: 50+ switch, 120 access point, 2 firewall, 2 access controller, syslog server, domain controller, PRTG monitoring server, 100+ printer və kompüter, 20km+ şəbəkə kablajı, 500+ IP kamera quraşdırılması'
+          title: 'Healthcare operations portal',
+          description: 'Çoxsaylı manual qəbul və follow-up proseslərini tək dashboard üzərindən idarə edən portal.',
         },
         {
-          title: 'COP29 Layihəsi - Bakı',
-          description: '200+ işçi üçün tam IT infrastruktur konfiqurasiyası. Təhlükəsizlik, yüksək əlçatanlıq və davamlılıq təmin edilməsi. C-level şəxslər üçün VPN konfiqurasiyası. Həssas məlumat şəbəkəsinin ayrılması. Qonaqlar və işçilər üçün wireless şəbəkənin bölünməsi.'
+          title: 'E-commerce ops automation',
+          description: 'Sifariş, inventar və reporting proseslərini inteqrasiya edib komanda yükünü azaldan həll.',
         },
         {
-          title: 'Beynəlxalq Şahmat Çempionatı',
-          description: '300+ nəfər üçün təhlükəsiz rejimdə wireless şəbəkə quraşdırılması. Fövqəladə hallar üçün gün boyu dəstək və dünya üçün streaming dəstəyi təmin edilməsi.'
+          title: 'Startup MVP launch platform',
+          description: 'Product-market fit yoxlaması üçün sürətli çıxarılan, ölçülə bilən MVP platforma.',
         },
-        {
-          title: 'Dövlət Şirkətləri Dəstəyi',
-          description: 'Müxtəlif dövlət şirkətlərinin şəbəkə dəstəyi və infrastruktur idarəetməsi xidmətləri.'
-        },
-        {
-          title: 'Data Center Miqrasiyası',
-          description: '5+ böyük şirkətin data center miqrasiyası və infrastrukturun modernləşdirilməsi.'
-        },
-        {
-          title: 'Mastercard və Visa Dəstəyi',
-          description: 'Azərbaycanda field engineering dəstəyi və texniki xidmətlərin göstərilməsi.'
-        }
-      ]
+      ],
     },
     contact: {
       title: 'Əlaqə',
-      subtitle: 'Bizimlə Əlaqə Saxlayın',
-      description: 'Layihəniz haqqında danışaq və sizə ən yaxşı həlli təklif edək',
+      subtitle: 'Layihənizi müzakirə edək',
+      description: 'Məqsədinizi, deadline-ı və bottleneck-ləri paylaşın, uyğun yanaşmanı təklif edək.',
       form: {
         name: 'Ad Soyad',
         email: 'E-mail',
         phone: 'Telefon',
         company: 'Şirkət',
         message: 'Mesaj',
-        send: 'Göndər',
+        send: 'Sorğu Göndər',
         sending: 'Göndərilir...',
-        success: 'Mesajınız göndərildi!',
-        error: 'Xəta baş verdi!'
+        success: 'Sorğunuz uğurla göndərildi.',
+        error: 'Hazırda göndərmək mümkün olmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin.',
+        turnstileRequired: 'Təhlükəsizlik yoxlamasını tamamlayın, sonra yenidən göndərin.',
       },
       info: {
-        phone: '+994 XX XXX XX XX',
-        email: 'info@backbonix.com',
-        address: 'Bakı, Azərbaycan'
-      }
-    }
+        phone: '+1 (571) 315-9611',
+        email: 'hello@aliscore.com',
+        address: 'United States',
+      },
+    },
   },
   en: {
     nav: {
-      about: 'About',
+      about: 'Why AlisCore',
       services: 'Services',
-      portfolio: 'Portfolio',
-      contact: 'Contact'
+      portfolio: 'Case Studies',
+      contact: 'Contact',
     },
     hero: {
-      title: 'BackBonix',
-      subtitle: 'Professional IT Infrastructure Solutions',
-      description: 'Preparing your business for the future with network security, infrastructure management, and comprehensive IT solutions',
-      cta: 'Contact Us'
+      title: 'AlisCore',
+      subtitle: 'Network administration and IT infrastructure services for growing US businesses',
+      description:
+        'We improve operational reliability with network management, helpdesk support, server administration, and practical cybersecurity controls.',
+      cta: 'Book a Strategy Call',
     },
     about: {
-      title: 'About Us',
-      subtitle: 'Professional IT Team',
-      description: '',
+      title: 'Why AlisCore',
+      subtitle: 'Strategy, execution, and business impact',
+      description:
+        'AlisCore is a business-first technology partner for companies that need more than code. We design and build systems that improve operations, customer experience, and revenue performance.',
       features: [
-        'Experienced engineering team',
-        'Modern technologies',
-        '24/7 support service',
-        'Quality guarantee'
-      ]
+        'Business outcome focused execution',
+        'Senior-led strategy and delivery',
+        'Scalable architecture and clean code',
+        'Long-term support and optimization',
+      ],
     },
     services: {
-      title: 'Our Services',
-      subtitle: 'Complete IT Solutions',
+      title: 'Core Services',
+      subtitle: 'Network-first IT operations model',
       items: [
-        { 
-          title: 'Network Security Services', 
-          description: 'Corporate network protection and monitoring systems' 
+        {
+          title: 'Network Setup & Management',
+          description: 'Network design, firewall/switch configuration, segmentation, and proactive monitoring.',
         },
-        { 
-          title: 'Network Management Services', 
-          description: 'Professional network management and optimization services' 
+        {
+          title: 'IT Support (Helpdesk)',
+          description: 'Ticket-based user support with clear escalation paths and response accountability.',
         },
-        { 
-          title: 'Analysis of IT Infrastructure', 
-          description: 'Analysis and improvement of existing systems' 
+        {
+          title: 'Cybersecurity',
+          description: 'Practical hardening for identity, endpoint, firewall, and email security posture.',
         },
-        { 
-          title: 'Video Surveillance Services', 
-          description: 'Modern surveillance solutions and installation' 
+        {
+          title: 'Server & System Administration',
+          description: 'Reliable server lifecycle management, patching, access controls, and monitoring.',
         },
-        { 
-          title: 'Low Voltage (LAN) Cabling', 
-          description: 'LAN cable installation and structured cabling' 
+        {
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Microsoft 365 and Google Workspace setup, migration, governance, and support.',
         },
-        { 
-          title: 'Wireless Network Services', 
-          description: 'WiFi infrastructure design and installation' 
+        {
+          title: 'Backup, DR & VPN',
+          description: 'Tested backups, disaster recovery planning, and secure remote access architecture.',
         },
-        { 
-          title: 'Migration of IT Infrastructure', 
-          description: 'System migration and modernization' 
-        },
-        { 
-          title: 'Home/Office Full Network Setup', 
-          description: 'Complete network solutions and installation' 
-        }
-      ]
+      ],
     },
     vendors: {
-      title: 'Vendor Experience',
-      subtitle: 'Wide Range of Vendor Experience',
-      description: 'Extensive experience with products from leading technology companies'
+      title: 'Trust and Delivery Model',
+      subtitle: 'A better fit for SMB speed, clarity, and ROI',
+      description:
+        'We combine enterprise-grade thinking with the flexibility and responsiveness growing companies actually need.',
+      brandsCaption: 'Vendor & network ecosystems we have worked across (illustrative set)',
+      vendorCtaTitle: 'We can work with your vendor stack too',
+      vendorCtaBody:
+        'We are not limited to the brands shown here. Reach out and we can discuss integrations, rollouts, and ongoing support.',
+      vendorCtaButton: 'Get a consultation',
     },
     portfolio: {
-      title: 'Portfolio',
-      subtitle: 'Our Successful Projects',
-      description: 'Results achieved in large-scale projects',
+      title: 'Case Studies',
+      subtitle: 'Representative engagement types',
+      description: 'These examples reflect the type of business problems AlisCore is positioned to solve.',
       projects: [
         {
-          title: '74th International Astronautical Congress',
-          description: 'Full IT Infrastructure setup: More than 50 switches, 120 access points, 2 firewalls, 2 access controllers, syslog server, domain controller, PRTG monitoring server, more than 100 printers and computers setup, over 20km network low voltage cabling, over 500 IP camera installation and setup'
+          title: 'Healthcare operations portal',
+          description: 'A unified platform designed to reduce admin overhead, centralize workflows, and improve response times.',
         },
         {
-          title: 'COP29 Project - Baku',
-          description: 'IT Network support of COP29 project held in Baku. Configuration of full IT infrastructure for more than 200 workers. Ensuring security, high availability and resilience. VPN configuration for each Active Directory member for C level persons. Separation of high sensitive data network. Separation of wireless network for guests and staff.'
+          title: 'E-commerce operations automation',
+          description: 'An integration and reporting layer built to reduce manual reconciliation and improve operational visibility.',
         },
         {
-          title: 'International Chess Championships',
-          description: 'Analysis, design and configuration of IT Infrastructure. Setup of wireless network in more secure mode for more than 300 persons. All day support in case of any emergency. Streaming support for the world.'
+          title: 'Startup MVP launch platform',
+          description: 'A lean product build designed to validate demand quickly and support future scale without rework.',
         },
-        {
-          title: 'Government Companies Support',
-          description: 'Network support of different government companies and infrastructure management services.'
-        },
-        {
-          title: 'Data Center Migration',
-          description: 'Migration of over 5 large companies data centers and infrastructure modernization.'
-        },
-        {
-          title: 'Mastercard and Visa Support',
-          description: 'Field engineering support of Mastercard and Visa in Azerbaijan and technical services.'
-        }
-      ]
+      ],
     },
     contact: {
       title: 'Contact',
-      subtitle: 'Get In Touch',
-      description: 'Let\'s discuss your project and offer you the best solution',
+      subtitle: 'Start with a focused conversation',
+      description: 'Tell us what you are building, where the bottlenecks are, and what timeline you are working against.',
       form: {
         name: 'Full Name',
         email: 'Email',
         phone: 'Phone',
         company: 'Company',
         message: 'Message',
-        send: 'Send',
+        send: 'Send Inquiry',
         sending: 'Sending...',
-        success: 'Message sent successfully!',
-        error: 'An error occurred!'
+        success: 'Your inquiry has been sent successfully.',
+        error: 'We could not send your inquiry right now. Please try again shortly.',
+        turnstileRequired: 'Please complete the security check before submitting.',
       },
       info: {
-        phone: '+994 XX XXX XX XX',
-        email: 'info@backbonix.com',
-        address: 'Baku, Azerbaijan'
-      }
-    }
+        phone: '+1 (571) 315-9611',
+        email: 'hello@aliscore.com',
+        address: 'United States',
+      },
+    },
   },
   es: {
     nav: {
-      about: 'Acerca de',
+      about: 'Por que AlisCore',
       services: 'Servicios',
-      portfolio: 'Portafolio',
-      contact: 'Contacto'
+      portfolio: 'Casos',
+      contact: 'Contacto',
     },
     hero: {
-      title: 'BackBonix',
-      subtitle: 'Soluciones Profesionales de Infraestructura IT',
-      description: 'Preparando su negocio para el futuro con seguridad de red, gestión de infraestructura y soluciones IT integrales',
-      cta: 'Contáctanos'
+      title: 'AlisCore',
+      subtitle: 'Servicios de administracion de redes e infraestructura IT para empresas en crecimiento',
+      description:
+        'Mejoramos la continuidad operativa con gestion de red, helpdesk, administracion de servidores y controles practicos de ciberseguridad.',
+      cta: 'Reservar una llamada',
     },
     about: {
-      title: 'Acerca de Nosotros',
-      subtitle: 'Equipo Profesional de IT',
-      description: 'En BackBonix, somos un equipo profesional especializado en soluciones modernas de infraestructura IT. Nos enorgullecemos de brindar servicios de alta calidad a nuestros clientes.',
+      title: 'Por que AlisCore',
+      subtitle: 'Estrategia, ejecucion e impacto',
+      description:
+        'AlisCore es un socio tecnologico orientado al negocio para empresas que necesitan mas que desarrollo. Construimos sistemas que mejoran operaciones y rendimiento.',
       features: [
-        'Equipo de ingenieros experimentados',
-        'Tecnologías modernas',
-        'Servicio de soporte 24/7',
-        'Garantía de calidad'
-      ]
+        'Ejecucion enfocada en resultados',
+        'Estrategia y entrega lideradas por seniors',
+        'Arquitectura escalable y codigo limpio',
+        'Soporte y optimizacion continua',
+      ],
     },
     services: {
-      title: 'Nuestros Servicios',
-      subtitle: 'Soluciones IT Completas',
+      title: 'Servicios principales',
+      subtitle: 'Modelo IT orientado a red y operaciones',
       items: [
-        { 
-          title: 'Servicios de Seguridad de Red', 
-          description: 'Protección de redes corporativas y sistemas de monitoreo' 
+        {
+          title: 'Network Setup & Management',
+          description: 'Diseno de red, configuracion de firewall/switch, segmentacion y monitoreo continuo.',
         },
-        { 
-          title: 'Servicios de Gestión de Red', 
-          description: 'Gestión profesional de red y servicios de optimización' 
+        {
+          title: 'IT Support (Helpdesk)',
+          description: 'Soporte diario por tickets con escalamiento claro y tiempos de respuesta definidos.',
         },
-        { 
-          title: 'Análisis de Infraestructura IT', 
-          description: 'Análisis y mejora de sistemas existentes' 
+        {
+          title: 'Cybersecurity',
+          description: 'Endurecimiento practico de identidad, endpoints, firewall y correo corporativo.',
         },
-        { 
-          title: 'Servicios de Video Vigilancia', 
-          description: 'Soluciones modernas de vigilancia e instalación' 
+        {
+          title: 'Server & System Administration',
+          description: 'Administracion confiable de servidores, parches, accesos y monitoreo operativo.',
         },
-        { 
-          title: 'Cableado de Bajo Voltaje (LAN)', 
-          description: 'Instalación de cable LAN y cableado estructurado' 
+        {
+          title: 'Cloud Solutions (M365 & Google)',
+          description: 'Implementacion, migracion y gobierno de Microsoft 365 y Google Workspace.',
         },
-        { 
-          title: 'Servicios de Red Inalámbrica', 
-          description: 'Diseño e instalación de infraestructura WiFi' 
+        {
+          title: 'Backup, DR & VPN',
+          description: 'Backups verificados, plan de recuperacion y acceso remoto seguro por VPN.',
         },
-        { 
-          title: 'Migración de Infraestructura IT', 
-          description: 'Migración y modernización de sistemas' 
-        },
-        { 
-          title: 'Configuración Completa de Red Casa/Oficina', 
-          description: 'Soluciones completas de red e instalación' 
-        }
-      ]
+      ],
     },
     vendors: {
-      title: 'Experiencia con Proveedores',
-      subtitle: 'Amplia Experiencia con Proveedores',
-      description: 'Amplia experiencia con productos de las principales empresas tecnológicas'
+      title: 'Confianza y modelo de entrega',
+      subtitle: 'Mejor ajuste para velocidad y claridad',
+      description:
+        'Combinamos pensamiento de nivel enterprise con la flexibilidad que las empresas en crecimiento necesitan.',
+      brandsCaption: 'Ecosistemas de vendor y red con los que hemos trabajado (ejemplo)',
+      vendorCtaTitle: 'Tambien podemos trabajar con tus productos de vendor',
+      vendorCtaBody:
+        'No estamos limitados a las marcas mostradas aqui. Escríbenos para integraciones, despliegues y soporte continuo.',
+      vendorCtaButton: 'Pedir consulta',
     },
     portfolio: {
-      title: 'Portafolio',
-      subtitle: 'Nuestros Proyectos Exitosos',
-      description: 'Resultados obtenidos en proyectos de gran escala',
+      title: 'Casos',
+      subtitle: 'Tipos de proyectos representativos',
+      description: 'Estos ejemplos muestran los problemas de negocio que AlisCore busca resolver.',
       projects: [
         {
-          title: '74º Congreso Internacional Astronáutico',
-          description: 'Configuración completa de infraestructura IT: Más de 50 switches, 120 puntos de acceso, 2 firewalls, 2 controladores de acceso, servidor syslog, controlador de dominio, servidor de monitoreo PRTG, más de 100 impresoras y computadoras, más de 20km de cableado de red de bajo voltaje, más de 500 cámaras IP instaladas y configuradas'
+          title: 'Portal operativo para salud',
+          description: 'Una plataforma unificada para reducir carga administrativa y centralizar flujos de trabajo.',
         },
         {
-          title: 'Proyecto COP29 - Bakú',
-          description: 'Soporte de red IT del proyecto COP29 realizado en Bakú. Configuración de infraestructura IT completa para más de 200 trabajadores. Garantizando seguridad, alta disponibilidad y resistencia. Configuración VPN para cada miembro de Active Directory para personas de nivel C. Separación de red de datos altamente sensibles. Separación de red inalámbrica para huéspedes y personal.'
+          title: 'Automatizacion operativa para e-commerce',
+          description: 'Una capa de integracion y reportes para reducir conciliaciones manuales y mejorar visibilidad.',
         },
         {
-          title: 'Campeonatos Internacionales de Ajedrez',
-          description: 'Análisis, diseño y configuración de infraestructura IT. Configuración de red inalámbrica en modo más seguro para más de 300 personas. Soporte todo el día en caso de emergencia. Soporte de streaming para el mundo.'
+          title: 'Plataforma MVP para startups',
+          description: 'Un producto inicial pensado para validar demanda rapidamente y escalar sin rehacer todo.',
         },
-        {
-          title: 'Soporte Empresas Gubernamentales',
-          description: 'Soporte de red de diferentes empresas gubernamentales y servicios de gestión de infraestructura.'
-        },
-        {
-          title: 'Migración de Centro de Datos',
-          description: 'Migración de más de 5 centros de datos de grandes empresas y modernización de infraestructura.'
-        },
-        {
-          title: 'Soporte Mastercard y Visa',
-          description: 'Soporte de ingeniería de campo de Mastercard y Visa en Azerbaiyán y servicios técnicos.'
-        }
-      ]
+      ],
     },
     contact: {
       title: 'Contacto',
-      subtitle: 'Ponte en Contacto',
-      description: 'Hablemos sobre tu proyecto y te ofreceremos la mejor solución',
+      subtitle: 'Empieza con una conversacion enfocada',
+      description: 'Comparte que estas construyendo, donde estan los bloqueos y en que plazo trabajas.',
       form: {
-        name: 'Nombre Completo',
-        email: 'Correo Electrónico',
-        phone: 'Teléfono',
+        name: 'Nombre completo',
+        email: 'Correo',
+        phone: 'Telefono',
         company: 'Empresa',
         message: 'Mensaje',
-        send: 'Enviar',
+        send: 'Enviar consulta',
         sending: 'Enviando...',
-        success: '¡Mensaje enviado exitosamente!',
-        error: '¡Ocurrió un error!'
+        success: 'Tu consulta fue enviada correctamente.',
+        error: 'No pudimos enviar tu consulta en este momento. Intenta nuevamente.',
+        turnstileRequired: 'Completa la verificación de seguridad antes de enviar.',
       },
       info: {
-        phone: '+994 XX XXX XX XX',
-        email: 'info@backbonix.com',
-        address: 'Bakú, Azerbaiyán'
-      }
-    }
-  }
+        phone: '+1 (571) 315-9611',
+        email: 'hello@aliscore.com',
+        address: 'United States',
+      },
+    },
+  },
 };

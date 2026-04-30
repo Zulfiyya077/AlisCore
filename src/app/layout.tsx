@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
+import { NavigationProgress } from "@/components/layout/NavigationProgress";
+import { siteConfig } from "@/lib/site";
 
 // ─── Fonts ──────────────────────────────────────────────────
 const inter = Inter({
@@ -30,11 +34,10 @@ export const viewport: Viewport = {
 };
 
 // ─── SEO Metadata ───────────────────────────────────────────
-const SITE_URL = "https://backbonix.com";
-const SITE_NAME = "BackBonix";
-const SITE_TITLE = "BackBonix | Enterprise IT Infrastructure & Cybersecurity Solutions";
-const SITE_DESCRIPTION =
-  "BackBonix delivers enterprise-grade IT infrastructure, network security, structured cabling, and video surveillance solutions across Northern Virginia. Trusted by leading organizations for mission-critical deployments. Contact us: +1 (571) 315-9611";
+const SITE_URL = siteConfig.url;
+const SITE_NAME = siteConfig.name;
+const SITE_TITLE = siteConfig.title;
+const SITE_DESCRIPTION = siteConfig.description;
 
 export const metadata: Metadata = {
   // ── Core Meta ──
@@ -44,22 +47,18 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "IT infrastructure solutions",
-    "network security services",
-    "cybersecurity consulting",
-    "video surveillance systems",
-    "structured cabling",
-    "enterprise networking",
-    "IT consulting Fairfax VA",
-    "managed IT services Virginia",
-    "network design and implementation",
-    "firewall configuration",
-    "IP camera installation",
-    "wireless network deployment",
-    "data center solutions",
-    "BackBonix",
-    "Northern Virginia IT company",
-    "Washington DC IT services",
+    "custom software development company",
+    "software development services usa",
+    "workflow automation services",
+    "business process automation company",
+    "web application development company",
+    "legacy system modernization services",
+    "healthcare software development company",
+    "startup mvp development company",
+    "small business IT solutions",
+    "cloud modernization consulting",
+    "AlisCore",
+    "US IT solutions company",
   ],
   authors: [
     { name: SITE_NAME, url: SITE_URL },
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   referrer: "origin-when-cross-origin",
   category: "Technology",
-  classification: "IT Infrastructure & Network Security Services",
+  classification: "Custom Software Development & IT Solutions",
 
   // ── Base URL & Alternates ──
   metadataBase: new URL(SITE_URL),
@@ -81,22 +80,6 @@ export const metadata: Metadata = {
       "az-AZ": "/?lang=az",
       "es-ES": "/?lang=es",
     },
-    types: {
-      "application/rss+xml": "/feed.xml",
-    },
-  },
-
-  // ── Icons & Manifest ──
-  icons: {
-    icon: [
-      { url: "/images/backbonix-logo.png", sizes: "any" },
-      { url: "/images/backbonix-logo.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/backbonix-logo.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: [
-      { url: "/images/backbonix-logo.png", sizes: "180x180" },
-    ],
-    shortcut: "/images/backbonix-logo.png",
   },
 
   // ── Robots & Crawling ──
@@ -119,21 +102,22 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     title: SITE_TITLE,
-    description: "Enterprise IT infrastructure, cybersecurity, structured cabling & video surveillance solutions. Serving Northern Virginia, Washington D.C. & surrounding areas since 2020.",
+    description:
+      "Custom software, automation, and modernization services for US businesses that need scalable systems and measurable growth.",
     siteName: SITE_NAME,
     locale: "en_US",
     alternateLocale: ["az_AZ", "es_ES"],
     images: [
       {
-        url: "/images/backbonix-og.png",
-        secureUrl: `${SITE_URL}/images/backbonix-og.png`,
+        url: siteConfig.ogImage,
+        secureUrl: `${SITE_URL}${siteConfig.ogImage}`,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Enterprise IT Infrastructure & Cybersecurity Solutions`,
+        alt: `${SITE_NAME} — Custom Software and IT Solutions`,
         type: "image/png",
       },
       {
-        url: "/images/backbonix-logo.png",
+        url: siteConfig.logo,
         width: 512,
         height: 512,
         alt: `${SITE_NAME} Logo`,
@@ -141,21 +125,16 @@ export const metadata: Metadata = {
       },
     ],
     countryName: "United States",
-    emails: ["backbonix@gmail.com"],
-    phoneNumbers: ["+15713159611"],
+    emails: [siteConfig.email],
+    phoneNumbers: [siteConfig.phone.replace(/[^\d+]/g, "")],
   },
 
   // ── Twitter Card ──
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
-    description: "Enterprise IT infrastructure, cybersecurity & video surveillance solutions in Northern Virginia. Trusted by leading organizations.",
-    images: {
-      url: "/images/backbonix-og.png",
-      alt: `${SITE_NAME} — Enterprise IT Infrastructure Solutions`,
-    },
-    creator: "@backbonix",
-    site: "@backbonix",
+    description:
+      "AlisCore helps SMBs streamline operations with custom software, automation, and scalable digital infrastructure.",
   },
 
   // ── Verification (replace with real IDs when available) ──
@@ -170,16 +149,10 @@ export const metadata: Metadata = {
   // ── Additional Meta Tags ──
   other: {
     // Contact & Business
-    "contact": "backbonix@gmail.com",
-    "reply-to": "backbonix@gmail.com",
-    "phone": "+1 (571) 315-9611",
-    "address": "Fairfax, VA 20171, United States",
-
-    // Geo Targeting
-    "geo.region": "US-VA",
-    "geo.placename": "Fairfax, Virginia",
-    "geo.position": "38.8462;-77.3064",
-    "ICBM": "38.8462, -77.3064",
+    "contact": siteConfig.email,
+    "reply-to": siteConfig.email,
+    "phone": siteConfig.phone,
+    "address": siteConfig.location,
 
     // Crawler Directives
     "revisit-after": "3 days",
@@ -191,7 +164,7 @@ export const metadata: Metadata = {
     "language": "English",
     "content-language": "en-US",
     "target": "all",
-    "audience": "all",
+    "audience": "small and medium businesses",
     "doc-type": "Web Page",
     "doc-class": "Published",
     "resource-type": "document",
@@ -218,6 +191,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
+        <Script id="force-light-mode" strategy="beforeInteractive">
+          {`
+            try {
+              document.documentElement.classList.remove('dark');
+              localStorage.setItem('theme-preference', 'light');
+            } catch (e) {}
+          `}
+        </Script>
+        <NavigationProgress />
+        <AnalyticsProvider />
         {children}
       </body>
     </html>
