@@ -31,12 +31,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
 
   // Project images from Supabase
   const projectImages = {
-    data: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/Data-Center-Migration-Move-Moving-Plan-Strategy.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvRGF0YS1DZW50ZXItTWlncmF0aW9uLU1vdmUtTW92aW5nLVBsYW4tU3RyYXRlZ3kud2VicCIsImlhdCI6MTc1MDQyODcxNiwiZXhwIjoxNzgxOTY0NzE2fQ.UhOs5ig2pqFPDvQAZ2InjyId8If5IfKkZZqjZORv6hY',
-    government: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/iStock-1960986400%20(1).webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvaVN0b2NrLTE5NjA5ODY0MDAgKDEpLndlYnAiLCJpYXQiOjE3NTA0Mjg3ODAsImV4cCI6MTc4MTk2NDc4MH0.1JBsGJWRRM55r8xgjmqwxDXH057hjCyMGtQgou8wudA',
-    cop29: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/cop29.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvY29wMjkuanBnIiwiaWF0IjoxNzUwNDI4ODA0LCJleHAiOjE3ODE5NjQ4MDR9.q6Y4YBdLZeY86JFoUR1pRrtNqVsR0-_oyImsfSzxGOc',
-    astronavtika: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/astro2.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvYXN0cm8yLmpwZyIsImlhdCI6MTc1MDQyODgzMywiZXhwIjoxNzgxOTY0ODMzfQ.ZBWlSXuf8GK3qdmGYvrWLnld7KewKAcChbd5ICBIAPY',
-    visa: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/visa%20(1).webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvdmlzYSAoMSkud2VicCIsImlhdCI6MTc1MDQyODg2MiwiZXhwIjoxNzgxOTY0ODYyfQ.WD3kH1tLhG5YVujsms7v6cO4N7C7lq6UrTNznT2bqS8',
-    chess: 'https://xdzksswqqqoonxbwcmup.supabase.co/storage/v1/object/sign/Images/chess.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iMjUxN2UyNS1mNTE4LTRkYTYtYjdmNy00OWJhZWFlNTAxM2IiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJJbWFnZXMvY2hlc3MucG5nIiwiaWF0IjoxNzUwNDI4ODkwLCJleHAiOjE3ODE5NjQ4OTB9.nOi9oOcBdV4blMlqYNQRErW5uiN_70U74Vuysb_C6Sc'
+    data: '/images/cases/datacenter.png',
+    government: '/images/cases/government.png',
+    cop29: '/images/cases/cop29-network.png',
+    astronavtika: '/images/cases/iac-congress.png',
+    visa: '/images/cases/fintech.png',
+    chess: '/images/cases/fide-chess.png'
   };
 
   const projects = t.portfolio.projects.map((project, index) => {

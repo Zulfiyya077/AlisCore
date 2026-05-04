@@ -313,6 +313,72 @@ export const caseStudies: CaseStudyContent[] = [
     seoDescription:
       'Learn how AlisCore supported live chess championship operations with dependable network and hands-on IT support.',
   },
+  {
+    slug: 'network-architecture-for-government-agencies',
+    title: 'Network Architecture for Government Agencies',
+    industry: 'Government Infrastructure',
+    summary:
+      'Designed and implemented high-security network infrastructure for multiple government agency branches.',
+    challenge:
+      'The client needed a centralized management system with strict security protocols and reliable inter-branch connectivity.',
+    solution:
+      'AlisCore designed a hub-and-spoke network topology with advanced firewall rules and redundant VPN tunnels.',
+    results: [
+      '100% uptime across all branches',
+      'Centralized security management and monitoring',
+      'Full compliance with government IT standards',
+    ],
+    services: ['Network Setup and Management', 'Cybersecurity and Hardening', 'Backup, Disaster Recovery, and VPN Access'],
+    timeline: '12 weeks',
+    image: '/images/cases/government.png',
+    seoTitle: 'Government Network Architecture Case Study',
+    seoDescription:
+      'Discover how AlisCore built a secure and centralized network infrastructure for government agencies.',
+  },
+  {
+    slug: 'enterprise-data-center-migration',
+    title: 'Enterprise Data Center Migration',
+    industry: 'Infrastructure Management',
+    summary:
+      'Managed the migration of critical server infrastructure to a modern, high-performance data center.',
+    challenge:
+      'The migration had to be completed with minimal downtime and no data loss for business-critical applications.',
+    solution:
+      'We implemented a staged migration approach with parallel testing and optimized backup recovery points.',
+    results: [
+      'Migration completed with zero unplanned downtime',
+      'Improved server performance by 40%',
+      'Enhanced disaster recovery capabilities',
+    ],
+    services: ['Server and System Administration', 'Backup, Disaster Recovery, and VPN Access', 'Network Setup and Management'],
+    timeline: '8 weeks',
+    image: '/images/cases/datacenter.png',
+    seoTitle: 'Enterprise Data Center Migration Case Study',
+    seoDescription:
+      'Learn how AlisCore successfully migrated critical server infrastructure with zero downtime.',
+  },
+  {
+    slug: 'financial-technology-payment-systems',
+    title: 'Financial Technology and Payment Systems',
+    industry: 'Fintech',
+    summary:
+      'Built a secure and compliant IT environment for a fast-growing financial technology platform.',
+    challenge:
+      'The platform required strict adherence to Mastercard and Visa security standards while maintaining high performance.',
+    solution:
+      'AlisCore implemented a multi-layered security architecture with real-time auditing and hardened network segmentation.',
+    results: [
+      'Successfully passed PCI-DSS compliance audits',
+      'Enhanced transaction processing security',
+      'Scalable infrastructure for future growth',
+    ],
+    services: ['Cybersecurity and Hardening', 'Network Setup and Management', 'Cloud Solutions (M365 and Google Workspace)'],
+    timeline: '10 weeks',
+    image: '/images/cases/fintech.png',
+    seoTitle: 'Fintech Payment Systems IT Infrastructure Case Study',
+    seoDescription:
+      'Explore how AlisCore built a secure and compliant IT environment for fintech payment systems.',
+  },
 ];
 
 export const industryPages: IndustryPageContent[] = [

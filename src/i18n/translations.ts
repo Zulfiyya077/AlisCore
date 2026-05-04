@@ -87,6 +87,18 @@ export const translations = {
           description:
             'Canlı turnir üçün sabit bağlantı, helpdesk prosedurları və minimal fasilə ilə venue tərəfli texniki iş axını.',
         },
+        {
+          title: 'Dövlət Agentlikləri üçün Şəbəkə Arxitekturası',
+          description: 'Hökumət səviyyəli infrastrukturun qurulması, yüksək təhlükəsizlik standartları və mərkəzi idarəetmə.',
+        },
+        {
+          title: 'Böyük Verilənlər Mərkəzinin Miqrasiyası',
+          description: 'Kritik server infrastrukturunun yeni data mərkəzinə miqrasiyası və performans optimallaşdırılması.',
+        },
+        {
+          title: 'Maliyyə Texnologiyaları və Ödəniş Sistemləri',
+          description: 'Fintex layihələri üçün təhlükəsiz şəbəkə həlləri, Mastercard və Visa standartlarına uyğun IT mühit.',
+        },
       ],
     },
     contact: {
@@ -200,6 +212,18 @@ export const translations = {
           description:
             'Structured helpdesk, core network administration, and disciplined incident handling during live tournament windows.',
         },
+        {
+          title: 'Network Architecture for Government Agencies',
+          description: 'Implementation of government-grade infrastructure, high security standards, and centralized management.',
+        },
+        {
+          title: 'Enterprise Data Center Migration',
+          description: 'Migration of critical server infrastructure to a new data center and performance optimization.',
+        },
+        {
+          title: 'Financial Technology and Payment Systems',
+          description: 'Secure network solutions for fintech projects, IT environment compliant with Mastercard and Visa standards.',
+        },
       ],
     },
     contact: {
@@ -312,6 +336,18 @@ export const translations = {
           title: 'Copa del Mundo FIDE y campeonato de ajedrez — soporte IT',
           description:
             'Helpdesk estructurado, administración de red y gestión de incidentes durante ventanas de torneo en vivo.',
+        },
+        {
+          title: 'Arquitectura de Red para Agencias Gubernamentales',
+          description: 'Implementación de infraestructura de grado gubernamental, estándares de alta seguridad y gestión centralizada.',
+        },
+        {
+          title: 'Migración de Centro de Datos Empresarial',
+          description: 'Migración de infraestructura de servidores crítica a un nuevo centro de datos y optimización del rendimiento.',
+        },
+        {
+          title: 'Tecnología Financiera y Sistemas de Pago',
+          description: 'Soluciones de red seguras para proyectos fintech, entorno IT compatible con estándares Mastercard y Visa.',
         },
       ],
     },
