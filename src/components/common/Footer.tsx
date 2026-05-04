@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                   <Network className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gradient-animated">
-                  ALISCORE
+                  AlisCore
                 </h3>
               </div>
               
@@ -219,7 +219,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
             <div className={`text-sm ${
               isDark ? 'text-gray-400' : 'text-gray-500'
             }`}>
-              © {currentYear} ALISCORE. {
+              © {currentYear} AlisCore. {
                 currentLang === 'en' 
                   ? 'All rights reserved.' 
                   : currentLang === 'az' 

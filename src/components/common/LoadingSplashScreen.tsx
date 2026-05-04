@@ -10,7 +10,7 @@ const LoadingSplashScreen = () => {
   const loadingTexts = [
     'Starting up...',
     'Loading systems...',
-    'Preparing ALISCORE...',
+    'Preparing AlisCore...',
     'Almost ready...'
   ];
 
@@ -83,7 +83,7 @@ const LoadingSplashScreen = () => {
           <div className="mb-16">
             <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 text-shadow-3d animate-fadeIn">
               <span className="bg-gradient-to-r from-zinc-400 via-zinc-500 to-zinc-400 bg-clip-text text-transparent">
-                ALISCORE
+                AlisCore
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-zinc-300 animate-fadeIn" style={{ animationDelay: '0.3s' }}>

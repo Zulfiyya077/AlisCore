@@ -1,7 +1,7 @@
 export const translations = {
   az: {
     nav: {
-      about: 'Niyə AlisCore',
+      about: 'Haqqımızda',
       services: 'Xidmətlər',
       portfolio: 'Case Studylər',
       contact: 'Əlaqə',
@@ -14,7 +14,7 @@ export const translations = {
       cta: 'Strategy Call Sifariş Et',
     },
     about: {
-      title: 'Niyə AlisCore',
+      title: 'Haqqımızda',
       subtitle: 'Strategiya, icra və nəticə bir yerdə',
       description:
         'AlisCore biznes nəticələrinə fokuslanan software partner-dir. Məqsədimiz sadəcə development deyil, satışa, əməliyyata və ölçülə bilən performansa təsir edən sistemlər qurmaqdır.',

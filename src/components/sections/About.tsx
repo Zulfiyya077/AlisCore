@@ -63,27 +63,27 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
   // About content based on language
   const aboutContent = {
     en: {
-      title: "About ALISCORE",
+      title: "About AlisCore",
       subtitle: "Professional IT Infrastructure Solutions",
-      paragraph1: "At ALISCORE, we specialize in delivering comprehensive IT infrastructure solutions for businesses of all sizes. Our core services include network design and configuration, structured cabling, security implementation, wireless access point deployment, and high-performance IP camera surveillance systems. With a focus on reliability, performance, and scalability, we tailor each project to meet our clients' specific operational needs.",
+      paragraph1: "At AlisCore, we specialize in delivering comprehensive IT infrastructure solutions for businesses of all sizes. Our core services include network design and configuration, structured cabling, security implementation, wireless access point deployment, and high-performance IP camera surveillance systems. With a focus on reliability, performance, and scalability, we tailor each project to meet our clients' specific operational needs.",
       paragraph2: "We bring deep technical expertise and industry-standard best practices to every job—whether it's setting up a secure firewall, configuring enterprise-grade switches, or managing multi-site connectivity. Our infrastructure cabling solutions ensure clean, organized, and future-ready environments. We understand that uptime and data security are vital, which is why we treat every setup with precision and care.",
-      paragraph3: "ALISCORE is committed to long-term partnerships, offering ongoing support and maintenance to keep your systems running at their best. From startups to established enterprises, our goal is to build the digital backbone of your business—securely and efficiently.",
+      paragraph3: "AlisCore is committed to long-term partnerships, offering ongoing support and maintenance to keep your systems running at their best. From startups to established enterprises, our goal is to build the digital backbone of your business—securely and efficiently.",
       cta: "Let us power your business with infrastructure you can trust."
     },
     az: {
-      title: "ALISCORE Haqqında",
+      title: "AlisCore Haqqında",
       subtitle: "Professional IT İnfrastruktur Həlləri",
-      paragraph1: "ALISCORE olaraq, bütün ölçülü bizneslərgə hərtərəfli IT infrastruktur həlləri təqdim etməkdə ixtisaslaşırıq. Əsas xidmətlərimizə şəbəkə dizaynı və konfiqurasiyası, strukturlaşdırılmış kablaj, təhlükəsizlik tətbiqi, simsiz giriş nöqtələrinin yerləşdirilməsi və yüksək performanslı IP kamera nəzarət sistemləri daxildir.",
+      paragraph1: "AlisCore olaraq, bütün ölçülü bizneslərgə hərtərəfli IT infrastruktur həlləri təqdim etməkdə ixtisaslaşırıq. Əsas xidmətlərimizə şəbəkə dizaynı və konfiqurasiyası, strukturlaşdırılmış kablaj, təhlükəsizlik tətbiqi, simsiz giriş nöqtələrinin yerləşdirilməsi və yüksək performanslı IP kamera nəzarət sistemləri daxildir.",
       paragraph2: "Hər işə dərin texniki təcrübə və sənaye standartı ən yaxşı təcrübələr gətiririk - təhlükəsiz firewall quraşdırılması, müəssisə səviyyəli switchlərin konfiqurasiyası və ya çoxsaytlı əlaqənin idarə edilməsi olsun. İnfrastruktur kablaj həllərimiz təmiz, mütəşəkkil və gələcəyə hazır mühitlər təmin edir.",
-      paragraph3: "ALISCORE uzunmüddətli tərəfdaşlıqlara sadiqdir, sistemlərinizin ən yaxşı vəziyyətdə işləməsini təmin etmək üçün davamlı dəstək və baxım təklif edir. Startaplardan tutmuş qurulmuş müəssisələrə qədər, məqsədimiz biznesinizin rəqəmsal arxa hissəsini təhlükəsiz və səmərəli şəkildə qurmaqdir.",
+      paragraph3: "AlisCore uzunmüddətli tərəfdaşlıqlara sadiqdir, sistemlərinizin ən yaxşı vəziyyətdə işləməsini təmin etmək üçün davamlı dəstək və baxım təklif edir. Startaplardan tutmuş qurulmuş müəssisələrə qədər, məqsədimiz biznesinizin rəqəmsal arxa hissəsini təhlükəsiz və səmərəli şəkildə qurmaqdir.",
       cta: "Biznesinizi etibar edə biləcəyiniz infrastrukturla gücləndirək."
     },
     es: {
-      title: "Acerca de ALISCORE",
+      title: "Acerca de AlisCore",
       subtitle: "Soluciones Profesionales de Infraestructura IT",
-      paragraph1: "En ALISCORE, nos especializamos en entregar soluciones integrales de infraestructura IT para empresas de todos los tamaños. Nuestros servicios principales incluyen diseño y configuración de redes, cableado estructurado, implementación de seguridad, despliegue de puntos de acceso inalámbrico y sistemas de vigilancia de cámaras IP de alto rendimiento.",
+      paragraph1: "En AlisCore, nos especializamos en entregar soluciones integrales de infraestructura IT para empresas de todos los tamaños. Nuestros servicios principales incluyen diseño y configuración de redes, cableado estructurado, implementación de seguridad, despliegue de puntos de acceso inalámbrico y sistemas de vigilancia de cámaras IP de alto rendimiento.",
       paragraph2: "Aportamos profunda experiencia técnica y mejores prácticas estándar de la industria a cada trabajo, ya sea configurando un firewall seguro, configurando switches de nivel empresarial o gestionando conectividad multisitio. Nuestras soluciones de cableado de infraestructura aseguran entornos limpios, organizados y preparados para el futuro.",
-      paragraph3: "ALISCORE está comprometido con asociaciones a largo plazo, ofreciendo soporte continuo y mantenimiento para mantener sus sistemas funcionando en su mejor estado. Desde startups hasta empresas establecidas, nuestro objetivo es construir la columna vertebral digital de su negocio de manera segura y eficiente.",
+      paragraph3: "AlisCore está comprometido con asociaciones a largo plazo, ofreciendo soporte continuo y mantenimiento para mantener sus sistemas funcionando en su mejor estado. Desde startups hasta empresas establecidas, nuestro objetivo es construir la columna vertebral digital de su negocio de manera segura y eficiente.",
       cta: "Permítanos potenciar su negocio con infraestructura en la que pueda confiar."
     }
   };
@@ -219,7 +219,7 @@ export const About: React.FC<AboutProps> = ({ currentLang, isDark }) => {
                 </div>
                 <h3 className={`text-xl lg:text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'
                   }`}>
-                  ALISCORE
+                  AlisCore
                 </h3>
                 <p className={`text-lg lg:text-xl font-medium ${isDark ? 'text-zinc-300' : 'text-zinc-600'
                   }`}>

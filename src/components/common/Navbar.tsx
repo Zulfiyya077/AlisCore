@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Logo mətni */}
               <div className="flex flex-col">
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient-animated group-hover:scale-105 transition-transform duration-300">
-                  ALISCORE
+                  AlisCore
                 </h1>
 
               </div>
