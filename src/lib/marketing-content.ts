@@ -247,67 +247,67 @@ export const servicePages: ServicePageContent[] = [
 
 export const caseStudies: CaseStudyContent[] = [
   {
-    slug: 'healthcare-operations-portal',
-    title: 'Healthcare Operations Portal',
-    industry: 'Healthcare',
+    slug: 'international-astronautical-congress-it-operations',
+    title: 'International Astronautical Congress IT Operations',
+    industry: 'Event Infrastructure',
     summary:
-      'A unified internal platform for managing intake workflows, follow-up coordination, and operational visibility.',
+      'Designed and operated event-grade network and endpoint infrastructure for a high-density international congress environment.',
     challenge:
-      'The client had disconnected administrative workflows, slow handoffs between teams, and limited visibility into response times across daily operations.',
+      'The event required stable wired/wireless connectivity, segmented access for staff and vendors, and fast on-site response under strict schedule pressure.',
     solution:
-      'AlisCore designed a centralized operations portal that brought intake, follow-up, status tracking, and role-based visibility into one system.',
+      'AlisCore planned topology, deployed segmented switching/Wi-Fi coverage, and managed live operations with proactive monitoring and rapid incident handling.',
     results: [
-      'Reduced admin friction across daily workflows',
-      'Improved team coordination and task ownership',
-      'Created a scalable base for future process automation',
+      'Maintained reliable connectivity during peak event traffic',
+      'Reduced disruption with structured incident response',
+      'Improved operational control for organizers and technical teams',
     ],
-    services: ['Custom Software Development', 'Workflow Automation', 'UX/UI Design'],
-    timeline: '10 weeks',
-    seoTitle: 'Healthcare Operations Portal Case Study',
+    services: ['Network Setup and Management', 'IT Support and Helpdesk', 'Server and System Administration'],
+    timeline: '6 weeks',
+    seoTitle: 'International Astronautical Congress IT Operations Case Study',
     seoDescription:
-      'See how AlisCore approached healthcare operations modernization with a custom portal for workflow visibility and efficiency.',
+      'See how AlisCore delivered stable network and IT operations for the International Astronautical Congress event environment.',
   },
   {
-    slug: 'ecommerce-operations-automation',
-    title: 'E-commerce Operations Automation',
-    industry: 'E-commerce',
+    slug: 'cop29-network-and-it-infrastructure-deployment',
+    title: 'COP29 Network and IT Infrastructure Deployment',
+    industry: 'Government / Event',
     summary:
-      'An operations layer that improved order visibility, reduced reconciliation work, and connected reporting workflows.',
+      'Delivered resilient network, endpoint readiness, and operational support for a large-scale COP29 deployment context.',
     challenge:
-      'The business was managing orders, inventory-related updates, and reporting across too many disconnected tools, which created delays and manual reconciliation work.',
+      'High-stakes public-sector event operations required security-conscious network design, multi-team coordination, and predictable uptime.',
     solution:
-      'We designed an automation-first operations layer that streamlined internal reporting and reduced friction across key operational handoffs.',
+      'AlisCore deployed segmented infrastructure, hardened access controls, and coordinated day-to-day IT operations with clear escalation ownership.',
     results: [
-      'Lower manual reconciliation time',
-      'Cleaner operational visibility across teams',
-      'Better support for scale without extra administrative burden',
+      'Strengthened network reliability across operational zones',
+      'Improved security posture with tighter access control',
+      'Supported continuous operations with reduced downtime risk',
     ],
-    services: ['Workflow Automation', 'Web Application Development'],
+    services: ['Network Setup and Management', 'Cybersecurity and Hardening', 'Backup, Disaster Recovery, and VPN Access'],
     timeline: '8 weeks',
-    seoTitle: 'E-commerce Operations Automation Case Study',
+    seoTitle: 'COP29 Network and IT Infrastructure Deployment Case Study',
     seoDescription:
-      'Explore how AlisCore approached automation and visibility challenges for an e-commerce operations workflow.',
+      'Explore how AlisCore delivered secure and reliable network infrastructure for COP29 operational requirements.',
   },
   {
-    slug: 'startup-mvp-launch-platform',
-    title: 'Startup MVP Launch Platform',
-    industry: 'Startup / SaaS',
+    slug: 'fide-world-cup-and-chess-championship-it-support',
+    title: 'FIDE World Cup and Chess Championship IT Support',
+    industry: 'Sports Event Operations',
     summary:
-      'A lean MVP platform designed to validate demand quickly while preserving room for future growth.',
+      'Provided structured IT support and network administration for live tournament operations and venue-side technical workflows.',
     challenge:
-      'The startup needed to move quickly without building a fragile product that would require a full rebuild after launch.',
+      'Tournament operations demanded stable connectivity, rapid support response, and minimal interruption for organizers, media, and participants.',
     solution:
-      'AlisCore defined the MVP scope, focused on the highest-value features, and built a scalable application foundation to support future iteration.',
+      'AlisCore established on-site support procedures, maintained core network systems, and handled incidents with ticket-like triage and escalation discipline.',
     results: [
-      'Faster path to market validation',
-      'Cleaner product scope and stakeholder alignment',
-      'A stronger architecture for post-launch iteration',
+      'Reduced operational incidents during event windows',
+      'Faster resolution times for user-facing technical issues',
+      'More predictable IT operations under live-event pressure',
     ],
-    services: ['Discovery and Product Strategy', 'Web Application Development', 'UX/UI Design'],
-    timeline: '12 weeks',
-    seoTitle: 'Startup MVP Launch Platform Case Study',
+    services: ['IT Support and Helpdesk', 'Network Setup and Management', 'Cloud Solutions (M365 and Google Workspace)'],
+    timeline: '5 weeks',
+    seoTitle: 'FIDE World Cup and Chess Championship IT Support Case Study',
     seoDescription:
-      'Learn how AlisCore approached MVP strategy and delivery for a startup launching a new digital product.',
+      'Learn how AlisCore supported live chess championship operations with dependable network and hands-on IT support.',
   },
 ];
 

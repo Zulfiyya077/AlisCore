@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { NavigationProgress } from "@/components/layout/NavigationProgress";
@@ -28,9 +27,9 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
   ],
-  colorScheme: "light",
+  colorScheme: "light dark",
 };
 
 // ─── SEO Metadata ───────────────────────────────────────────
@@ -172,10 +171,10 @@ export const metadata: Metadata = {
     "copyright": `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
 
     // Design & Theme
-    "msapplication-TileColor": "#ffffff",
+    "msapplication-TileColor": "#09090b",
     "msapplication-config": "/browserconfig.xml",
     "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
     "apple-mobile-web-app-title": SITE_NAME,
     "format-detection": "telephone=yes",
     "mobile-web-app-capable": "yes",
@@ -191,14 +190,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <Script id="force-light-mode" strategy="beforeInteractive">
-          {`
-            try {
-              document.documentElement.classList.remove('dark');
-              localStorage.setItem('theme-preference', 'light');
-            } catch (e) {}
-          `}
-        </Script>
         <NavigationProgress />
         <AnalyticsProvider />
         {children}

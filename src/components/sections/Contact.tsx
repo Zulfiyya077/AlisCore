@@ -111,7 +111,7 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
         user_phone: formData.phone || 'Qeyd edilməyib',
         user_company: formData.company || 'Qeyd edilməyib',
         message: formData.message,
-        email: 'backbonix@gmail.com', // Vizit kartdakı email
+        email: 'hello@aliscore.com', // Vizit kartdakı email
         reply_to: formData.email
       };
 
@@ -156,8 +156,8 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'backbonix@gmail.com',
-      href: 'mailto:backbonix@gmail.com',
+      value: 'hello@aliscore.com',
+      href: 'mailto:hello@aliscore.com',
       color: 'from-zinc-500 to-zinc-600',
       animationClass: 'animate-scale-in'
     },
@@ -545,13 +545,13 @@ export const Contact: React.FC<ContactProps> = ({ currentLang, isDark }) => {
                 </h3>
               </div>
               <a
-                href="https://www.backbonix.com"
+                href="https://www.aliscore.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-sm font-medium transition-colors duration-300 hover:underline ${isDark ? 'text-zinc-400 hover:text-zinc-300' : 'text-zinc-600 hover:text-zinc-500'
                   }`}
               >
-                www.backbonix.com
+                www.aliscore.com
               </a>
             </div>
           </div>

@@ -68,20 +68,24 @@ export const translations = {
     },
     portfolio: {
       title: 'Case Studylər',
-      subtitle: 'Biznes dəyəri yaradan nümunələr',
-      description: 'Aşağıdakı nümunələr AlisCore-un yönəldiyi layihə tipini göstərir.',
+      subtitle: 'Real tədbir və infrastruktur layihələri',
+      description:
+        'Beynəlxalq Astronavtika Konqresi, COP29 və FIDE şahmat çempionatları kimi yüksək yüklü tədbirlərdə şəbəkə və IT əməliyyatları.',
       projects: [
         {
-          title: 'Healthcare operations portal',
-          description: 'Çoxsaylı manual qəbul və follow-up proseslərini tək dashboard üzərindən idarə edən portal.',
+          title: 'Beynəlxalq Astronavtika Konqresi — IT əməliyyatları',
+          description:
+            'Yüksək sıxlıqlı konqres mühitində sabit şəbəkə, seqmentləşdirilmiş giriş və yerində reaktiv dəstək.',
         },
         {
-          title: 'E-commerce ops automation',
-          description: 'Sifariş, inventar və reporting proseslərini inteqrasiya edib komanda yükünü azaldan həll.',
+          title: 'COP29 — şəbəkə və IT infrastruktur',
+          description:
+            'İctimai sektor tədbiri üçün təhlükəsizlik şüurlu topologiya, giriş nəzarəti və davamlı əməliyyat dəstəyi.',
         },
         {
-          title: 'Startup MVP launch platform',
-          description: 'Product-market fit yoxlaması üçün sürətli çıxarılan, ölçülə bilən MVP platforma.',
+          title: 'FIDE Dünya Kuboku və şahmat çempionatı — IT dəstək',
+          description:
+            'Canlı turnir üçün sabit bağlantı, helpdesk prosedurları və minimal fasilə ilə venue tərəfli texniki iş axını.',
         },
       ],
     },
@@ -177,20 +181,24 @@ export const translations = {
     },
     portfolio: {
       title: 'Case Studies',
-      subtitle: 'Representative engagement types',
-      description: 'These examples reflect the type of business problems AlisCore is positioned to solve.',
+      subtitle: 'Real event and infrastructure work',
+      description:
+        'Network and IT operations for high-stakes environments — from congress-scale deployments to COP29 and live chess championships.',
       projects: [
         {
-          title: 'Healthcare operations portal',
-          description: 'A unified platform designed to reduce admin overhead, centralize workflows, and improve response times.',
+          title: 'International Astronautical Congress — IT operations',
+          description:
+            'Event-grade wired and wireless coverage, segmented access for staff and vendors, and responsive on-site operations.',
         },
         {
-          title: 'E-commerce operations automation',
-          description: 'An integration and reporting layer built to reduce manual reconciliation and improve operational visibility.',
+          title: 'COP29 — network and IT infrastructure',
+          description:
+            'Security-conscious design, hardened access controls, and coordinated day-to-day IT for large-scale public-sector operations.',
         },
         {
-          title: 'Startup MVP launch platform',
-          description: 'A lean product build designed to validate demand quickly and support future scale without rework.',
+          title: 'FIDE World Cup and chess championship — IT support',
+          description:
+            'Structured helpdesk, core network administration, and disciplined incident handling during live tournament windows.',
         },
       ],
     },
@@ -286,20 +294,24 @@ export const translations = {
     },
     portfolio: {
       title: 'Casos',
-      subtitle: 'Tipos de proyectos representativos',
-      description: 'Estos ejemplos muestran los problemas de negocio que AlisCore busca resolver.',
+      subtitle: 'Eventos reales e infraestructura',
+      description:
+        'Operaciones de red e IT en entornos exigentes: congresos internacionales, COP29 y campeonatos de ajedrez en vivo.',
       projects: [
         {
-          title: 'Portal operativo para salud',
-          description: 'Una plataforma unificada para reducir carga administrativa y centralizar flujos de trabajo.',
+          title: 'Congreso Internacional de Astronáutica — operaciones IT',
+          description:
+            'Conectividad cableada e inalámbrica para alta densidad, acceso segmentado y soporte reactivo en sitio.',
         },
         {
-          title: 'Automatizacion operativa para e-commerce',
-          description: 'Una capa de integracion y reportes para reducir conciliaciones manuales y mejorar visibilidad.',
+          title: 'COP29 — red e infraestructura IT',
+          description:
+            'Diseño con enfoque en seguridad, controles de acceso y operaciones coordinadas para un evento de gran escala.',
         },
         {
-          title: 'Plataforma MVP para startups',
-          description: 'Un producto inicial pensado para validar demanda rapidamente y escalar sin rehacer todo.',
+          title: 'Copa del Mundo FIDE y campeonato de ajedrez — soporte IT',
+          description:
+            'Helpdesk estructurado, administración de red y gestión de incidentes durante ventanas de torneo en vivo.',
         },
       ],
     },

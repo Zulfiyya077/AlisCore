@@ -7,6 +7,18 @@
   --color-accent: #000000;
   --color-gray-dark: #000000;
   --color-gray-light: #ffffff;
+  /* Headline gradient text (light mode: near-black) */
+  --text-gradient-a: #09090b;
+  --text-gradient-b: #18181b;
+  --text-gradient-c: #27272a;
+}
+
+/* When `dark` is on :root (theme hook) or any `.dark` wrapper, headline gradients switch to light tones */
+:root.dark,
+.dark {
+  --text-gradient-a: #fafafa;
+  --text-gradient-b: #e4e4e7;
+  --text-gradient-c: #a1a1aa;
 }
 
 /* Enhanced scrollbar with new colors */
@@ -60,7 +72,7 @@ body {
 }
 
 .dark body {
-  background: #ffffff;
+  background: #09090b;
 }
 
 /* Enhanced line clamp utility */
@@ -346,16 +358,16 @@ body {
   animation: fadeInRight 0.6s ease-out forwards;
 }
 
-/* Text gradient effects */
+/* Text gradient effects (use --text-gradient-* so dark mode headlines stay light) */
 .text-gradient-blue-green {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--text-gradient-a), var(--text-gradient-c));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-animated {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  background: linear-gradient(135deg, var(--text-gradient-a), var(--text-gradient-b), var(--text-gradient-c));
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

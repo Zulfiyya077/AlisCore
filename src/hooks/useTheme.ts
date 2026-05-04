@@ -5,17 +5,21 @@ export const useTheme = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
-    // Force light mode on every page load.
-    setIsDark(false);
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme-preference', 'light');
+    const savedTheme = localStorage.getItem('theme-preference');
+    // Default first visit is light; dark only after the user toggles to dark (stored in localStorage).
+    const shouldUseDark = savedTheme === 'dark';
+
+    setIsDark(shouldUseDark);
+    document.documentElement.classList.toggle('dark', shouldUseDark);
   }, []);
 
   const toggleTheme = () => {
-    // Keep API compatible for components, but lock theme to light.
-    setIsDark(false);
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme-preference', 'light');
+    setIsDark((prev: boolean) => {
+      const nextThemeIsDark = !prev;
+      document.documentElement.classList.toggle('dark', nextThemeIsDark);
+      localStorage.setItem('theme-preference', nextThemeIsDark ? 'dark' : 'light');
+      return nextThemeIsDark;
+    });
   };
 
   return { isDark, toggleTheme };

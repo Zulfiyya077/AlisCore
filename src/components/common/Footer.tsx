@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                   <Network className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gradient-animated">
-                  BackBonix
+                  ALISCORE
                 </h3>
               </div>
               
@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                 <div className="flex items-center space-x-2">
                   <Mail className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
                   <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                    backbonix@gmail.com
+                    hello@aliscore.com
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -128,14 +128,14 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                 <div className="flex items-center space-x-2">
                   <Globe className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
                   <a 
-                    href="https://www.backbonix.com" 
+                    href="https://www.aliscore.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className={`text-sm transition-colors duration-200 hover:text-zinc-500 ${
                       isDark ? 'text-gray-300 hover:text-zinc-400' : 'text-gray-600 hover:text-zinc-600'
                     }`}
                   >
-                    www.backbonix.com
+                    www.aliscore.com
                   </a>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
             <div className={`text-sm ${
               isDark ? 'text-gray-400' : 'text-gray-500'
             }`}>
-              © {currentYear} BackBonix. {
+              © {currentYear} ALISCORE. {
                 currentLang === 'en' 
                   ? 'All rights reserved.' 
                   : currentLang === 'az' 
@@ -240,13 +240,13 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, isDark, onNavigate 
                 <span>+1 (571) 315-9611</span>
               </a>
               <a 
-                href="mailto:backbonix@gmail.com"
+                href="mailto:hello@aliscore.com"
                 className={`text-sm flex items-center space-x-1 transition-colors duration-200 hover:text-zinc-500 ${
                   isDark ? 'text-gray-400 hover:text-zinc-400' : 'text-gray-500 hover:text-zinc-600'
                 }`}
               >
                 <Mail className="w-3 h-3" />
-                <span>backbonix@gmail.com</span>
+                <span>hello@aliscore.com</span>
               </a>
             </div>
 

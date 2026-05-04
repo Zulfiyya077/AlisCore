@@ -66,10 +66,33 @@ export const Portfolio: React.FC<PortfolioProps> = ({ currentLang, isDark }) => 
         imageUrl = projectImages.cop29;          // Default
     }
 
+    const categoryByIndex =
+      index === 0
+        ? currentLang === 'az'
+          ? 'Tədbir / Konqres'
+          : currentLang === 'es'
+            ? 'Evento / Congreso'
+            : 'Event / Congress'
+        : index === 1
+          ? currentLang === 'az'
+            ? 'Dövlət / COP29'
+            : currentLang === 'es'
+              ? 'Gobierno / COP29'
+              : 'Government / COP29'
+          : index === 2
+            ? currentLang === 'az'
+              ? 'Şahmat / FIDE'
+              : currentLang === 'es'
+                ? 'Ajedrez / FIDE'
+                : 'Chess / FIDE'
+            : index < 4
+              ? 'Government'
+              : 'Migration';
+
     return {
       ...project,
       imageUrl: imageUrl,
-      category: index < 2 ? 'Enterprise' : index < 4 ? 'Government' : 'Migration',
+      category: categoryByIndex,
       year: '2023-2024',
       duration: currentLang === 'az' ? '3-6 ay' : currentLang === 'en' ? '3-6 months' : '3-6 meses',
       team: '5-15',

@@ -96,7 +96,9 @@ export default function HomeClient() {
       {isLoading && isClient && <LoadingSplashScreen />}
       
       <div 
-        className={`min-h-screen bg-white text-black transition-colors duration-300 ${(isLoading && isClient) ? 'overflow-hidden' : ''}`}
+        className={`min-h-screen transition-colors duration-300 ${
+          isDark ? 'dark bg-gray-900 text-white' : 'bg-white text-black'
+        } ${(isLoading && isClient) ? 'overflow-hidden' : ''}`}
         style={{
           opacity: (isLoading && isClient) ? 0 : 1,
           transition: 'opacity 0.5s ease-in-out'
