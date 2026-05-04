@@ -22,6 +22,7 @@ export interface CaseStudyContent {
   results: string[];
   services: string[];
   timeline: string;
+  image: string;
   seoTitle: string;
   seoDescription: string;
 }
@@ -263,6 +264,7 @@ export const caseStudies: CaseStudyContent[] = [
     ],
     services: ['Network Setup and Management', 'IT Support and Helpdesk', 'Server and System Administration'],
     timeline: '6 weeks',
+    image: '/images/cases/iac-congress.png',
     seoTitle: 'International Astronautical Congress IT Operations Case Study',
     seoDescription:
       'See how AlisCore delivered stable network and IT operations for the International Astronautical Congress event environment.',
@@ -284,6 +286,7 @@ export const caseStudies: CaseStudyContent[] = [
     ],
     services: ['Network Setup and Management', 'Cybersecurity and Hardening', 'Backup, Disaster Recovery, and VPN Access'],
     timeline: '8 weeks',
+    image: '/images/cases/cop29-network.png',
     seoTitle: 'COP29 Network and IT Infrastructure Deployment Case Study',
     seoDescription:
       'Explore how AlisCore delivered secure and reliable network infrastructure for COP29 operational requirements.',
@@ -305,6 +308,7 @@ export const caseStudies: CaseStudyContent[] = [
     ],
     services: ['IT Support and Helpdesk', 'Network Setup and Management', 'Cloud Solutions (M365 and Google Workspace)'],
     timeline: '5 weeks',
+    image: '/images/cases/fide-chess.png',
     seoTitle: 'FIDE World Cup and Chess Championship IT Support Case Study',
     seoDescription:
       'Learn how AlisCore supported live chess championship operations with dependable network and hands-on IT support.',

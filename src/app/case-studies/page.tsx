@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { JsonLd } from '@/components/common/JsonLd';
@@ -52,24 +53,40 @@ export default async function CaseStudiesPage() {
             {caseStudies.map((caseStudy) => (
               <article
                 key={caseStudy.slug}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
               >
-                <div className="mb-4 inline-flex rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-900/15">
-                  {caseStudy.industry}
+                {/* Cover image */}
+                <div className="relative h-52 w-full overflow-hidden">
+                  <Image
+                    src={caseStudy.image}
+                    alt={caseStudy.title}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-emerald-900 backdrop-blur-sm ring-1 ring-emerald-900/15">
+                    {caseStudy.industry}
+                  </div>
                 </div>
-                <h2 className="text-2xl font-semibold">{caseStudy.title}</h2>
-                <p className="mt-4 leading-7 text-slate-600">{caseStudy.summary}</p>
-                <div className="mt-6 text-sm text-slate-500">Timeline: {caseStudy.timeline}</div>
-                <Link
-                  href={`/case-studies/${caseStudy.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900"
-                >
-                  Read case study
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+
+                {/* Card body */}
+                <div className="p-8">
+                  <h2 className="text-2xl font-semibold">{caseStudy.title}</h2>
+                  <p className="mt-4 leading-7 text-slate-600">{caseStudy.summary}</p>
+                  <div className="mt-6 text-sm text-slate-500">Timeline: {caseStudy.timeline}</div>
+                  <Link
+                    href={`/case-studies/${caseStudy.slug}`}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900"
+                  >
+                    Read case study
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
+
         </div>
       </section>
     </PageShell>

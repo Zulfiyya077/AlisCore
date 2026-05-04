@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -76,9 +77,9 @@ export default async function CaseStudyDetailPage({
     <PageShell>
       <JsonLd data={caseStudySchema} />
 
-      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 py-20">
+      <section className="bg-gradient-to-br from-zinc-50 via-white to-zinc-100 pb-0 pt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link href="/case-studies" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
+          <Link href="/case-studies" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-emerald-900">
             <ArrowLeft className="h-4 w-4" />
             Back to case studies
           </Link>
@@ -91,6 +92,19 @@ export default async function CaseStudyDetailPage({
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             {caseStudy.summary}
           </p>
+        </div>
+
+        {/* Hero image */}
+        <div className="relative mt-12 h-[28rem] w-full overflow-hidden">
+          <Image
+            src={caseStudy.image}
+            alt={caseStudy.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
         </div>
       </section>
 
